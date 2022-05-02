@@ -6,7 +6,6 @@ function App() {
     <>
       <div>
         <div>바꿔보았다</div>
-
         <div>
           <p>지훈 선생님 감사합니다.</p>
         </div>
@@ -28,6 +27,25 @@ function App() {
             </a>
           </header>
         </div>
+        바꿔보았다
+        <p>형원 센세 아리가또.</p>
+      </div>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <h1>수정</h1>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
       </div>
     </>
   );
