@@ -204,3 +204,7 @@ sketch
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# config
+yarn.lock
+package-lock.json
