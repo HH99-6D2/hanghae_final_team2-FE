@@ -5,13 +5,7 @@ function App() {
   return (
 
     <div>
-      <div>
-        바꿔보았다
-        777
-        888
-        999
-        <p>형원 센세 아리가또.</p>
-      </div>
+
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
