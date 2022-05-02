@@ -3,11 +3,8 @@ import "./App.css";
 
 function App() {
   return (
-
     <div>
-      <div>
-        바꿔보았다
-      </div>
+      <div>바꿔보았다</div>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -15,6 +12,7 @@ function App() {
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <h1>수정</h1>
+          <h3>develop에서 pull 한다음 새로운 브랜치 생성했음</h3>
           <a
             className="App-link"
             href="https://reactjs.org"
