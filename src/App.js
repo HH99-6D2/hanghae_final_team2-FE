@@ -7,7 +7,7 @@ function App() {
     <div>
       <div>
         바꿔보았다
-        <p>지훈 선생님 감사합니다.</p>
+        <p>형원 센세 아리가또.</p>
       </div>
       <div className="App">
         <header className="App-header">
