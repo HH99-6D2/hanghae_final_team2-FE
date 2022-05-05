@@ -1,42 +1,63 @@
-import React from "react";
-import styled, { withTheme } from "styled-components";
+import React from 'react';
+import styled, { withTheme } from 'styled-components';
 
 const Button = (props) => {
-  const { children, text, _onClick, width, height, padding, margin } = props;
+  const { children, text, _onClick, width, height, padding, margin, large } =
+    props;
   const styles = {
     width: width,
     height: height,
     padding: padding,
     margin: margin,
   };
+  if (large) {
+    return (
+      <>
+        <LargeButton {...styles} onClick={_onClick}>
+          {children}
+        </LargeButton>
+      </>
+    );
+  }
   return (
     <>
-      <ClickButton {...styles} onClick={_onClick}>
-        {text}
-      </ClickButton>
+      <ElButton {...styles} onClick={_onClick}>
+        {children}
+      </ElButton>
     </>
   );
 };
 
 Button.defaultProps = {
   children: null,
-  text: false,
   _onClick: () => {},
-  color: "white",
-  height: "37px",
+  color: 'white',
+  height: '37px',
   margin: false,
-  padding: "10px 20px",
-  bg: "#212121",
+  padding: '10px 20px',
+  bg: '#212121',
 };
 
-const ClickButton = styled.button`
+const ElButton = styled.button`
   box-sizing: border-box;
   border-radius: 15px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
   text-align: center;
   width: 80%;
 `;
+
+const LargeButton = styled.button`
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: ${(props) => props.padding};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
+  text-align: center;
+  width: 100%;
+`;
+
 export default Button;
