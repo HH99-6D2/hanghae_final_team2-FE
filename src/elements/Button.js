@@ -12,7 +12,7 @@ const Button = (props) => {
   return (
     <>
       <ClickButton {...styles} onClick={_onClick}>
-        {text}
+        {children}
       </ClickButton>
     </>
   );
@@ -20,7 +20,7 @@ const Button = (props) => {
 
 Button.defaultProps = {
   children: null,
-  text: false,
+
   _onClick: () => {},
   color: "white",
   height: "37px",
