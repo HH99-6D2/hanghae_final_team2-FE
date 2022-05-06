@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Grid = (props) => {
   const {
@@ -32,25 +32,25 @@ const Grid = (props) => {
 };
 
 Grid.defaultProps = {
-  margin: '5px',
+  margin: "5px",
   flex: false,
   justifyContent: false,
   alignItems: false,
-  direction: '',
+  direction: "",
   inlineStyles: false,
   onClick: () => {},
 };
 
 const Wrapper = styled.div`
-  width: 100%;
+  max-width: 428px;
   margin: ${(props) => props.margin};
-  ${(props) => (props.flex ? 'display: flex' : '')};
+  ${(props) => (props.flex ? "display: flex" : "")};
   ${(props) =>
-    props.justifyContent ? `justify-content: ${props.justifyContent}` : ''};
-  ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : '')};
-  ${(props) => (props.direction ? `flex-direction: ${props.direction}` : '')};
-  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : '')};
-  ${(props) => (props.signupFlex ? `display: flex; align-items: center;` : '')};
+    props.justifyContent ? `justify-content: ${props.justifyContent}` : ""};
+  ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : "")};
+  ${(props) => (props.direction ? `flex-direction: ${props.direction}` : "")};
+  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
+  ${(props) => (props.signupFlex ? `display: flex; align-items: center;` : "")};
 `;
 
 export default Grid;

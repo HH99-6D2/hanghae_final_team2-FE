@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const MobileContainer = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
@@ -6,7 +6,7 @@ const MobileContainer = ({ children }) => {
 
 const Wrapper = styled.div`
   position: relative;
-  max-width: 428px;
+
   width: 100%;
   min-height: 100vh;
   margin: auto;

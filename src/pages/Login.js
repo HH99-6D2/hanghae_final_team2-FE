@@ -1,5 +1,6 @@
 import React from "react";
 import LoginSucess from "./LoginSucess";
+import Text from "../elements/Text";
 
 const { Kakao } = window;
 const Login = () => {
@@ -11,14 +12,20 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <a onClick={loginWithKakao}>
-        <img
-          src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
-          width="200"
-        />
-      </a>
-    </div>
+    <>
+      <div>
+        <Grid></Grid>
+      </div>
+
+      <div>
+        <a onClick={loginWithKakao}>
+          <img
+            src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
+            width="200"
+          />
+        </a>
+      </div>
+    </>
   );
 };
 
