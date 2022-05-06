@@ -4,52 +4,61 @@ import styled from 'styled-components';
 const Grid = (props) => {
   const {
     children,
-    flex,
-    justifyContent,
-    alignItems,
-    direction,
-    inlineStyles,
+    width,
+    height,
+    padding,
     margin,
-    onClick,
+    bg,
+    borderRadius,
+    border,
+    _onClick,
     signupFlex,
   } = props;
 
   const styles = {
+    children,
+    width,
+    height,
+    padding: padding,
     margin: margin,
-    flex,
-    justifyContent,
-    alignItems,
-    direction,
-    inlineStyles,
+    bg,
+    borderRadius,
+    border,
     signupFlex,
   };
 
   return (
-    <Wrapper {...styles} onClick={onClick}>
+    <ElGrid {...styles} onClick={_onClick}>
       {children}
-    </Wrapper>
+    </ElGrid>
   );
 };
 
 Grid.defaultProps = {
-  margin: '5px',
-  flex: false,
-  justifyContent: false,
-  alignItems: false,
-  direction: '',
-  inlineStyles: false,
-  onClick: () => {},
+  children: null,
+  width: '',
+  height: '',
+  maxWidth: '',
+  minWidth: '',
+  padding: '',
+  margin: '',
+  bg: '',
+  borderRadius: '',
+  border: '',
+  _onClick: () => {},
 };
 
-const Wrapper = styled.div`
-  width: 100%;
-  margin: ${(props) => props.margin};
-  ${(props) => (props.flex ? 'display: flex' : '')};
+const ElGrid = styled.div`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
+  max-width: ${(props) => props.maxWidth};
+  min-width: ${(props) => props.minWidth};
+  ${(props) => (props.padding ? `padding : ${props.padding}; ` : '')};
+  ${(props) => (props.margin ? `margin : ${props.margin}; ` : '')};
+  ${(props) => (props.bg ? `background-color : ${props.bg}` : '')};
   ${(props) =>
-    props.justifyContent ? `justify-content: ${props.justifyContent}` : ''};
-  ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : '')};
-  ${(props) => (props.direction ? `flex-direction: ${props.direction}` : '')};
-  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : '')};
+    props.borderRadius ? `border-radius : ${props.borderRadius};` : ''};
+  ${(props) => (props.border ? `border : ${props.border};` : '')};
   ${(props) => (props.signupFlex ? `display: flex; align-items: center;` : '')};
 `;
 
