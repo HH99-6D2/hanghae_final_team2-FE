@@ -1,26 +1,27 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Text = (props) => {
-  const { bold, color, size, children, margin } = props;
+  const { bold, color, size, children, margin, padding } = props;
 
-  const styles = { bold: bold, color: color, size: size, margin };
+  const styles = { bold: bold, color: color, size: size, margin, padding };
   return <ElText {...styles}>{children}</ElText>;
 };
 
 Text.defaultProps = {
   children: null,
   bold: false,
-  color: "#222831",
-  size: "14px",
+  color: '#222831',
+  size: '14px',
   margin: false,
 };
 
 const ElText = styled.div`
+  padding: ${(props) => props.padding}
   color: ${(props) => props.color};
   font-size: ${(props) => props.size};
-  font-weight: ${(props) => (props.bold ? "600" : "400")};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  font-weight: ${(props) => (props.bold ? '600' : '400')};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')}
 `;
 
 export default Text;

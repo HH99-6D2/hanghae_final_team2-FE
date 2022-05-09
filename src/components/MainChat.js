@@ -1,35 +1,34 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { BsHeartFill } from "react-icons/bs";
-import { Grid, Text } from "../elements";
+import * as React from 'react';
+import { BsHeartFill } from 'react-icons/bs';
+import { Grid, Text } from '../elements';
 const MainChat = (props) => {
   return (
     <>
-      <Card
-        sx={{ minWidth: 245 }}
-        style={{ borderRadius: "30px", border: "1px solid gray" }}
+      <Grid
+        between
+        width='278px'
+        height='114px'
+        margin='7px 14px'
+        border='1px solid black'
+        borderRadius='15px'
       >
-        <CardContent>
-          <Grid flex justifyContent="space-between">
-            <Typography variant="h5" component="div">
-              LG트윈스 이겨라!
-            </Typography>
-            <Typography>
-              <Grid flex alignItems="center">
-                110
-                <BsHeartFill />
-              </Grid>
-            </Typography>
+        <Grid>
+          <Grid margin='19px 25px 12px 28px'>
+            <Text>title</Text>
+            <Grid>
+              <Text>위치</Text>
+              <Text>날짜</Text>
+            </Grid>
           </Grid>
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            잠실종합운동장
-          </Typography>
-          <Typography variant="body2">채팅 인원 00/000명</Typography>
-        </CardContent>
-      </Card>
+          <Grid margin='15px 22px 12px 28px'>
+            <Text>채팅 인원 00/000명</Text>
+          </Grid>
+        </Grid>
+        <Grid>
+          <Text>123</Text>
+          <Text>*</Text>
+        </Grid>
+      </Grid>
     </>
   );
 };

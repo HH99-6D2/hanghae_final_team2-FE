@@ -1,18 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import Category from "../components/Category";
-import MainChat from "../components/MainChat";
-import { Grid, MobileContainer } from "../elements";
+import Category from '../components/Category';
+import MainChat from '../components/MainChat';
+import { Container, Grid, MobileContainer } from '../elements';
 const Home = (props) => {
   return (
-    <>
-      <MobileContainer>
-        <Grid>
-          <Category></Category>
-          <MainChat></MainChat>
-        </Grid>
-      </MobileContainer>
-    </>
+    <React.Fragment>
+      <Container>
+        <MobileContainer>
+          <Grid>
+            <Category />
+            <MainChat />
+          </Grid>
+        </MobileContainer>
+      </Container>
+    </React.Fragment>
   );
 };
 
