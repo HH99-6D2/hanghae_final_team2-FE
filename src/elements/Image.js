@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 const Image = (props) => {
-  const { shape, src, size } = props;
+  const { shape, src, size, inlineStyles, children } = props;
   const styles = {
     src: src,
     size: size,
+    inlineStyles: inlineStyles,
   };
+
   return (
     <>
-      <ImageCircle {...styles}></ImageCircle>
+      <ImageCircle {...styles}>{children}</ImageCircle>
     </>
   );
 };
@@ -25,8 +27,7 @@ const ImageCircle = styled.div`
   width: var(--size);
   height: var(--size);
   border-radius: var(--size);
-  border: 1px solid green;
-
+  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
   background-image: url("${(props) => props.src}");
   background-size: cover;
 `;

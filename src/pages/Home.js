@@ -1,7 +1,14 @@
 import React from "react";
-import Button from "../elements/Button";
+
+import Category from "../components/Category";
+import MainChat from "../components/MainChat";
 const Home = (props) => {
-  return <Button text="저장"></Button>;
+  return (
+    <>
+      <Category></Category>
+      <MainChat></MainChat>
+    </>
+  );
 };
 
 export default Home;
