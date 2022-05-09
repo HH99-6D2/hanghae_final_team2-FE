@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Children } from 'react';
 import styled from 'styled-components';
 
@@ -36,22 +35,6 @@ const ElContainer = styled.div`
   ${(props) => (props.center ? `text-align: center;` : '')};
   ${(props) =>
     props.mainFlex ? `display : flex; align-items : center ;` : ''};
-=======
-import React from "react";
-import styled from "styled-components";
-
-const Container = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>;
-};
-
-const Wrapper = styled.div`
-  position: relative;
-  max-width: 428px;
-  width: 100%;
-  min-height: 90vh;
-  margin: auto;
-  background: #e9c1c15e;
->>>>>>> 6c6013bdfafc664ea6e76ee67f339bb386669b7e
 `;
 
 export default Container;

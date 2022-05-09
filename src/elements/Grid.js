@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Grid = (props) => {
   const {
@@ -13,11 +13,10 @@ const Grid = (props) => {
     border,
     _onClick,
     signupFlex,
-    height,
+    wrapper,
   } = props;
 
   const styles = {
-<<<<<<< HEAD
     children,
     width,
     height,
@@ -26,17 +25,23 @@ const Grid = (props) => {
     bg,
     borderRadius,
     border,
-=======
     margin,
     flex,
     justifyContent,
     alignItems,
     direction,
     inlineStyles,
->>>>>>> 6c6013bdfafc664ea6e76ee67f339bb386669b7e
     signupFlex,
     height,
   };
+
+  if (wrapper) {
+    return (
+      <Wrapper {...styles} onClick={_onClick}>
+        {children}
+      </Wrapper>
+    );
+  }
 
   return (
     <ElGrid {...styles} onClick={_onClick}>
@@ -46,7 +51,6 @@ const Grid = (props) => {
 };
 
 Grid.defaultProps = {
-<<<<<<< HEAD
   children: null,
   width: '',
   height: '',
@@ -72,30 +76,20 @@ const ElGrid = styled.div`
     props.borderRadius ? `border-radius : ${props.borderRadius};` : ''};
   ${(props) => (props.border ? `border : ${props.border};` : '')};
   ${(props) => (props.signupFlex ? `display: flex; align-items: center;` : '')};
-=======
-  margin: "",
-  flex: false,
-  justifyContent: false,
-  alignItems: false,
-  direction: "",
-  inlineStyles: false,
-  onClick: () => {},
-  signupFlex: false,
-};
+`;
 
 const Wrapper = styled.div`
   width: 100%;
   height: ${(props) => props.height};
   margin: ${(props) => props.margin};
-  ${(props) => (props.flex ? "display: flex" : "")};
+  ${(props) => (props.flex ? 'display: flex' : '')};
   ${(props) =>
-    props.justifyContent ? `justify-content: ${props.justifyContent}` : ""};
-  ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : "")};
-  ${(props) => (props.direction ? `flex-direction: ${props.direction}` : "")};
-  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
+    props.justifyContent ? `justify-content: ${props.justifyContent}` : ''};
+  ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : '')};
+  ${(props) => (props.direction ? `flex-direction: ${props.direction}` : '')};
+  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : '')};
   ${(props) =>
-    props.signupFlex ? `display: flex; justify-content: center;` : ""};
->>>>>>> 6c6013bdfafc664ea6e76ee67f339bb386669b7e
+    props.signupFlex ? `display: flex; justify-content: center;` : ''};
 `;
 
 export default Grid;
