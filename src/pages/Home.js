@@ -1,8 +1,14 @@
 import React from "react";
-import Button from "../elements/Button";
-import ProfileHeader from "../components/ProfileHeader";
+
+import Category from "../components/Category";
+import MainChat from "../components/MainChat";
 const Home = (props) => {
-  return <ProfileHeader></ProfileHeader>;
+  return (
+    <>
+      <Category></Category>
+      <MainChat></MainChat>
+    </>
+  );
 };
 
 export default Home;
