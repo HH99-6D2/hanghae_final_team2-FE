@@ -1,6 +1,5 @@
 import React from "react";
 import { MobileContainer, Grid, Button, Text, Image, Input } from "../elements";
-
 const MyProfile = (props) => {
   return (
     <>

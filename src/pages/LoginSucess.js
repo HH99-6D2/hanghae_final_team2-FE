@@ -16,7 +16,7 @@ const LoginSucess = () => {
           </Image>
         </Grid>
         <Grid signupFlex>
-          <Input placeholder="카카오톡닉네임">닉네임</Input>
+          <Input placeholder="카카오톡 닉네임">닉네임</Input>
         </Grid>
         <Grid signupFlex>
           <Button bg="black" margin="30px 0px 0px 0px" color="white">
