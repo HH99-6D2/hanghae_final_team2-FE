@@ -16,6 +16,7 @@ const Button = (props) => {
     color,
     category,
     inlineStyles,
+    mini,
   } = props;
   const styles = {
     width: width,
@@ -25,6 +26,7 @@ const Button = (props) => {
     bg: bg,
     color: color,
     inlineStyles: inlineStyles,
+    mini: mini,
   };
   if (large) {
     return (
@@ -40,6 +42,14 @@ const Button = (props) => {
         <CateButton {...styles} onClick={_onClick}>
           {children}
         </CateButton>
+      </>
+    );
+  } else if (mini) {
+    return (
+      <>
+        <MiniButton {...styles} onClick={_onClick}>
+          {children}
+        </MiniButton>
       </>
     );
   }
@@ -100,6 +110,16 @@ const CateButton = styled.button`
   height: 70px;
   margin: 15px;
   position: relative;
+`;
+const MiniButton = styled.button`
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: ${(props) => props.padding};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
+  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  text-align: center;
+  width: 20px;
 `;
 
 export default Button;

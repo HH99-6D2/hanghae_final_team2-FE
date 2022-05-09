@@ -3,11 +3,11 @@ import ProfileHeader from "../components/ProfileHeader";
 import { MobileContainer, Image, Grid, Button, Input } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 
-const LoginSucess = () => {
+const LoginSucess = (props) => {
   return (
     <>
       <MobileContainer>
-        <ProfileHeader />
+        <ProfileHeader>프로필 설정</ProfileHeader>
         <Grid signupFlex height="40vh" alignItems="center">
           <Image inlineStyles="position: relative;">
             <Grid inlineStyles="position: absolute; top:90px; left:110px;">

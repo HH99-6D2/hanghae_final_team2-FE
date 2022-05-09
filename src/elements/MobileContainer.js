@@ -7,7 +7,6 @@ const MobileContainer = ({ children }) => {
 const Wrapper = styled.div`
   position: relative;
   width: 350px;
-
   height: 730px;
   margin: auto;
   background: #d3d3d3;
