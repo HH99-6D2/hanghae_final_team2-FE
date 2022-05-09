@@ -12,7 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/loginsucess" element={<LoginSucess />} />
-        <Route path="/myprofile/" element={<MyProfile />} />
+        <Route path="/myprofile" element={<MyProfile />} />
       </Routes>
     </BrowserRouter>
   );

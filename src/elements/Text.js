@@ -5,7 +5,7 @@ const Text = (props) => {
   const { bold, color, size, children, margin } = props;
 
   const styles = { bold: bold, color: color, size: size, margin };
-  return <P {...styles}>{children}</P>;
+  return <ElText {...styles}>{children}</ElText>;
 };
 
 Text.defaultProps = {
@@ -16,7 +16,7 @@ Text.defaultProps = {
   margin: false,
 };
 
-const P = styled.p`
+const ElText = styled.div`
   color: ${(props) => props.color};
   font-size: ${(props) => props.size};
   font-weight: ${(props) => (props.bold ? "600" : "400")};

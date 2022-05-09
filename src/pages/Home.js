@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "../elements/Button";
+import ProfileHeader from "../components/ProfileHeader";
 const Home = (props) => {
-  return <Button text="저장"></Button>;
+  return <ProfileHeader></ProfileHeader>;
 };
 
 export default Home;

@@ -1,42 +1,35 @@
-import React from "react";
-import styled from "styled-components";
-import Text from "./Text";
-import Grid from "./Grid";
+import React from 'react';
+import styled from 'styled-components';
 
 const Input = (props) => {
-  const { label, placeholder, _onChange, type, multiLine } = props;
+  const { placeholder, _onChange, type, multiLine } = props;
 
   if (multiLine) {
     return (
-      <Grid>
-        <Text margin="0px">{label}</Text>
+      <React.Fragment>
         <ElTextarea
           rows={10}
           placeholder={placeholder}
           onChange={_onChange}
         ></ElTextarea>
-      </Grid>
+      </React.Fragment>
     );
   }
 
   return (
     <React.Fragment>
-      <Grid>
-        <Text margin="10px">{label}</Text>
-        <ElInput type={type} placeholder={placeholder} onChange={_onChange} />
-      </Grid>
+      <ElInput type={type} placeholder={placeholder} onChange={_onChange} />
     </React.Fragment>
   );
 };
 
 Input.defaultProps = {
   multiLine: false,
-  label: "텍스트",
-  placeholder: "",
-  type: "text",
+  placeholder: '',
+  type: 'text',
   _onChange: () => {},
-  width: "80%",
-  margin: "auto",
+  width: '80%',
+  margin: 'auto',
 };
 
 const ElTextarea = styled.textarea`
