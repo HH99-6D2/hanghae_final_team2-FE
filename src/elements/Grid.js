@@ -12,16 +12,18 @@ const Grid = (props) => {
     margin,
     onClick,
     signupFlex,
+    height,
   } = props;
 
   const styles = {
-    margin: margin,
+    margin,
     flex,
     justifyContent,
     alignItems,
     direction,
     inlineStyles,
     signupFlex,
+    height,
   };
 
   return (
@@ -32,17 +34,19 @@ const Grid = (props) => {
 };
 
 Grid.defaultProps = {
-  margin: "5px",
+  margin: "",
   flex: false,
   justifyContent: false,
   alignItems: false,
   direction: "",
   inlineStyles: false,
   onClick: () => {},
+  signupFlex: false,
 };
 
 const Wrapper = styled.div`
-  max-width: 428px;
+  width: 100%;
+  height: ${(props) => props.height};
   margin: ${(props) => props.margin};
   ${(props) => (props.flex ? "display: flex" : "")};
   ${(props) =>
@@ -50,7 +54,8 @@ const Wrapper = styled.div`
   ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : "")};
   ${(props) => (props.direction ? `flex-direction: ${props.direction}` : "")};
   ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
-  ${(props) => (props.signupFlex ? `display: flex; align-items: center;` : "")};
+  ${(props) =>
+    props.signupFlex ? `display: flex; justify-content: center;` : ""};
 `;
 
 export default Grid;

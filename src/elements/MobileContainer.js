@@ -6,11 +6,14 @@ const MobileContainer = ({ children }) => {
 
 const Wrapper = styled.div`
   position: relative;
+  width: 350px;
 
-  width: 100%;
-  min-height: 100vh;
+  height: 730px;
   margin: auto;
   background: #d3d3d3;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 `;
 
 export default MobileContainer;

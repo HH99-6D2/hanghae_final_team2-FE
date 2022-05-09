@@ -1,30 +1,21 @@
 import React from "react";
-import LoginSucess from "./LoginSucess";
-import Text from "../elements/Text";
+import SocialLogin from "../components/SocialLogin";
+import { MobileContainer, Grid, Button, Text, Image, Input } from "../elements";
 
-const { Kakao } = window;
-const Login = () => {
-  const loginWithKakao = () => {
-    console.log("hello");
-    Kakao.Auth.authorize({
-      redirectUri: "http://localhost:3000/loginsucess",
-    });
-  };
-
+const Login = (props) => {
   return (
     <>
-      <div>
-        <Grid></Grid>
-      </div>
+      <MobileContainer>
+        <Grid signupFlex height="60vh" alignItems="center">
+          <Text size="40px">logo</Text>
+        </Grid>
+        <Grid flex direction="column" alignItems="center">
+          <SocialLogin></SocialLogin>
 
-      <div>
-        <a onClick={loginWithKakao}>
-          <img
-            src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"
-            width="200"
-          />
-        </a>
-      </div>
+          <Button>기업 회원이신가요?</Button>
+          <Button>가입 없이 둘러보기</Button>
+        </Grid>
+      </MobileContainer>
     </>
   );
 };
