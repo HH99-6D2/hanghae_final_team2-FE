@@ -26,7 +26,7 @@ const Input = (props) => {
 Input.defaultProps = {
   multiLine: false,
   placeholder: '',
-  type: 'text',
+  // type: 'text',
   _onChange: () => {},
   width: '80%',
   margin: 'auto',

@@ -1,6 +1,6 @@
-import eslintConfigReactApp from "eslint-config-react-app";
-import React from "react";
-import styled, { withTheme } from "styled-components";
+import eslintConfigReactApp from 'eslint-config-react-app';
+import React from 'react';
+import styled, { withTheme } from 'styled-components';
 
 const Button = (props) => {
   const {
@@ -65,21 +65,21 @@ const Button = (props) => {
 Button.defaultProps = {
   children: null,
   _onClick: () => {},
-  color: "black",
-  height: "37px",
+  color: 'black',
+  height: '37px',
   margin: false,
-  padding: "10px 20px",
-  bg: "white",
-  border: "0px",
+  padding: '10px 20px',
+  bg: 'white',
+  border: '0px',
 };
 
 const ElButton = styled.div`
   box-sizing: border-box;
   border-radius: 15px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
   text-align: center;
   width: 80%;
   border: 0px;
@@ -90,9 +90,9 @@ const LargeButton = styled.button`
   box-sizing: border-box;
   border-radius: 15px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
   text-align: center;
   width: 100%;
 `;
@@ -101,10 +101,10 @@ const CateButton = styled.div`
   box-sizing: border-box;
   border-radius: 20px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
-  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
+  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : '')};
   text-align: center;
   min-width: 90px;
   height: 70px;
@@ -116,11 +116,13 @@ const MiniButton = styled.div`
   box-sizing: border-box;
   border-radius: 15px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
   text-align: center;
-  width: "";
+  width: '';
+  position: absolute;
+  right: 20px;
 `;
 
 export default Button;

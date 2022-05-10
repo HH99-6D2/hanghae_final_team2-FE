@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { Text, Grid, Button } from "../elements";
-import { BiArrowBack } from "react-icons/bi";
+import React from 'react';
+import styled from 'styled-components';
+import { Text, Grid, Button } from '../elements';
+import { BiArrowBack } from 'react-icons/bi';
 
 //메인을 제외한 나머지 페이지들의 헤더
 
@@ -9,19 +9,16 @@ const ProfileHeader = (props) => {
   const { children, save } = props;
   if (save) {
     return (
-      <Grid
-        flex
-        margin="20px 10px"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <BiArrowBack size="30" />
-        <Text bold size="20px" margin="0px 0px 0px 40px">
-          {children}
-        </Text>
+      <Grid flex alignItems='center' margin='39px 10px 20px 34px'>
+        <BiArrowBack size='30' />
+        <Grid width='160px' margin='0 0 0 63px' textAlign='center'>
+          <Text bold size='20px'>
+            {children}
+          </Text>
+        </Grid>
         <Button
           _onClick={() => {
-            console.log("클릭했음");
+            console.log('클릭했음');
           }}
           mini
         >
@@ -31,12 +28,13 @@ const ProfileHeader = (props) => {
     );
   }
   return (
-    <Grid flex margin="20px 10px" justifyContent="space-between">
-      <BiArrowBack size="30" />
-      <Text bold size="20px" margin="0px 0px 0px -38px">
-        {children}
-      </Text>
-      <div></div>
+    <Grid flex alignItems='center' margin='39px 10px 20px 34px'>
+      <BiArrowBack size='30' />
+      <Grid width='160px' margin='0 0 0 63px' textAlign='center'>
+        <Text bold size='20px'>
+          {children}
+        </Text>
+      </Grid>
     </Grid>
   );
 };
