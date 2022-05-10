@@ -3,24 +3,37 @@ import styled from "styled-components";
 import { Text, Grid, Button } from "../elements";
 import { BiArrowBack } from "react-icons/bi";
 
-// 소셜로그인 성공-> 프로필수정페이지의 헤더
+//메인을 제외한 나머지 페이지들의 헤더
+
 const ProfileHeader = (props) => {
   const { children, save } = props;
   if (save) {
     return (
-      <Grid flex margin="20px 10px" justifyContent="space-between">
+      <Grid
+        flex
+        margin="20px 10px"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <BiArrowBack size="30" />
-        <Text bold size="20px" margin="0px 0px 0px -48px">
+        <Text bold size="20px" margin="0px 0px 0px 40px">
           {children}
         </Text>
-        <Button mini>저장</Button>
+        <Button
+          _onClick={() => {
+            console.log("클릭했음");
+          }}
+          mini
+        >
+          저장
+        </Button>
       </Grid>
     );
   }
   return (
     <Grid flex margin="20px 10px" justifyContent="space-between">
       <BiArrowBack size="30" />
-      <Text bold size="20px" margin="0px 0px 0px -48px">
+      <Text bold size="20px" margin="0px 0px 0px -38px">
         {children}
       </Text>
       <div></div>
