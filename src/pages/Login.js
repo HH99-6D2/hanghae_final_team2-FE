@@ -20,7 +20,7 @@ const Login = (props) => {
           <Grid signupFlex height="60vh" alignItems="center">
             <Text size="40px">logo</Text>
           </Grid>
-          <Grid flex direction="column" alignItems="center">
+          <Grid direction="column" signupFlex>
             <SocialLogin />
             <Grid>
               <Button margin="20px 0px">기업 회원이신가요?</Button>
