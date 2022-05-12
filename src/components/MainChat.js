@@ -9,9 +9,9 @@ const MainChat = (props) => {
     <>
       <Grid
         between
-        width="278px"
+        width="320px"
         height="132px"
-        margin="7px 14px"
+        margin="7px auto"
         border="1px solid black"
         borderRadius="15px"
       >

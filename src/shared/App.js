@@ -8,6 +8,8 @@ import {
   MyChatList,
   AlarmSetting,
   NewAlarm,
+  CreateChat,
+  Auth,
 } from "../pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -18,10 +20,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/loginsucess" element={<LoginSucess />} />
-        <Route path="/myprofile" element={<MyProfile />} />
-        <Route path="/mychatlist" element={<MyChatList />} />
+        <Route path="/profile" element={<MyProfile />} />
+        <Route path="/chatlist" element={<MyChatList />} />
         <Route path="/alarmsetting" element={<AlarmSetting />} />
         <Route path="/newalarm" element={<NewAlarm />} />
+        <Route path="/addchat" element={<CreateChat />} />
+        <Route
+          path="http://junehan-test.shop/social/oauth"
+          element={<Auth />}
+        />
       </Routes>
     </BrowserRouter>
   );

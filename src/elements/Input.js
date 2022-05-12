@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Input = (props) => {
   const { placeholder, _onChange, type, multiLine } = props;
@@ -25,11 +25,12 @@ const Input = (props) => {
 
 Input.defaultProps = {
   multiLine: false,
-  placeholder: '',
+  placeholder: "",
   // type: 'text',
   _onChange: () => {},
-  width: '80%',
-  margin: 'auto',
+  width: "80%",
+  margin: "auto",
+  outline: "none",
 };
 
 const ElTextarea = styled.textarea`
@@ -40,6 +41,7 @@ const ElTextarea = styled.textarea`
   width: 80%;
   text-align: center;
   margin: auto;
+  outline: none;
 `;
 
 const ElInput = styled.input`
@@ -50,6 +52,7 @@ const ElInput = styled.input`
   width: 80%;
   text-align: center;
   margin: auto;
+  outline: none;
 `;
 
 export default Input;

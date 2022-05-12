@@ -18,7 +18,7 @@ const LoginSucess = (props) => {
       <Container>
         <MobileContainer>
           <ProfileHeader>프로필 설정</ProfileHeader>
-          <Grid signupFlex height="40vh" alignItems="center">
+          <Grid signupFlex height="318px" alignItems="center">
             <Image inlineStyles="position: relative;">
               <Grid inlineStyles="position: absolute; top:90px; left:110px;">
                 <MdPhotoCamera size="20px" />

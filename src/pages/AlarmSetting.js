@@ -9,18 +9,17 @@ import { MobileContainer, Container, Grid, Text } from "../elements";
 //햄버거바 ->앱 알림설정 클릭시 보여줄 페이지
 
 const AlarmSetting = (props) => {
+  const [check, setCheck] = React.useState(true);
+  const handleChange = () => {
+    console.log(`현재 control 값은,${check}`);
+    setCheck(!check);
+  };
   return (
     <>
       <Container>
         <MobileContainer>
           <ProfileHeader>알림 설정</ProfileHeader>
-          <Grid
-            between
-            width="278px"
-            height="132px"
-            margin="8px 10px"
-            bottomborder
-          >
+          <Grid between width="342px" height="132px" margin="8px 27px">
             <Grid>
               <Grid margin="19px 25px 12px 28px">
                 <Text bold>알림 사용 안함</Text>
@@ -32,7 +31,10 @@ const AlarmSetting = (props) => {
             </Grid>
             <Grid flex>
               <FormGroup>
-                <FormControlLabel control={<Switch defaultChecked />} />
+                <FormControlLabel
+                  onClick={handleChange}
+                  control={<Switch defaultChecked />}
+                />
               </FormGroup>
             </Grid>
           </Grid>

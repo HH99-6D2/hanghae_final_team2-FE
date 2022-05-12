@@ -2,55 +2,116 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "./TapPanel";
+import TabList from "@mui/material/Tabs";
+
+import PropTypes from "prop-types";
+import Typography from "@mui/material/Typography";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
 import { styled } from "@material-ui/core/styles";
 import MainChat from "./MainChat";
 
 // 햄버거바->채팅방관리-> 보여줄 탭
 
-const MyBox = styled(Box)({
-  display: "flex",
-  justifyContent: "space-around",
-});
+// const MyBox = styled(Box)({
+//   display: "flex",
+//   justifyContent: "space-around",
+// });
+
+// const MyTabList = styled(TabList)({
+//   padding: "0px 8px",
+// });
 
 // onChange
+
 const MyChat = (props) => {
-  const [value, setValue] = React.useState("1");
+  const theme = createTheme({
+    components: {
+      MuiTab: {
+        styleOverrides: {
+          textColorPrimary: {
+            color: "gray",
+            "&.Mui-selected": {
+              color: "#000000",
+              fontWeight: "800",
+            },
+          },
+          indicator: {
+            height: 2,
+            backgroundColor: "black",
+          },
+        },
+      },
+    },
+  });
+
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3, padding: 0 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.number.isRequired,
+    value: PropTypes.number.isRequired,
+  };
+
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
+  const [value, setValue] = React.useState(0);
+
   const handleChange = (event, newValue) => {
-    console.log(event);
     setValue(newValue);
-    switch (newValue) {
-      case 1:
-        console.log(newValue);
-
-        break;
-
-      default:
-        break;
-    }
   };
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
-      <TabContext value={value}>
-        <MyBox sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
-            <Tab label="만든 채팅방" value="1" />
-            <Tab label="참여 채팅방" value="2" />
-            <Tab label="관심 채팅방" value="3" />
-          </TabList>
-        </MyBox>
-
-        <TabPanel value="1">
-          <MainChat />
-        </TabPanel>
-        <TabPanel value="2">
-          <MainChat />
-        </TabPanel>
-        <TabPanel value="3">채팅방이 없습니다.</TabPanel>
-      </TabContext>
-    </Box>
+    <>
+      <ThemeProvider theme={theme}>
+        <Box sx={{ width: "100%" }}>
+          <Box sx={{ borderBottom: 2, borderColor: "divider" }}>
+            <TabList
+              value={value}
+              onChange={handleChange}
+              aria-label="basic tabs example"
+              variant="fullWidth"
+              TabIndicatorProps={{ sx: { height: "" } }}
+            >
+              <Tab label="만든 채팅방" {...a11yProps(0)} />
+              <Tab label="참여 채팅방" {...a11yProps(1)} />
+              <Tab label="관심 채팅방" {...a11yProps(2)} />
+            </TabList>
+          </Box>
+          <TabPanel value={value} index={0}>
+            <MainChat />
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            채팅방이 없습니다.
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            <MainChat />
+          </TabPanel>
+        </Box>
+      </ThemeProvider>
+    </>
   );
 };
 
