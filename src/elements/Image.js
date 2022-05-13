@@ -1,25 +1,60 @@
 import React from "react";
+import { BsExclamationSquareFill } from "react-icons/bs";
 import styled from "styled-components";
 
 const Image = (props) => {
-  const { shape, src, size, inlineStyles, children } = props;
+  const {
+    circle,
+    src,
+    size,
+    inlineStyles,
+    children,
+    _onClick,
+    CateChat,
+    mainchat,
+    border,
+  } = props;
   const styles = {
     src: src,
     size: size,
     inlineStyles: inlineStyles,
+    CateChat: CateChat,
+    circle: circle,
+    mainchat: mainchat,
+    border: border,
   };
 
-  return (
-    <>
-      <ImageCircle {...styles}>{children}</ImageCircle>
-    </>
-  );
+  if (CateChat) {
+    return (
+      <>
+        <CateImage {...styles} onClick={_onClick}>
+          {children}
+        </CateImage>
+      </>
+    );
+  } else if (mainchat) {
+    return (
+      <>
+        <MainImage {...styles} onClick={_onClick}>
+          {children}
+        </MainImage>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <ImageCircle {...styles} onClick={_onClick}>
+          {children}
+        </ImageCircle>
+      </>
+    );
+  }
 };
-
 Image.defaultProps = {
-  shape: "circle",
-  src: "https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo=s200",
-  size: 130,
+  // shape: "circle",
+  src: "",
+  size: "",
+  _onClick: () => {},
 };
 
 const ImageCircle = styled.div`
@@ -27,8 +62,29 @@ const ImageCircle = styled.div`
   width: var(--size);
   height: var(--size);
   border-radius: var(--size);
-  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
+
   background-image: url("${(props) => props.src}");
   background-size: cover;
 `;
+
+const CateImage = styled.div`
+  width: 317px;
+  height: 215px;
+  margin: 7px auto;
+  border-radius: 15px;
+  background-image: url("${(props) => props.src}");
+  background-size: cover;
+  ${(props) => (props.border ? `border:${props.border}` : "none")};
+`;
+
+const MainImage = styled.div`
+  width: 320px;
+  height: 380px;
+  margin: 18px auto;
+  border-radius: 15px;
+  border: none;
+  background-image: url("${(props) => props.src}");
+  background-size: contain;
+`;
+
 export default Image;

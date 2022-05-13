@@ -19,7 +19,7 @@ const ProfileHeader = (props) => {
         </Grid>
         <Button
           _onClick={() => {
-            console.log("클릭했음");
+            console.log("저장 버튼클릭했음");
           }}
           mini
         >

@@ -7,6 +7,7 @@ import AlarmSetting from "./AlarmSetting";
 import NewAlarm from "./NewAlarm";
 import CreateChat from "./CreateChat";
 import Auth from "./Auth";
+import CateChatlist from "./CateChatlist";
 export {
   Home,
   Login,
@@ -17,4 +18,5 @@ export {
   NewAlarm,
   CreateChat,
   Auth,
+  CateChatlist,
 };

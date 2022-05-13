@@ -9,6 +9,9 @@ const Home = (props) => {
           <Grid>
             <Category />
             <MainChat />
+            <MainChat />
+            <MainChat />
+            <MainChat />
           </Grid>
         </MobileContainer>
       </Container>

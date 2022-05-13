@@ -18,7 +18,7 @@ const Dateset = (props) => {
   console.log(endDate);
   return (
     <>
-      <Grid>
+      <Grid between height="40px">
         <MyDatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}

@@ -9,7 +9,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { styled } from "@material-ui/core/styles";
-import MainChat from "./MainChat";
+import MainChat from "./CateChat";
 
 // 햄버거바->채팅방관리-> 보여줄 탭
 

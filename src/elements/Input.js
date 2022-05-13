@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = (props) => {
-  const { placeholder, _onChange, type, multiLine } = props;
+  const { placeholder, _onChange, type, multiLine, width } = props;
 
   if (multiLine) {
     return (
@@ -18,7 +18,12 @@ const Input = (props) => {
 
   return (
     <React.Fragment>
-      <ElInput type={type} placeholder={placeholder} onChange={_onChange} />
+      <ElInput
+        width={width}
+        type={type}
+        placeholder={placeholder}
+        onChange={_onChange}
+      />
     </React.Fragment>
   );
 };
@@ -28,7 +33,7 @@ Input.defaultProps = {
   placeholder: "",
   // type: 'text',
   _onChange: () => {},
-  width: "80%",
+  width: "",
   margin: "auto",
   outline: "none",
 };
@@ -49,7 +54,7 @@ const ElInput = styled.input`
   border-radius: 15px;
   padding: 12px 4px;
   box-sizing: border-box;
-  width: 80%;
+  ${(props) => (props.width ? `width:${props.width}` : "")};
   text-align: center;
   margin: auto;
   outline: none;
