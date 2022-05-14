@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const [token, settoken] = useState("");
+  const navigate = useNavigate();
 
   let code = new URL(window.location.href).searchParams.get("code");
 
@@ -17,6 +19,7 @@ const Auth = () => {
         localStorage.setItem("refresh", res.data.refreshToken);
         localStorage.setItem("nick", res.data.user.nickname);
         localStorage.setItem("social", res.data.socialToken);
+        navigate("/loginsucess");
       });
   }, []);
 

@@ -18,26 +18,29 @@ const MyProfile = (props) => {
   const TOKEN = localStorage.getItem("token");
   const SoTOKEN = localStorage.getItem("social");
   const RETOKEN = localStorage.getItem("refresh");
-
-  const [nick, inputnick] = useState("카카오에서 받아온 닉네임");
+  const nickname = localStorage.getItem("nick");
   const id = sessionStorage.getItem("id");
-  console.log(nick);
-  console.log(id);
+  const [nick, inputnick] = useState(nickname);
 
   const donick = () => {
-    axios
-      .patch("http://junehan-test.shop/api/user/update", {
-        headers: {
-          Authorization: `Bearer ${TOKEN}`,
-        },
-        BODY: {
-          nickname: "또구이",
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      });
+    axios({
+      method: "patch",
+      url: "http://junehan-test.shop/api/user/update",
+      headers: {
+        Authorization: `bearer ${TOKEN}`,
+      },
+      data: {
+        nickname: `${nick}`,
+      },
+    }).then((res) => {
+      console.log(res);
+    });
   };
+  // headers: {
+  //   “Authorization”: “bearer <token>”
+  // }
+  // BODY: JSON
+  // - nickname: 변경할 닉네임/string(2~16 길이의 문자열)
 
   /* AXIOS DOCUMENT API USAGE ************************
   axios({
@@ -70,7 +73,6 @@ const MyProfile = (props) => {
     // });
   };
 
-
   return (
     <>
       <Container>
@@ -89,10 +91,8 @@ const MyProfile = (props) => {
               _onChange={(e) => {
                 inputnick(e.target.value);
               }}
-              placeholder='id'
-            >
-              닉네임
-            </Input>
+              defaultValue={nickname}
+            ></Input>
           </Grid>
           <Grid signupFlex>
             <Button

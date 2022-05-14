@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = (props) => {
-  const { placeholder, _onChange, type, multiLine, width } = props;
+  const { placeholder, _onChange, type, multiLine, width, defaultValue } =
+    props;
 
   if (multiLine) {
     return (
@@ -23,6 +24,7 @@ const Input = (props) => {
         type={type}
         placeholder={placeholder}
         onChange={_onChange}
+        defaultValue={defaultValue}
       />
     </React.Fragment>
   );
@@ -36,6 +38,7 @@ Input.defaultProps = {
   width: "",
   margin: "auto",
   outline: "none",
+  defaultValue: "",
 };
 
 const ElTextarea = styled.textarea`
@@ -58,6 +61,8 @@ const ElInput = styled.input`
   text-align: center;
   margin: auto;
   outline: none;
+  ${(props) =>
+    props.defaultValue ? `defaultValue:${props.defaultValue}` : ""};
 `;
 
 export default Input;

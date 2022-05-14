@@ -10,14 +10,28 @@ import {
 } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 // 최초로그인시 보여줄 페이지(닉네임,이미지변경)
 
 const LoginSucess = (props) => {
   const navigate = useNavigate();
-  const [nick, inputnick] = useState("카카오에서 받아온 닉네임");
+  const nickname = localStorage.getItem("nick");
+  const TOKEN = localStorage.getItem("token");
+  const [nick, inputnick] = useState(nickname);
   const doclick = () => {
-    // axios해서 닉네임이랑,이미지url 서버로 보내기(변경사항이 있을때)
+    axios({
+      method: "patch",
+      url: "http://junehan-test.shop/api/user/update",
+      headers: {
+        Authorization: `bearer ${TOKEN}`,
+      },
+      data: {
+        nickname: `${nick}`,
+      },
+    }).then((res) => {
+      console.log(res);
+    });
     navigate("/");
   };
 
@@ -44,7 +58,7 @@ const LoginSucess = (props) => {
               _onChange={(e) => {
                 inputnick(e.target.value);
               }}
-              placeholder='카카오톡 닉네임'
+              defaultValue={nickname}
             >
               닉네임
             </Input>
