@@ -27,10 +27,7 @@ function App() {
         <Route path='/newalarm' element={<NewAlarm />} />
         <Route path='/addchat' element={<CreateChat />} />
         <Route path='/catechat' element={<CateChatlist />} />
-        <Route
-          path='http://junehan-test.shop/social/oauth'
-          element={<Auth />}
-        />
+        <Route path='/auth' element={<Auth />} />
       </Routes>
     </BrowserRouter>
   );
