@@ -26,7 +26,7 @@ function App() {
         <Route path='/alarmsetting' element={<AlarmSetting />} />
         <Route path='/newalarm' element={<NewAlarm />} />
         <Route path='/addchat' element={<CreateChat />} />
-        <Route path='/catechat' element={<CateChatlist />} />
+        <Route path='/catechat/:category' element={<CateChatlist />} />
         <Route path='/auth' element={<Auth />} />
       </Routes>
     </BrowserRouter>

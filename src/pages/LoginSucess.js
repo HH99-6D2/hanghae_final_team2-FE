@@ -31,6 +31,7 @@ const LoginSucess = (props) => {
       },
     }).then((res) => {
       console.log(res);
+      localStorage.setItem("nick", nick);
     });
     navigate("/");
   };

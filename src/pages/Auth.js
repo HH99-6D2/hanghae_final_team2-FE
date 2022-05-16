@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Auth = () => {
-  const [token, settoken] = useState("");
   const navigate = useNavigate();
 
   let code = new URL(window.location.href).searchParams.get("code");
