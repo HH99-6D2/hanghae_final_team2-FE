@@ -27,7 +27,7 @@ const MyProfile = (props) => {
       method: "patch",
       url: "http://junehan-test.shop/api/user/update",
       headers: {
-        Authorization: `bearer ${TOKEN}`,
+        Authorization: `Bearer ${TOKEN}`,
       },
       data: {
         nickname: `${nick}`,
@@ -57,7 +57,7 @@ const MyProfile = (props) => {
       method: "post",
       url: "http://junehan-test.shop/api/auth/logout",
       headers: {
-        Authorization: `bearer ${TOKEN}`,
+        Authorization: `Bearer ${TOKEN}`,
       },
       data: {
         accessToken: SoTOKEN,

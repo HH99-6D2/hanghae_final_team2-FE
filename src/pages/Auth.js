@@ -9,7 +9,6 @@ const Auth = () => {
 
   useEffect(() => {
     axios
-
       .get(`http://junehan-test.shop/api/auth/oauth?code=${code}`)
       .then((res) => {
         console.log(res);

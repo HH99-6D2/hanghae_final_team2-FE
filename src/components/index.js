@@ -7,6 +7,7 @@ import Dateset from "./Dateset";
 import AddTheme from "./AddTheme";
 import CateChat from "./CateChat";
 import Imageupload from "./Imageupload";
+import Like from "./Like";
 export {
   Category,
   MainChat,
@@ -17,4 +18,5 @@ export {
   AddTheme,
   CateChat,
   Imageupload,
+  Like,
 };

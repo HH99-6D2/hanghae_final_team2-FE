@@ -16,14 +16,6 @@ const Home = (props) => {
   }, []);
   console.log(cate);
 
-  // cate.map((p) => {
-  //   console.log(p);
-  // });
-
-  // {cate.map((p) => {
-  //   return <Category key={p.id} {...p} />
-  // })}
-
   return (
     <React.Fragment>
       <Container>

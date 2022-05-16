@@ -24,7 +24,7 @@ const LoginSucess = (props) => {
       method: "patch",
       url: "http://junehan-test.shop/api/user/update",
       headers: {
-        Authorization: `bearer ${TOKEN}`,
+        Authorization: `Bearer ${TOKEN}`,
       },
       data: {
         nickname: `${nick}`,

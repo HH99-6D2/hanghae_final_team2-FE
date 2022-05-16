@@ -10,15 +10,6 @@ import axios from "axios";
 const Category = (props) => {
   const [chatlist, setchatlist] = useState("");
   const navigate = useNavigate();
-  // const dolist = () => {
-  //   axios({
-  //     method: "get",
-  //     url: "http://yogoloper.shop/api/rooms",
-  //   }).then((res) => {
-  //     console.log(res.data);
-  //     navigate("/catechat");
-  //   });
-  // };
 
   return (
     <>
