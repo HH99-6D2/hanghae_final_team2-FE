@@ -1,14 +1,50 @@
-import axios from "axios";
+import axios from 'axios';
 
 const instance = axios.create({
   withCredentials: true,
-  baseURL: "http://junehan-test.shop",
+  baseURL: 'http://junehan-test.shop',
   headers: {
-    "content-type": "application/json;charset=UTF-8",
-    accept: "application/json,",
-    "Access-Control-Allow-Origin": "*",
-    token: "",
+    'content-type': 'application/json;charset=UTF-8',
+    accept: 'application/json,',
+    'Access-Control-Allow-Origin': '*',
+    token: '',
   },
 });
 
-export default instance;
+const instances = axios.create({
+  baseURL: 'http://yogoloper.shop',
+  headers: {
+    'content-type': 'application/json;charset=UTF-8',
+    accept: 'application/json',
+  },
+});
+
+instances.interceptors.request.use(
+  (config) => {
+    const accessToken = sessionStorage.getItem('token');
+    config.headers.common['X-AUTH-TOKEN'] = `${accessToken}`;
+    console.log(accessToken);
+    return config;
+  },
+  (err) => {
+    console.log(err);
+  },
+);
+
+export default api = {
+  // baseURL을 미리 지정해줬기 때문에 함수의 첫 번째 인자에 들어가는 url은
+  // http://localhost:3000/ + 내가 작성한 url 즉 예시로
+  // getPost함수에서는 instance.get('http://localhost:3000/posts')로 요청을 보내게 됩니다.
+  // get과 delete의 경우 두 번째 인자에 데이터를 담아 보낼수 없기 때문에 서버에 데이터를 보낼경우 쿼리를 이용하여 보내주도록 합니다.
+  loginAX: (id, password) =>
+    instances.post('/login', { id: id, password: password }),
+
+  signupAX: (id, password) =>
+    instances.post('/signup', { id: id, password: password }),
+
+  numberCheckAX: (number) => instances.get(`/checkNum?number=${number}`),
+
+  logoutAX: () => instances.post('/logout'),
+
+  likeChatAX: (roomId) => instances.post(`/api/rooms/likes/${roomId}`),
+};
