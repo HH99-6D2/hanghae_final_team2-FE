@@ -25,7 +25,7 @@ const MyProfile = (props) => {
   const donick = () => {
     axios({
       method: "patch",
-      url: "http://junehan-test.shop/api/user/update",
+      url: "https://junehan-test.shop/api/user/update",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
       },
