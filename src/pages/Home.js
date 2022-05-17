@@ -9,7 +9,7 @@ const Home = (props) => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "http://yogoloper.shop/api/categories",
+      url: "https://yogoloper.shop/api/categories",
     }).then((res) => {
       setcate(res);
     });

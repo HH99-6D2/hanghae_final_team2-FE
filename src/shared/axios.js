@@ -2,7 +2,7 @@ import axios from "axios";
 
 const instance = axios.create({
   withCredentials: true,
-  baseURL: "http://junehan-test.shop",
+  baseURL: "https://junehan-test.shop",
   headers: {
     "content-type": "application/json;charset=UTF-8",
     accept: "application/json,",
@@ -12,7 +12,7 @@ const instance = axios.create({
 });
 
 const instances = axios.create({
-  baseURL: "http://yogoloper.shop",
+  baseURL: "https://yogoloper.shop",
   headers: {
     "content-type": "application/json;charset=UTF-8",
     accept: "application/json",
