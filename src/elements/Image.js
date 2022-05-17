@@ -1,6 +1,6 @@
-import React from "react";
-import { BsExclamationSquareFill } from "react-icons/bs";
-import styled from "styled-components";
+import React from 'react';
+import { BsExclamationSquareFill } from 'react-icons/bs';
+import styled from 'styled-components';
 
 const Image = (props) => {
   const {
@@ -13,6 +13,8 @@ const Image = (props) => {
     CateChat,
     mainchat,
     border,
+    Profile,
+    position,
   } = props;
   const styles = {
     src: src,
@@ -22,6 +24,8 @@ const Image = (props) => {
     circle: circle,
     mainchat: mainchat,
     border: border,
+    Profile: Profile,
+    position: position,
   };
 
   if (CateChat) {
@@ -40,20 +44,29 @@ const Image = (props) => {
         </MainImage>
       </>
     );
-  } else {
+  } else if (Profile) {
     return (
       <>
-        <ImageCircle {...styles} onClick={_onClick}>
+        <ProfileImage {...styles} onClick={_onClick}>
           {children}
-        </ImageCircle>
+        </ProfileImage>
       </>
     );
   }
+
+  return (
+    <>
+      <ImageCircle {...styles} onClick={_onClick}>
+        {children}
+      </ImageCircle>
+    </>
+  );
 };
 Image.defaultProps = {
   // shape: "circle",
-  src: "",
-  size: "",
+  src: '',
+  size: '',
+  position: '',
   _onClick: () => {},
 };
 
@@ -63,7 +76,7 @@ const ImageCircle = styled.div`
   height: var(--size);
   border-radius: var(--size);
 
-  background-image: url("${(props) => props.src}");
+  background-image: url('${(props) => props.src}');
   background-size: cover;
 `;
 
@@ -72,9 +85,9 @@ const CateImage = styled.div`
   height: 215px;
   margin: 7px auto;
   border-radius: 15px;
-  background-image: url("${(props) => props.src}");
+  background-image: url('${(props) => props.src}');
   background-size: cover;
-  ${(props) => (props.border ? `border:${props.border}` : "none")};
+  ${(props) => (props.border ? `border:${props.border}` : 'none')};
 `;
 
 const MainImage = styled.div`
@@ -83,8 +96,19 @@ const MainImage = styled.div`
   margin: 18px auto;
   border-radius: 15px;
   border: none;
-  background-image: url("${(props) => props.src}");
+  background-image: url('${(props) => props.src}');
   background-size: contain;
+`;
+
+const ProfileImage = styled.div`
+  position: absolute;
+  --size: ${(props) => props.size}px;
+  width: var(--size);
+  height: var(--size);
+  margin: 0px 3px;
+  border-radius: var(--size);
+  background-image: url('${(props) => props.src}');
+  background-size: cover;
 `;
 
 export default Image;
