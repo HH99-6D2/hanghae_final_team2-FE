@@ -18,7 +18,7 @@ const rootReducer = combineReducers({
   // review: review,
   // post: post,
   chat: chat,
-  // router: connectRouter(history),
+  router: connectRouter(history),
 });
 
 const middlewares = [thunk.withExtraArgument({ history: history })];
@@ -41,5 +41,4 @@ const enhancer = composeEnhancers(applyMiddleware(...middlewares));
 
 let store = (initialStore) => createStore(rootReducer, enhancer);
 
-export default store()                                                                      ;
-                                      
+export default store();

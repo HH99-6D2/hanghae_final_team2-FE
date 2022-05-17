@@ -16,8 +16,8 @@ import axios from "axios";
 
 const LoginSucess = (props) => {
   const navigate = useNavigate();
-  const nickname = localStorage.getItem("nick");
-  const TOKEN = localStorage.getItem("token");
+  const nickname = sessionStorage.getItem("nick");
+  const TOKEN = sessionStorage.getItem("token");
   const [nick, inputnick] = useState(nickname);
 
   //닉네임 변경
@@ -33,7 +33,7 @@ const LoginSucess = (props) => {
       },
     }).then((res) => {
       console.log(res);
-      localStorage.setItem("nick", nick);
+      sessionStorage.setItem("nick", nick);
     });
     navigate("/");
   };

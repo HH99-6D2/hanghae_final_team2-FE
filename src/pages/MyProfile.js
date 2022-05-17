@@ -15,10 +15,10 @@ import axios from "axios";
 // 햄버거바->프로필 수정 클릭시 보여줄 페이지
 
 const MyProfile = (props) => {
-  const TOKEN = localStorage.getItem("token");
-  const SoTOKEN = localStorage.getItem("social");
-  const RETOKEN = localStorage.getItem("refresh");
-  const nickname = localStorage.getItem("nick");
+  const TOKEN = sessionStorage.getItem("token");
+  const SoTOKEN = sessionStorage.getItem("social");
+  const RETOKEN = sessionStorage.getItem("refresh");
+  const nickname = sessionStorage.getItem("nick");
   const id = sessionStorage.getItem("id");
   const [nick, inputnick] = useState(nickname);
 
