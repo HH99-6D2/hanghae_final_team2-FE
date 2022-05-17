@@ -6,7 +6,7 @@ const Like = () => {
   const [like, setlike] = useState(false);
   const TOKEN = localStorage.getItem("token");
 
-  const text = like ? "좋아요+1" : "좋아요-1";
+  const text = like ? "좋아요+1" : "좋아요0";
   console.log(text);
 
   const dolike = () => {

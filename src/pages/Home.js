@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Category, MainChat } from "../components";
 import { Container, Grid, MobileContainer } from "../elements";
 import axios from "axios";
-import { BsChevronDoubleLeft } from "react-icons/bs";
 
 const Home = (props) => {
   const [cate, setcate] = useState("");

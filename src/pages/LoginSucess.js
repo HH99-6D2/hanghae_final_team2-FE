@@ -19,6 +19,8 @@ const LoginSucess = (props) => {
   const nickname = localStorage.getItem("nick");
   const TOKEN = localStorage.getItem("token");
   const [nick, inputnick] = useState(nickname);
+
+  //닉네임 변경
   const doclick = () => {
     axios({
       method: "patch",
