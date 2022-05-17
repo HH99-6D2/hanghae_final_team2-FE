@@ -10,7 +10,7 @@ const Auth = () => {
 
   useEffect(() => {
     axios
-      .get(`http://junehan-test.shop/api/auth/oauth?code=${code}`)
+      .get(`https://dev.djigcl48wudgm.amplifyapp.com/auth?code=${code}`)
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.accessToken);
