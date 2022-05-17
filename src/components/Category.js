@@ -5,12 +5,13 @@ import { MdOutlineSportsBaseball } from "react-icons/md";
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 // 메인화면에 보여줄 카테고리 버튼
 
 const Category = (props) => {
   const [chatlist, setchatlist] = useState("");
   const navigate = useNavigate();
+  const cate = props.cate;
+  console.log(cate);
 
   return (
     <>

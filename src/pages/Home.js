@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Category, MainChat } from "../components";
 import { Container, Grid, MobileContainer } from "../elements";
 import axios from "axios";
+import { BsChevronDoubleLeft } from "react-icons/bs";
 
 const Home = (props) => {
   const [cate, setcate] = useState("");
@@ -24,6 +25,7 @@ const Home = (props) => {
               cate.data.map((p, idx) => {
                 return <Category {...p} key={idx} />;
               })}
+            {/* <Category cate={cate} /> */}
           </Grid>
           <MainChat />
           <MainChat />
