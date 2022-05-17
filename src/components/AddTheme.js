@@ -15,12 +15,12 @@ const AddTheme = () => {
   return (
     <>
       <h2> 테마</h2>
-      <Grid inlineStyles="border:1px solid">
+      <Grid inlineStyles='border:1px solid'>
         <Slider {...settings}>
-          <div width="200px">
+          <div width='200px'>
             <h3>내용물 1 이다</h3>
           </div>
-          <div> 
+          <div>
             <h3>내용물 2 이다</h3>
           </div>
           <div>
