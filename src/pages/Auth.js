@@ -13,14 +13,14 @@ const Auth = () => {
       .get(`https://dev.djigcl48wudgm.amplifyapp.com/auth?code=${code}`)
       .then((res) => {
         console.log(res);
-        // localStorage.setItem("token", res.data.accessToken);
-        // localStorage.setItem("id", res.data.user.id);
-        // localStorage.setItem("refresh", res.data.refreshToken);
-        // localStorage.setItem("nick", res.data.user.nickname);
+        sessionStorage.setItem("token", res.data.accessToken);
+        sessionStorage.setItem("id", res.data.user.id);
+        sessionStorage.setItem("refresh", res.data.refreshToken);
+        localSsessionStoragetorage.setItem("nick", res.data.user.nickname);
 
         // localStorage.setItem("social", res.data.socialToken);
         // localStorage.setItem("timeout", moment().add(8, "m"));
-        console.log(moment()._d);
+        // console.log(moment()._d);
         navigate("/loginsucess");
       });
   }, []);
