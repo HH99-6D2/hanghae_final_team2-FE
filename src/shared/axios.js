@@ -19,7 +19,7 @@ const instances = axios.create({
   },
 });
 
-instances.interceptors.request.use(
+instance.interceptors.request.use(
   (config) => {
     const accessToken = sessionStorage.getItem("token");
     config.headers.common["X-AUTH-TOKEN"] = `${accessToken}`;
