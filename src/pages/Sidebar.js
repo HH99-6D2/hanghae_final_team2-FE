@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
   Container,
   MobileContainer,
@@ -7,46 +7,53 @@ import {
   Image,
   Text,
   Buttons,
-} from '../elements';
-import profile from '../assets/profile.svg';
-import addChat from '../assets/addChat.svg';
-import editChat from '../assets/editChat.svg';
-import blackList from '../assets/blackList.svg';
-import appAlert from '../assets/appAlert.svg';
-import askService from '../assets/askService.svg';
-import cancel from '../assets/cancel.svg';
+} from "../elements";
+import { useNavigate } from "react-router-dom";
+import profile from "../assets/profile.svg";
+import addChat from "../assets/addChat.svg";
+import editChat from "../assets/editChat.svg";
+import blackList from "../assets/blackList.svg";
+import appAlert from "../assets/appAlert.svg";
+import askService from "../assets/askService.svg";
+import cancel from "../assets/cancel.svg";
 
 const Setting = [
   {
     url: addChat,
-    title: '채팅방 만들기',
+    title: "채팅방 만들기",
+    navi: "/addchat",
   },
   {
     url: editChat,
-    title: '채팅방 관리',
+    title: "채팅방 관리",
+    navi: "/chatlist",
   },
   {
     url: blackList,
-    title: '차단 목록',
+    title: "차단 목록",
   },
   {
     url: appAlert,
-    title: '앱 알림 설정',
+    title: "앱 알림 설정",
+    navi: "/alarmsetting",
   },
 ];
 
 const Support = [
   {
-    url: '',
-    title: '채팅방 만들기',
+    url: "",
+    title: "채팅방 만들기",
   },
   {
     url: askService,
-    title: '이용 약관 및 문의',
+    title: "이용 약관 및 문의",
   },
 ];
 
 function Sidebar(props) {
+  const navigate = useNavigate();
+  const nickname = sessionStorage.getItem("nick");
+
   return (
     <React.Fragment>
       <Container>
@@ -55,7 +62,7 @@ function Sidebar(props) {
             margin='25px 28px 0 auto'
             cursor='pointer'
             onClick={() => {
-              window.location.replace('/');
+              window.location.replace("/");
             }}
           >
             <Image src={cancel} size='22' />
@@ -64,9 +71,16 @@ function Sidebar(props) {
             <Image src={profile} size='58'></Image>
             <Grid margin='0 0 0 11px'>
               <Text size='21px' padding='0 0 7px 0'>
-                nickname님
+                {nickname} 님
               </Text>
-              <Text size='12px'>프로필수정</Text>
+              <Text
+                size='12px'
+                onClick={() => {
+                  navigate("/profile");
+                }}
+              >
+                프로필수정
+              </Text>
             </Grid>
           </Grid>
           <Grid margin='46px 32px 27px 30px'>
@@ -76,7 +90,14 @@ function Sidebar(props) {
             <Grid profileFlex direction='column' margin='16px 0'>
               {Setting.map((Setting) => {
                 return (
-                  <Buttons Sidebar src={Setting.url}>
+                  <Buttons
+                    Sidebar
+                    src={Setting.url}
+                    _onClick={() => {
+                      navigate(`${Setting.navi}`);
+                      console.log("클릭");
+                    }}
+                  >
                     {Setting.title}
                   </Buttons>
                 );

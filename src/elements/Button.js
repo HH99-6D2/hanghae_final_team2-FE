@@ -27,6 +27,7 @@ const Button = (props) => {
     color: color,
     inlineStyles: inlineStyles,
     mini: mini,
+    _onClick: _onClick,
   };
   if (large) {
     return (

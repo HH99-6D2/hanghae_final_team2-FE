@@ -8,6 +8,7 @@ import NewAlarm from "./NewAlarm";
 import CreateChat from "./CreateChat";
 import Auth from "./Auth";
 import CateChatlist from "./CateChatlist";
+import Sidebar from "./Sidebar";
 export {
   Home,
   Login,
@@ -19,4 +20,5 @@ export {
   CreateChat,
   Auth,
   CateChatlist,
+  Sidebar,
 };

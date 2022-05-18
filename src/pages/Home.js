@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Category, MainChat } from "../components";
-import { Container, Grid, MobileContainer } from "../elements";
+import { Container, Grid, MobileContainer, Button } from "../elements";
 import axios from "axios";
-import { BsChevronDoubleLeft } from "react-icons/bs";
-
+import { useNavigate } from "react-router-dom";
 const Home = (props) => {
+  const navigate = useNavigate();
   const [cate, setcate] = useState("");
   useEffect(() => {
     axios({
@@ -20,6 +20,22 @@ const Home = (props) => {
     <React.Fragment>
       <Container>
         <MobileContainer>
+          <Button
+            _onClick={() => {
+              navigate("/sidebar");
+            }}
+            large
+          >
+            임시 사이드 버튼
+          </Button>
+          <Button
+            _onClick={() => {
+              navigate("/login");
+            }}
+            large
+          >
+            임시 로그인 버튼
+          </Button>
           <Grid flex justifyContent='space-evenly'>
             {cate &&
               cate.data.map((p, idx) => {

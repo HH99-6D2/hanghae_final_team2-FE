@@ -18,11 +18,11 @@ const Imageupload = (props) => {
   };
 
   return (
-    <Grid margin=" 7px auto">
+    <Grid margin=' 7px auto'>
       <Text>썸네일</Text>
       <input
-        type="file"
-        accept="image/*"
+        type='file'
+        accept='image/*'
         onChange={(e) => {
           {
             Loadfile(e.target.files[0]);
@@ -30,7 +30,7 @@ const Imageupload = (props) => {
           }
         }}
       />
-      <Image margin="7px auto" CateChat src={image}></Image>
+      <Image margin='7px auto' CateChat src={image}></Image>
     </Grid>
   );
 };

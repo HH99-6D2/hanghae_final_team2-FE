@@ -8,7 +8,7 @@ import AddTheme from './AddTheme';
 import CateChat from './CateChat';
 import Imageupload from './Imageupload';
 import Like from './Like';
-import Sidebar from './Sidebar';
+import Sidebar from '../pages/Sidebar';
 
 export {
   Category,
