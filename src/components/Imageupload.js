@@ -5,9 +5,12 @@ const Imageupload = (props) => {
     "https://www.missioninfra.net/img/noimg/noimg_4x3.gif"
   );
 
-  const Loadfile = (fileBlob) => {
+  const Loadfile = (Blob) => {
+    const formData = new FormData();
+    formData.append("image", Blob);
+
     const reader = new FileReader();
-    reader.readAsDataURL(fileBlob);
+    reader.readAsDataURL(Blob);
     return new Promise((resolve) => {
       reader.onload = () => {
         imageSet(reader.result);
@@ -20,6 +23,7 @@ const Imageupload = (props) => {
   return (
     <Grid margin=' 7px auto'>
       <Text>썸네일</Text>
+
       <input
         type='file'
         accept='image/*'
@@ -31,6 +35,11 @@ const Imageupload = (props) => {
         }}
       />
       <Image margin='7px auto' CateChat src={image}></Image>
+
+    
+        <Image margin='7px auto' CateChat src={image}></Image>
+      </form>
+
     </Grid>
   );
 };
