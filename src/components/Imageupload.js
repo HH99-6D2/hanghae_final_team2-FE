@@ -37,7 +37,7 @@ const Imageupload = (props) => {
       <Image margin='7px auto' CateChat src={image}></Image>
 
     
-        <Image margin='7px auto' CateChat src={image}></Image>
+     
       
 
     </Grid>
