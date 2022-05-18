@@ -23,29 +23,23 @@ const Imageupload = (props) => {
   return (
     <Grid margin=' 7px auto'>
       <Text>썸네일</Text>
-      <form>
-        <input
-          type='file'
-          accept='image/*'
-          onChange={(e) => {
-            {
-              Loadfile(e.target.files[0]);
-              console.log(image);
-              console.log(e.target.files[0]);
-              axios({
-                method: "post",
-                url: "http://yogoloper.shop/api/images",
-                headers: {
-                  Authorization: `Bearer ${TOKEN}`,
-                  "Content-Type": "multipart/form-data",
-                },
-              });
-            }
-          }}
-        />
-        <button type='submit'>이미지 저장</button>
+
+      <input
+        type='file'
+        accept='image/*'
+        onChange={(e) => {
+          {
+            Loadfile(e.target.files[0]);
+            console.log(image);
+          }
+        }}
+      />
+      <Image margin='7px auto' CateChat src={image}></Image>
+
+    
         <Image margin='7px auto' CateChat src={image}></Image>
       </form>
+
     </Grid>
   );
 };

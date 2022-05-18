@@ -55,7 +55,7 @@ const MyProfile = (props) => {
   const dologout = () => {
     axios({
       method: "post",
-      url: "http://junehan-test.shop/api/auth/logout",
+      url: "https://junehan-test.shop/api/auth/logout",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
       },

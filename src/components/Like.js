@@ -4,7 +4,7 @@ import { MdOutlineSportsBaseball } from "react-icons/md";
 import axios from "axios";
 const Like = () => {
   const [like, setlike] = useState(false);
-  const TOKEN = localStorage.getItem("token");
+  const TOKEN = sessionStorage.getItem("token");
 
   const text = like ? "좋아요+1" : "좋아요0";
   console.log(text);
@@ -15,7 +15,7 @@ const Like = () => {
     if (like) {
       axios({
         method: "get",
-        url: "http://yogoloper.shop/api/rooms/likes/1",
+        url: "https://yogoloper.shop/api/rooms/likes/1",
         headers: {
           Authorization: `Bearer ${TOKEN}`,
         },
@@ -25,7 +25,7 @@ const Like = () => {
     } else {
       axios({
         method: "delete",
-        url: "http://yogoloper.shop/api/rooms/likes/1",
+        url: "https://yogoloper.shop/api/rooms/likes/1",
         headers: {
           Authorization: `Bearer ${TOKEN}`,
         },

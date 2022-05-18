@@ -17,9 +17,12 @@ const Grid = (props) => {
     Category,
     border,
     borderRadius,
+    borderBottom,
     between,
     bottomborder,
     textAlign,
+    profileFlex,
+    cursor,
   } = props;
 
   const styles = {
@@ -35,9 +38,12 @@ const Grid = (props) => {
     Category,
     border,
     borderRadius,
+    borderBottom,
     between,
     bottomborder,
     textAlign,
+    profileFlex,
+    cursor,
   };
 
   return (
@@ -65,6 +71,8 @@ const Wrapper = styled.div`
   margin: ${(props) => props.margin};
   border: ${(props) => props.border};
   border-radius: ${(props) => props.borderRadius};
+  border-bottom: ${(props) => props.borderBottom};
+  cursor: ${(props) => props.cursor};
   ${(props) => (props.flex ? 'display: flex' : '')};
   ${(props) =>
     props.justifyContent ? `justify-content: ${props.justifyContent}` : ''};
@@ -79,6 +87,7 @@ const Wrapper = styled.div`
   ${(props) =>
     props.between ? `display: flex; justify-content: space-between;` : ''};
   ${(props) => (props.bottomborder ? `border-bottom:1px solid gray` : '')};
+  ${(props) => (props.profileFlex ? `display: flex; align-items: center` : '')}
 `;
 
 export default Grid;

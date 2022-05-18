@@ -7,7 +7,7 @@ const MainChat = (props) => {
     <>
       <Image
         mainchat
-        src="http://newsimg.hankookilbo.com/2019/04/03/201904031896022167_10.jpg"
+        src='http://newsimg.hankookilbo.com/2019/04/03/201904031896022167_10.jpg'
       >
         <Button>채팅방 들어가기</Button>
       </Image>
