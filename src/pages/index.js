@@ -9,6 +9,7 @@ import CreateChat from "./CreateChat";
 import Auth from "./Auth";
 import CateChatlist from "./CateChatlist";
 import Sidebar from "./Sidebar";
+import CreateChatFinal from "./CreateChatFinal";
 export {
   Home,
   Login,
@@ -21,4 +22,5 @@ export {
   Auth,
   CateChatlist,
   Sidebar,
+  CreateChatFinal,
 };

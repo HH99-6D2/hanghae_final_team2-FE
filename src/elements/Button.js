@@ -19,6 +19,7 @@ const Button = (props) => {
     mini,
     position,
     mainlike,
+    border,
   } = props;
   const styles = {
     width: width,
@@ -31,6 +32,7 @@ const Button = (props) => {
     mini: mini,
     _onClick: _onClick,
     position: position,
+    border: border,
   };
   if (large) {
     return (
@@ -83,6 +85,7 @@ Button.defaultProps = {
   padding: "10px 20px",
   bg: "white",
   border: "0px",
+  border: "none",
 };
 
 const ElButton = styled.div`
@@ -107,7 +110,8 @@ const LargeButton = styled.button`
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
   ${(props) => (props.color ? `color: ${props.color};` : "")};
   text-align: center;
-  width: 100%;
+  ${(props) => (props.width ? `width: ${props.width};` : "100%")};
+  ${(props) => (props.border ? `border: ${props.border};` : "")};
 `;
 
 const CateButton = styled.div`
