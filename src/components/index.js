@@ -9,16 +9,19 @@ import CateChat from "./CateChat";
 import Imageupload from "./Imageupload";
 import Like from "./Like";
 import Time from "./Time";
+import Header from "./Header";
+
 export {
-  Category,
-  MainChat,
-  MyChat,
-  ProfileHeader,
-  Alarmlist,
-  Dateset,
-  AddTheme,
-  CateChat,
-  Imageupload,
-  Like,
-  Time,
+	Category,
+	MainChat,
+	MyChat,
+	ProfileHeader,
+	Alarmlist,
+	Dateset,
+	AddTheme,
+	CateChat,
+	Imageupload,
+	Like,
+	Time,
+	Header,
 };
