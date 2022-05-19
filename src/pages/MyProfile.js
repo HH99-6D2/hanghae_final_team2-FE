@@ -77,7 +77,12 @@ const MyProfile = (props) => {
     <>
       <Container>
         <MobileContainer>
-          <ProfileHeader save>프로필 수정</ProfileHeader>
+          <ProfileHeader save>
+            프로필 수정
+            <Button mini _onClick={donick}>
+              저장
+            </Button>
+          </ProfileHeader>
           <Grid signupFlex height='40vh' alignItems='center'>
             <Image inlineStyles='position: relative;'>
               <Grid inlineStyles='position: absolute; top:90px; left:110px;'>
@@ -105,14 +110,7 @@ const MyProfile = (props) => {
             </Button>
           </Grid>
           <Grid signupFlex>
-            <Button
-              bg='black'
-              margin='30px 0px 0px 0px'
-              color='white'
-              _onClick={donick}
-            >
-              저장
-            </Button>
+            
           </Grid>
         </MobileContainer>
       </Container>

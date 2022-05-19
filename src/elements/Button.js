@@ -17,6 +17,8 @@ const Button = (props) => {
     category,
     inlineStyles,
     mini,
+    position,
+    mainlike,
   } = props;
   const styles = {
     width: width,
@@ -28,6 +30,7 @@ const Button = (props) => {
     inlineStyles: inlineStyles,
     mini: mini,
     _onClick: _onClick,
+    position: position,
   };
   if (large) {
     return (
@@ -51,6 +54,14 @@ const Button = (props) => {
         <MiniButton {...styles} onClick={_onClick}>
           {children}
         </MiniButton>
+      </>
+    );
+  } else if (mainlike) {
+    return (
+      <>
+        <MainBtn {...styles} onClick={_onClick}>
+          {children}
+        </MainBtn>
       </>
     );
   }
@@ -81,6 +92,7 @@ const ElButton = styled.div`
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
   ${(props) => (props.color ? `color: ${props.color};` : "")};
+  ${(props) => (props.position ? `position:${props.position}` : "")};
   text-align: center;
   width: 80%;
   border: 0px;
@@ -124,6 +136,25 @@ const MiniButton = styled.div`
   width: "";
   position: absolute;
   right: 20px;
+  top: 30px;
+`;
+
+const MainBtn = styled.div`
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding: ${(props) => props.padding};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
+  background-color:white;
+  color: #4d12ff;
+  position:absolute;
+  text-align: center;
+  width: 130px
+  border: 0px;
+  outline: 0px;
+  height:40px;
+  bottom:35px;
+  left:30px;
+  padding:12px 30px;
 `;
 
 export default Button;

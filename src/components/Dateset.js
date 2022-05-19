@@ -5,12 +5,13 @@ import styled from "styled-components";
 import { Grid } from "../elements";
 const Dateset = (props) => {
   const MyDatePicker = styled(DatePicker)`
-    width: 100px;
+    width: 36px;
     height: 30px;
 
     border-radius: 18px;
 
-    background-color: yellow;
+    background-color: white;
+    padding: 0px 53px;
   `;
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -18,7 +19,7 @@ const Dateset = (props) => {
   console.log(endDate);
   return (
     <>
-      <Grid between height="40px">
+      <Grid between height='40px'>
         <MyDatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
