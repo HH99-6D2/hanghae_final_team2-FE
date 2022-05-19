@@ -49,9 +49,12 @@ const Imageupload = (props) => {
 
   return (
     <Grid margin=' 7px auto'>
+
       <Text color='#4D12FF' bold>
         썸네일
       </Text>
+
+
 
       <input type='file' accept='image/png,image/gif' onChange={dochange} />
 
