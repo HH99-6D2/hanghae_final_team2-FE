@@ -7,7 +7,7 @@ const CateChatlist = (props) => {
   return (
     <Container>
       <MobileContainer>
-        <Text>{id}페이지이다</Text>
+        <Text></Text>
         <ProfileHeader></ProfileHeader>
         <CateChat></CateChat>
       </MobileContainer>

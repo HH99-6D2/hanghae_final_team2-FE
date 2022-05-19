@@ -2,13 +2,24 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = (props) => {
-  const { placeholder, _onChange, type, multiLine, width, defaultValue } =
-    props;
-
+  const {
+    placeholder,
+    _onChange,
+    type,
+    multiLine,
+    width,
+    defaultValue,
+    border,
+  } = props;
+  const styles = {
+    width,
+    border,
+  };
   if (multiLine) {
     return (
       <React.Fragment>
         <ElTextarea
+          {...styles}
           rows={10}
           placeholder={placeholder}
           onChange={_onChange}
@@ -20,7 +31,7 @@ const Input = (props) => {
   return (
     <React.Fragment>
       <ElInput
-        width={width}
+        {...styles}
         type={type}
         placeholder={placeholder}
         onChange={_onChange}
@@ -42,7 +53,7 @@ Input.defaultProps = {
 };
 
 const ElTextarea = styled.textarea`
-  border: 1px solid #212121;
+  border: ${(props) => props.border};
   border-radius: 15px;
   padding: 12px 4px;
   box-sizing: border-box;
@@ -53,7 +64,7 @@ const ElTextarea = styled.textarea`
 `;
 
 const ElInput = styled.input`
-  border: 1px solid #212121;
+  border: ${(props) => props.border};
   border-radius: 15px;
   padding: 12px 4px;
   box-sizing: border-box;

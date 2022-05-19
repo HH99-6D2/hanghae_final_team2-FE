@@ -9,18 +9,21 @@ const CateChat = (props) => {
       <Image
         CateChat
         src='http://newsimg.hankookilbo.com/2019/04/03/201904031896022167_10.jpg'
-      ></Image>
+      >
+        <Grid position='absolute' left='303px'>
+          <Like />
+        </Grid>
+      </Image>
       <Grid between width='317px' height='117px' margin='7px auto'>
-        <Grid>
+        <Grid flex>
           <Grid margin='12px 5px 39px 0px'>
-            채팅인원 좋아요
-            <Like></Like>
             <Text bold paddingbottom='6px'>
               LG트윈스 이겨라
             </Text>
+            <Text>잠실 종합운동장</Text>
             <Grid flex>
-              <Text>잠실 종합운동장</Text>
-              <Text margin='0px 10px'>2022.05.10</Text>
+              <Text>2022.05.10</Text>
+              <Text margin='0px 10px'>7pm</Text>
             </Grid>
           </Grid>
         </Grid>

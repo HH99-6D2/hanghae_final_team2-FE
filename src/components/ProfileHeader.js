@@ -7,37 +7,29 @@ import { useNavigate } from "react-router-dom";
 
 const ProfileHeader = (props) => {
   const navigate = useNavigate();
-  const { children, save } = props;
+  const { children, save, _onClick } = props;
   if (save) {
     return (
-      <Grid flex alignItems="center" margin="39px 10px 20px 34px">
-        <BiArrowBack size="30" onClick={() => navigate("/")} />
-        <Grid width="160px" margin="0 0 0 63px" textAlign="center">
-          <Text bold size="20px">
+      <Grid flex alignItems='center' margin='39px 10px 20px 34px'>
+        <BiArrowBack size='30' onClick={() => navigate("/")} />
+        <Grid width='160px' margin='0 0 0 63px' textAlign='center'>
+          <Text bold size='20px'>
             {children}
           </Text>
         </Grid>
-        <Button
-          _onClick={() => {
-            console.log("저장 버튼클릭했음");
-          }}
-          mini
-        >
-          저장
-        </Button>
       </Grid>
     );
   }
   return (
-    <Grid flex alignItems="center" margin="39px 10px 20px 34px">
+    <Grid flex alignItems='center' margin='39px 10px 20px 34px'>
       <BiArrowBack
-        size="30"
+        size='30'
         onClick={() => {
           navigate("/");
         }}
       />
-      <Grid width="160px" margin="0 0 0 55px" textAlign="center">
-        <Text bold size="20px">
+      <Grid width='160px' margin='0 0 0 55px' textAlign='center'>
+        <Text bold size='20px'>
           {children}
         </Text>
       </Grid>

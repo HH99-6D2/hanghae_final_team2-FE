@@ -53,7 +53,7 @@ const Support = [
 function Sidebar(props) {
   const navigate = useNavigate();
   const nickname = sessionStorage.getItem("nick");
-
+  const token = sessionStorage.getItem("token");
   return (
     <React.Fragment>
       <Container>
@@ -76,7 +76,11 @@ function Sidebar(props) {
               <Text
                 size='12px'
                 onClick={() => {
-                  navigate("/profile");
+                  if (token) {
+                    navigate("/profile");
+                  } else {
+                    navigate("/login");
+                  }
                 }}
               >
                 프로필수정
@@ -94,8 +98,11 @@ function Sidebar(props) {
                     Sidebar
                     src={Setting.url}
                     _onClick={() => {
-                      navigate(`${Setting.navi}`);
-                      console.log("클릭");
+                      if (token) {
+                        navigate(`${Setting.navi}`);
+                      } else {
+                        navigate("/login");
+                      }
                     }}
                   >
                     {Setting.title}

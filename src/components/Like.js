@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Checkbox } from "@mui/material";
 import { MdOutlineSportsBaseball } from "react-icons/md";
 import axios from "axios";
+import { ReactComponent as MainUnLike } from "../assets/MainUnLike.svg";
+import { ReactComponent as MainLike } from "../assets/MainLike.svg";
+
 const Like = () => {
   const [like, setlike] = useState(false);
   const TOKEN = sessionStorage.getItem("token");
@@ -38,9 +41,10 @@ const Like = () => {
   return (
     <Checkbox
       onClick={dolike}
-      icon={<MdOutlineSportsBaseball />}
-      checkedIcon={<MdOutlineSportsBaseball />}
-    />
+      icon={<MainUnLike />}
+      checkedIcon={<MainLike />}
+      
+    ></Checkbox>
   );
 };
 
