@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Category, MainChat } from "../components";
+import { Category, MainChat, Header } from "../components";
 import { Container, Grid, MobileContainer, Button, Text } from "../elements";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -20,21 +20,14 @@ const Home = (props) => {
     <React.Fragment>
       <Container>
         <MobileContainer>
+          <Header />
+
           <Button
-            large
             border='1px solid black'
-            _onClick={() => {
-              navigate("/sidebar");
-            }}
-          >
-            임시 사이드 버튼
-          </Button>
-          <Button
             _onClick={() => {
               navigate("/login");
             }}
             large
-            border='1px solid black'
           >
             임시 로그인 버튼
           </Button>
