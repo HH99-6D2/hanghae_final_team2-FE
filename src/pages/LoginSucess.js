@@ -58,6 +58,7 @@ const LoginSucess = (props) => {
           <Grid signupFlex>
             <Input
               width='80%'
+              border='2px solid #4D12FF'
               _onChange={(e) => {
                 inputnick(e.target.value);
               }}
@@ -68,7 +69,7 @@ const LoginSucess = (props) => {
           </Grid>
           <Grid signupFlex>
             <Button
-              bg='black'
+              bg='#4D12FF'
               margin='30px 0px 0px 0px'
               color='white'
               _onClick={() => {
