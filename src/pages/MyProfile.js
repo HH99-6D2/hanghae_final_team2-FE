@@ -8,10 +8,11 @@ import {
   Image,
   Input,
   Container,
+  Buttons,
 } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 import axios from "axios";
-
+import profile from "../assets/profile.svg";
 // 햄버거바->프로필 수정 클릭시 보여줄 페이지
 
 const MyProfile = (props) => {
@@ -85,9 +86,9 @@ const MyProfile = (props) => {
           </ProfileHeader>
           <Grid signupFlex height='40vh' alignItems='center'>
             <Image inlineStyles='position: relative;'>
-              <Grid inlineStyles='position: absolute; top:90px; left:110px;'>
-                <MdPhotoCamera size='20px' />
-              </Grid>
+              {/* <Grid inlineStyles='position: absolute; top:90px; left:110px;'>
+                <Image src={profile} width='100px' height='100px'></Image>
+              </Grid> */}
             </Image>
           </Grid>
           <Grid signupFlex>
@@ -109,9 +110,7 @@ const MyProfile = (props) => {
               로그아웃
             </Button>
           </Grid>
-          <Grid signupFlex>
-            
-          </Grid>
+          <Buttons></Buttons>
         </MobileContainer>
       </Container>
     </>

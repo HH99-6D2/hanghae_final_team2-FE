@@ -6,7 +6,7 @@ import {
   MobileContainer,
   Grid,
   Image,
-  Button,
+  Buttons,
 } from "../elements";
 import { ReactComponent as Info } from "../assets/Info.svg";
 const CreateChatFinal = () => {
@@ -18,7 +18,7 @@ const CreateChatFinal = () => {
           <Grid signupFlex>
             <Info />
             <Text margin='0px 6px' bold size='14px'>
-              아래 정보로 채팅방을 생성하시겠습니까?{" "}
+              아래 정보로 채팅방을 생성하시겠습니까?
             </Text>
           </Grid>
           <Grid margin='23px 0px'>
@@ -60,15 +60,7 @@ const CreateChatFinal = () => {
               <Text color='#767676'>20222.05.25 07:00 </Text>
             </Grid>
           </Grid>
-          <Button
-            large
-            bg='#4D12FF'
-            color='white'
-            width='320px'
-            margin=' 74px auto 20px'
-          >
-            채팅방 생성하기
-          </Button>
+          <Buttons margin='auto'>채팅방 생성하기</Buttons>
         </MobileContainer>
       </Container>
     </>

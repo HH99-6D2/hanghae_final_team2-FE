@@ -15,6 +15,7 @@ const Image = (props) => {
     border,
     Profile,
     position,
+    setting,
   } = props;
   const styles = {
     src: src,
@@ -26,6 +27,7 @@ const Image = (props) => {
     border: border,
     Profile: Profile,
     position: position,
+    setting: setting,
   };
 
   if (CateChat) {
@@ -50,6 +52,14 @@ const Image = (props) => {
         <ProfileImage {...styles} onClick={_onClick}>
           {children}
         </ProfileImage>
+      </>
+    );
+  } else if (setting) {
+    return (
+      <>
+        <Setting {...styles} onClick={_onClick}>
+          {children}
+        </Setting>
       </>
     );
   }
@@ -84,6 +94,15 @@ const CateImage = styled.div`
   width: 317px;
   height: 215px;
   margin: 7px auto;
+  border-radius: 15px;
+  background-image: url("${(props) => props.src}");
+  background-size: cover;
+  ${(props) => (props.border ? `border:${props.border}` : "none")};
+`;
+const Setting = styled.div`
+  width: 80px;
+  height: 80px;
+  margin: 14px 25px 20px 31px;
   border-radius: 15px;
   background-image: url("${(props) => props.src}");
   background-size: cover;

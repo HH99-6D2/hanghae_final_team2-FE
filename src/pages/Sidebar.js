@@ -31,6 +31,7 @@ const Setting = [
   {
     url: blackList,
     title: "차단 목록",
+    navi: "/blocklist",
   },
   {
     url: appAlert,
