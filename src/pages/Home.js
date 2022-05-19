@@ -21,10 +21,11 @@ const Home = (props) => {
       <Container>
         <MobileContainer>
           <Button
+            large
+            border='1px solid black'
             _onClick={() => {
               navigate("/sidebar");
             }}
-            large
           >
             임시 사이드 버튼
           </Button>
@@ -33,6 +34,7 @@ const Home = (props) => {
               navigate("/login");
             }}
             large
+            border='1px solid black'
           >
             임시 로그인 버튼
           </Button>
@@ -62,7 +64,7 @@ const Home = (props) => {
             >
               콘서트
             </Button>
-            <Button 
+            <Button
               bg='#4D12FF'
               color='white'
               category

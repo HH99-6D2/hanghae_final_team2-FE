@@ -12,6 +12,7 @@ import {
   Auth,
   CateChatlist,
   Sidebar,
+  CreateChatFinal,
 } from "../pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='/catechat/:category' exact element={<CateChatlist />} />
         <Route path='/auth' exact element={<Auth />} />
         <Route path='/sidebar' exact element={<Sidebar />} />
+        <Route path='/addchatcheck' exact element={<CreateChatFinal />} />
       </Routes>
     </BrowserRouter>
   );

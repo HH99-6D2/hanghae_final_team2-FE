@@ -11,6 +11,8 @@ const Text = (props) => {
     padding,
     paddingbottom,
     onClick,
+    width,
+    create,
   } = props;
 
   const styles = {
@@ -20,12 +22,21 @@ const Text = (props) => {
     margin,
     padding,
     paddingbottom,
+    width,
   };
-  return (
-    <ElText {...styles} onClick={onClick}>
-      {children}
-    </ElText>
-  );
+  if (create) {
+    return (
+      <Create {...styles} onClick={onClick}>
+        {children}
+      </Create>
+    );
+  } else {
+    return (
+      <ElText {...styles} onClick={onClick}>
+        {children}
+      </ElText>
+    );
+  }
 };
 
 Text.defaultProps = {
@@ -36,6 +47,7 @@ Text.defaultProps = {
   size: "14px",
   margin: false,
   onClick: () => {},
+  width: "",
 };
 
 const ElText = styled.div`
@@ -44,7 +56,17 @@ const ElText = styled.div`
   font-size: ${(props) => props.size};
   font-weight: ${(props) => (props.bold ? "600" : "400")};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
-  padding-bottom: ${(props) => props.paddingbottom}
+  padding-bottom: ${(props) => props.paddingbottom};
+  ${(props) => (props.width ? `width: ${props.width};` : "")}
 `;
 
+const Create = styled.div`
+  padding: ${(props) => props.padding};
+  color: #4d12ff;
+  font-size: ${(props) => props.size};
+  font-weight: ${(props) => (props.bold ? "600" : "400")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
+  padding-bottom: ${(props) => props.paddingbottom};
+  width: 75px;
+`;
 export default Text;
