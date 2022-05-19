@@ -25,6 +25,7 @@ const Grid = (props) => {
     cursor,
     position,
     left,
+    top,
   } = props;
 
   const styles = {
@@ -48,6 +49,7 @@ const Grid = (props) => {
     cursor,
     position,
     left,
+    top,
   };
 
   return (
@@ -79,6 +81,7 @@ const Wrapper = styled.div`
   cursor: ${(props) => props.cursor};
   position: ${(props) => props.position};
   left: ${(props) => props.left};
+  top: ${(props) => props.top};
   ${(props) => (props.flex ? "display: flex" : "")};
   ${(props) =>
     props.justifyContent ? `justify-content: ${props.justifyContent}` : ""};

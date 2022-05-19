@@ -17,14 +17,16 @@ const Login = (props) => {
     <>
       <Container>
         <MobileContainer>
-          <Grid signupFlex height="60vh" alignItems="center">
-            <Text size="40px">logo</Text>
+          <Grid signupFlex height='60vh' alignItems='center'>
+            <Text size='40px'>logo</Text>
           </Grid>
-          <Grid direction="column" signupFlex>
+          <Grid direction='column' signupFlex>
             <SocialLogin />
             <Grid>
-              <Button margin="20px 0px">기업 회원이신가요?</Button>
-              <Button width="335px">가입 없이 둘러보기</Button>
+              <Button margin='13px auto'>기업 회원이신가요?</Button>
+              <Button width='335px' margin='0px auto'>
+                가입 없이 둘러보기
+              </Button>
             </Grid>
           </Grid>
         </MobileContainer>

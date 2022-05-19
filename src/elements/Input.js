@@ -10,6 +10,7 @@ const Input = (props) => {
     width,
     defaultValue,
     border,
+    edit,
   } = props;
   const styles = {
     width,
@@ -24,6 +25,18 @@ const Input = (props) => {
           placeholder={placeholder}
           onChange={_onChange}
         ></ElTextarea>
+      </React.Fragment>
+    );
+  } else if (edit) {
+    return (
+      <React.Fragment>
+        <EditInput
+          {...styles}
+          type={type}
+          placeholder={placeholder}
+          onChange={_onChange}
+          defaultValue={defaultValue}
+        />
       </React.Fragment>
     );
   }
@@ -55,7 +68,7 @@ Input.defaultProps = {
 const ElTextarea = styled.textarea`
   border: ${(props) => props.border};
   border-radius: 15px;
-  padding: 12px 4px;
+  padding: 11px 4px;
   box-sizing: border-box;
   width: 80%;
   text-align: center;
@@ -66,7 +79,7 @@ const ElTextarea = styled.textarea`
 const ElInput = styled.input`
   border: ${(props) => props.border};
   border-radius: 15px;
-  padding: 12px 4px;
+  padding: 11px 4px;
   box-sizing: border-box;
   ${(props) => (props.width ? `width:${props.width}` : "")};
   text-align: center;
@@ -76,4 +89,16 @@ const ElInput = styled.input`
     props.defaultValue ? `defaultValue:${props.defaultValue}` : ""};
 `;
 
+const EditInput = styled.input`
+  border: none;
+  padding: 17px 4px;
+  box-sizing: border-box;
+  ${(props) => (props.width ? `width:${props.width}` : "")};
+  color: #767676;
+  outline: none;
+  width: 90%;
+  border-bottom: 1px solid #767676;
+  ${(props) =>
+    props.defaultValue ? `defaultValue:${props.defaultValue}` : ""};
+`;
 export default Input;

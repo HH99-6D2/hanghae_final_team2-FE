@@ -20,6 +20,7 @@ const Button = (props) => {
     position,
     mainlike,
     border,
+    cursor,
   } = props;
   const styles = {
     width: width,
@@ -33,6 +34,7 @@ const Button = (props) => {
     _onClick: _onClick,
     position: position,
     border: border,
+    cursor: cursor,
   };
   if (large) {
     return (
@@ -97,9 +99,10 @@ const ElButton = styled.div`
   ${(props) => (props.color ? `color: ${props.color};` : "")};
   ${(props) => (props.position ? `position:${props.position}` : "")};
   text-align: center;
-  width: 80%;
+
   border: 0px;
   outline: 0px;
+  cursor: pointer;
 `;
 
 const LargeButton = styled.button`
@@ -112,6 +115,7 @@ const LargeButton = styled.button`
   text-align: center;
   ${(props) => (props.width ? `width: ${props.width};` : "100%")};
   ${(props) => (props.border ? `border: ${props.border};` : "")};
+  cursor: pointer;
 `;
 
 const CateButton = styled.div`
@@ -127,20 +131,22 @@ const CateButton = styled.div`
   height: 70px;
   margin: 15px;
   position: relative;
+  cursor: pointer;
 `;
 
 const MiniButton = styled.div`
   box-sizing: border-box;
   border-radius: 15px;
-  padding: ${(props) => props.padding};
+  padding: 6px 10px;
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  background-color: #4d12ff;
+  color: white;
   text-align: center;
-  width: "";
+
   position: absolute;
-  right: 20px;
-  top: 30px;
+  right: 16px;
+  top: 36px;
+  cursor: pointer;
 `;
 
 const MainBtn = styled.div`
@@ -159,6 +165,7 @@ const MainBtn = styled.div`
   bottom:35px;
   left:30px;
   padding:12px 30px;
+  cursor: pointer;
 `;
 
 export default Button;

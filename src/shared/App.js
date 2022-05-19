@@ -13,6 +13,10 @@ import {
   CateChatlist,
   Sidebar,
   CreateChatFinal,
+  SerachChat,
+  Blocklist,
+  ChatInform,
+  ChatEdit,
 } from "../pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -34,6 +38,10 @@ function App() {
         <Route path='/auth' exact element={<Auth />} />
         <Route path='/sidebar' exact element={<Sidebar />} />
         <Route path='/addchatcheck' exact element={<CreateChatFinal />} />
+        <Route path='/search' exact element={<SerachChat />} />
+        <Route path='/blocklist' exact element={<Blocklist />} />
+        <Route path='/chatInform' exact element={<ChatInform />} />
+        <Route path='/editchat' exact element={<ChatEdit />} />
       </Routes>
     </BrowserRouter>
   );

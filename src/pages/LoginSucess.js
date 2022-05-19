@@ -4,7 +4,7 @@ import {
   MobileContainer,
   Image,
   Grid,
-  Button,
+  Buttons,
   Input,
   Container,
 } from "../elements";
@@ -55,9 +55,9 @@ const LoginSucess = (props) => {
               </Grid>
             </Image>
           </Grid>
-          <Grid signupFlex>
+          <Grid signupFlex margin='36px auto'>
             <Input
-              width='80%'
+              width='310px'
               border='2px solid #4D12FF'
               _onChange={(e) => {
                 inputnick(e.target.value);
@@ -68,16 +68,13 @@ const LoginSucess = (props) => {
             </Input>
           </Grid>
           <Grid signupFlex>
-            <Button
-              bg='#4D12FF'
-              margin='30px 0px 0px 0px'
-              color='white'
+            <Buttons
               _onClick={() => {
                 doclick();
               }}
             >
               시작하기
-            </Button>
+            </Buttons>
           </Grid>
         </MobileContainer>
       </Container>

@@ -71,7 +71,8 @@ const Home = (props) => {
           </Grid>
           <Grid width='160px' margin='10px 50px'>
             <Text bold size='21px'>
-              EV CHAT이 추천하는 채팅
+              EV CHAT이 <br />
+              추천하는 채팅
             </Text>
           </Grid>
           <MainChat />
