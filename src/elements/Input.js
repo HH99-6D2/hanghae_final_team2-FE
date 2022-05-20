@@ -11,6 +11,7 @@ const Input = (props) => {
     defaultValue,
     border,
     edit,
+    create,
   } = props;
   const styles = {
     width,
@@ -31,6 +32,18 @@ const Input = (props) => {
     return (
       <React.Fragment>
         <EditInput
+          {...styles}
+          type={type}
+          placeholder={placeholder}
+          onChange={_onChange}
+          defaultValue={defaultValue}
+        />
+      </React.Fragment>
+    );
+  } else if (create) {
+    return (
+      <React.Fragment>
+        <CreateInput
           {...styles}
           type={type}
           placeholder={placeholder}
@@ -100,5 +113,19 @@ const EditInput = styled.input`
   border-bottom: 1px solid #767676;
   ${(props) =>
     props.defaultValue ? `defaultValue:${props.defaultValue}` : ""};
+`;
+
+const CreateInput = styled.input`
+  border: none;
+  padding: 12px 4px;
+  box-sizing: border-box;
+  width: 320px;
+  color: #767676;
+  outline: none;
+  border-radius: 15px;
+  ${(props) =>
+    props.defaultValue ? `defaultValue:${props.defaultValue}` : ""};
+  border: 1px solid #b9b9b9;
+  text-align: center;
 `;
 export default Input;

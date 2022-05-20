@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ProfileHeader, Dateset, Imageupload } from "../components";
+import { ProfileHeader, Dateset, Imageupload, Time } from "../components";
 import {
   Container,
   MobileContainer,
@@ -15,7 +15,7 @@ const CreateChat = (props) => {
   const [name, inputname] = useState("");
   const [tag, inputtag] = useState("");
   const navigate = useNavigate();
-  console.log(name);
+
   return (
     <Container>
       <MobileContainer>
@@ -47,7 +47,10 @@ const CreateChat = (props) => {
                 // }).then((res) => {
                 //   console.log(res);
                 // });
-                navigate("/addchatcheck");
+                console.log(name, tag);
+                navigate("/addchatcheck", {
+                  state: { title: name },
+                });
               }}
               mini
             >
@@ -64,7 +67,7 @@ const CreateChat = (props) => {
           </Text>
           <Input
             placeholder='채팅방 제목을 입력해주세요'
-            width='320px'
+            create
             _onChange={(e) => {
               inputname(e.target.value);
             }}
@@ -93,17 +96,18 @@ const CreateChat = (props) => {
           </Text>
           <Input
             placeholder='태그를  입력해주세요'
-            width='320px'
+            create
             _onChange={(e) => {
               inputtag(e.target.value);
             }}
           />
         </Grid>
-        <Grid margin='7px 48px'>
+        <Grid margin='18px auto'>
           <Text color='#4D12FF' bold>
             일정
           </Text>
           <Dateset />
+          <Time />
         </Grid>
       </MobileContainer>
     </Container>

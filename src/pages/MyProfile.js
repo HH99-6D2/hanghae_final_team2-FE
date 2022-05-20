@@ -103,6 +103,7 @@ const MyProfile = (props) => {
           <Grid signupFlex>
             <Button
               bg='black'
+              width='80%'
               margin='30px 0px 0px 0px'
               color='white'
               _onClick={dologout}
@@ -110,7 +111,6 @@ const MyProfile = (props) => {
               로그아웃
             </Button>
           </Grid>
-          <Buttons></Buttons>
         </MobileContainer>
       </Container>
     </>

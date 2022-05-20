@@ -116,7 +116,7 @@ const MainImage = styled.div`
   border-radius: 15px;
   border: none;
   background-image: url("${(props) => props.src}");
-  background-size: contain;
+  background-size: cover;
   ${(props) => (props.position ? `position:${props.position}` : "")};
   background: linear-gradient(to right, rgba(20, 20, 20, 0.7));
 `;
