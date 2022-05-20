@@ -1,8 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Category, MainChat, Header } from "../components";
-import { Container, Grid, MobileContainer, Button, Text } from "../elements";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { MainChat, Header, CategorySlick } from '../components';
+import {
+  Container,
+  Grid,
+  MobileContainer,
+  Button,
+  Text,
+  Image,
+} from '../elements';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import kitchen from '../assets/kitchen.svg';
+
 const Home = (props) => {
   const navigate = useNavigate();
   // const [cate, setcate] = useState("");
@@ -21,50 +30,14 @@ const Home = (props) => {
       <Container>
         <MobileContainer>
           <Header />
-
-          <Grid width='180px' margin='10px 50px'>
+          <Grid width='180px' margin='33px 27px'>
             <Text bold size='21px'>
               어떤 주제로 <br />
               이야기 해볼까요?
             </Text>
           </Grid>
-          <Grid width='150px' margin='auto' flex justifyContent='space-evenly'>
-            {/* {cate &&
-              cate.data.map((p, idx) => {
-                return <Category {...p} key={idx} />;
-              })} */}
-
-            <Button
-              bg='#4D12FF'
-              color='white'
-              category
-              _onClick={() => {
-                navigate("/catechat/1");
-              }}
-            >
-              스포츠
-            </Button>
-            <Button
-              bg='#4D12FF'
-              color='white'
-              category
-              _onClick={() => {
-                navigate("/catechat/1");
-              }}
-            >
-              콘서트
-            </Button>
-            <Button
-              bg='#4D12FF'
-              color='white'
-              category
-              _onClick={() => {
-                navigate("/catechat/1");
-              }}
-            >
-              전시회
-            </Button>
-            {/* <Category cate={cate} /> */}
+          <Grid flex margin='auto' justifyContent='space-evenly'>
+            <CategorySlick />
           </Grid>
           <Grid width='160px' margin='10px 50px'>
             <Text bold size='21px'>

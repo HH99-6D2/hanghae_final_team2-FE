@@ -1,44 +1,48 @@
-import React, { useState, useRef } from "react";
-import { Text, Grid, Image, Button } from "../elements";
-import axios from "axios";
+import React, { useState, useRef } from 'react';
+import { Text, Grid, Image, Button } from '../elements';
+import axios from 'axios';
 
 const Imageupload = (props) => {
   const fileInput = useRef(null);
-  const TOKEN = sessionStorage.getItem("token");
+  const TOKEN = sessionStorage.getItem('token');
   const [image, imageSet] = useState(
-    "https://www.missioninfra.net/img/noimg/noimg_4x3.gif"
+    'https://www.missioninfra.net/img/noimg/noimg_4x3.gif',
   );
   const [sendimage, setsend] = useState(null);
 
   const dochange = (e) => {
     //서버로 이미지 보낼거
-    console.log(e.target.files[0]);
+
+    // console.log(e.target.files[0]);
     Loadfile(e.target.files[0]);
     setsend(e.target.files[0]);
-    console.log(sendimage);
+    console.log(e.target.files[0]);
     const formData = new FormData();
-    formData.append("files", image);
+    formData.append('image', e.target.value);
     console.log(e.target.files[0]);
 
-    // axios({
-    //   method: "POST",
-    //   url: "https://yogoloper.shop/api/images",
+    for (const keyValue of formData) console.log(keyValue);
 
-    //   headers: {
-    //     Authorization: `Bearer ${TOKEN}`,
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    //   data: e.target.files[0],
-    // }).then((res) => {
-    //   console.log(res);
-    // });
+    axios({
+      method: 'POST',
+      url: 'https://yogoloper.shop/api/images',
+
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        'content-type': 'application/json;charset=UTF-8',
+        accept: 'application/json',
+      },
+      data: e.target.value,
+    }).then((res) => {
+      console.log(res);
+    });
   };
 
-  //미리보기임
+  // 미리보기
   const Loadfile = (Blob) => {
     const formData = new FormData();
 
-    formData.append("image", Blob);
+    formData.append('image', Blob);
 
     const reader = new FileReader();
     reader.readAsDataURL(Blob);
@@ -56,15 +60,15 @@ const Imageupload = (props) => {
       <Text color='#4D12FF' bold>
         썸네일
       </Text>
-
-      <input
-        type='file'
-        accept='image/png,image/gif'
-        onChange={dochange}
-        style={{ display: "none" }}
-        ref={fileInput}
-      />
-
+      <form encType='multipart/form-data'>
+        <input
+          type='file'
+          accept='image/png,image/gif,image/jpg,image/jpeg,image/svg'
+          onChange={dochange}
+          style={{ display: 'none' }}
+          ref={fileInput}
+        />
+      </form>
       <Image
         margin='7px auto'
         CateChat

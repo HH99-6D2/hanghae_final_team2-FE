@@ -1,6 +1,7 @@
-import eslintConfigReactApp from "eslint-config-react-app";
-import React from "react";
-import styled, { withTheme } from "styled-components";
+import eslintConfigReactApp from 'eslint-config-react-app';
+import React from 'react';
+import styled, { withTheme } from 'styled-components';
+import Text from './Text';
 
 const Button = (props) => {
   const {
@@ -21,6 +22,7 @@ const Button = (props) => {
     mainlike,
     border,
     cursor,
+    homeCateBtn,
   } = props;
   const styles = {
     width: width,
@@ -52,6 +54,14 @@ const Button = (props) => {
         </CateButton>
       </>
     );
+  } else if (homeCateBtn) {
+    return (
+      <>
+        <HomeCateBtn {...styles} onClick={_onClick}>
+          <Text padding='20px 100px 20px 18px'>{children}</Text>
+        </HomeCateBtn>
+      </>
+    );
   } else if (mini) {
     return (
       <>
@@ -81,25 +91,25 @@ const Button = (props) => {
 Button.defaultProps = {
   children: null,
   _onClick: () => {},
-  color: "black",
-  height: "37px",
+  color: 'black',
+  height: '37px',
   margin: false,
-  padding: "10px 20px",
-  bg: "white",
-  border: "0px",
-  border: "none",
+  padding: '10px 20px',
+  bg: 'white',
+  border: '0px',
+  border: 'none',
 };
 
 const ElButton = styled.div`
   box-sizing: border-box;
   border-radius: 15px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
-  ${(props) => (props.position ? `position:${props.position}` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
+  ${(props) => (props.position ? `position:${props.position}` : '')};
   text-align: center;
-  ${(props) => (props.width ? `width: ${props.width};` : "")};
+  ${(props) => (props.width ? `width: ${props.width};` : '')};
   border: 0px;
   outline: 0px;
   cursor: pointer;
@@ -109,12 +119,12 @@ const LargeButton = styled.button`
   box-sizing: border-box;
   border-radius: 15px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
   text-align: center;
-  ${(props) => (props.width ? `width: ${props.width};` : "100%")};
-  ${(props) => (props.border ? `border: ${props.border};` : "")};
+  ${(props) => (props.width ? `width: ${props.width};` : '100%')};
+  ${(props) => (props.border ? `border: ${props.border};` : '')};
   cursor: pointer;
 `;
 
@@ -122,10 +132,10 @@ const CateButton = styled.div`
   box-sizing: border-box;
   border-radius: 20px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
-  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
-  ${(props) => (props.color ? `color: ${props.color};` : "")};
-  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : '')};
+  ${(props) => (props.color ? `color: ${props.color};` : '')};
+  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : '')};
   text-align: center;
   min-width: 90px;
   height: 70px;
@@ -138,7 +148,7 @@ const MiniButton = styled.div`
   box-sizing: border-box;
   border-radius: 15px;
   padding: 6px 10px;
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
   background-color: #4d12ff;
   color: white;
   text-align: center;
@@ -153,7 +163,7 @@ const MainBtn = styled.div`
   box-sizing: border-box;
   border-radius: 15px;
   padding: ${(props) => props.padding};
-  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : '')};
   background-color:white;
   color: #4d12ff;
   position:absolute;
@@ -166,6 +176,13 @@ const MainBtn = styled.div`
   left:30px;
   padding:9px 30px;
   cursor: pointer;
+`;
+
+const HomeCateBtn = styled.div`
+  width: 174px;
+  height: 63px;
+  box-sizing: border-box;
+  text-align: start;
 `;
 
 export default Button;
