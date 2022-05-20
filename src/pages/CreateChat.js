@@ -107,7 +107,6 @@ const CreateChat = (props) => {
             일정
           </Text>
           <Dateset />
-          <Time />
         </Grid>
       </MobileContainer>
     </Container>

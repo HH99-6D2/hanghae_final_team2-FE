@@ -26,6 +26,11 @@ const Dateset = (props) => {
           onChange={(date) => setStartDate(date)}
           selectsStart
           startDate={startDate}
+          showTimeSelect // 시간 나오게 하기
+          timeFormat='HH:mm' //시간 포맷
+          timeIntervals={15} // 15분 단위로 선택 가능한 box가 나옴
+          timeCaption='time'
+          dateFormat='MMMM d, yyyy h:mm aa'
         />
         <MyDatePicker
           selected={endDate}
@@ -33,6 +38,11 @@ const Dateset = (props) => {
           selectsEnd
           endDate={endDate}
           minDate={startDate}
+          showTimeSelect // 시간 나오게 하기
+          timeFormat='HH:mm'
+          timeIntervals={15}
+          timeCaption='time'
+          dateFormat='MMMM d, yyyy h:mm aa'
         />
       </Grid>
     </>
