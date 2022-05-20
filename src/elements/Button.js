@@ -99,7 +99,7 @@ const ElButton = styled.div`
   ${(props) => (props.color ? `color: ${props.color};` : "")};
   ${(props) => (props.position ? `position:${props.position}` : "")};
   text-align: center;
-
+  ${(props) => (props.width ? `width: ${props.width};` : "")};
   border: 0px;
   outline: 0px;
   cursor: pointer;
@@ -164,7 +164,7 @@ const MainBtn = styled.div`
   height:40px;
   bottom:35px;
   left:30px;
-  padding:12px 30px;
+  padding:9px 30px;
   cursor: pointer;
 `;
 

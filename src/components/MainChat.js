@@ -3,13 +3,10 @@ import { Grid, Image, Button, Text } from "../elements";
 import { Like } from "../components";
 // 메인화면에 보여줄 추천하는 채팅방 컴포넌트
 const MainChat = (props) => {
+  const { src } = props;
   return (
     <>
-      <Image
-        mainchat
-        position='relative'
-        src='http://newsimg.hankookilbo.com/2019/04/03/201904031896022167_10.jpg'
-      >
+      <Image mainchat position='relative' src={src}>
         {/* <Grid>
           <Text color='white' size='25px' bold>
             오래된 빵집 태극당

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ProfileHeader } from "../components";
 import {
   Text,
@@ -9,7 +9,11 @@ import {
   Buttons,
 } from "../elements";
 import { ReactComponent as Info } from "../assets/Info.svg";
+import { useNavigate } from "react-router-dom";
 const CreateChatFinal = () => {
+  const navigateState = useNavigate().state;
+
+  console.log(navigateState);
   return (
     <>
       <Container>

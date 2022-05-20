@@ -5,9 +5,14 @@ import Stack from "@mui/material/Stack";
 import { Grid } from "../elements";
 const Time = () => {
   const settings = {
-    width: "150px",
-    margin: "0px",
+    width: "155px",
+    height: "30px",
+    margin: "10px auto",
+    borderRadius: "15px",
   };
+  const EditText = styled(TextField)({
+    width: "200px",
+  });
   const [startTime, setstart] = useState(null);
   const [endTime, setend] = useState(null);
 
@@ -16,27 +21,27 @@ const Time = () => {
     // <Stack component='form' noValidate spacing={3}>
     <>
       <Grid between>
-        <TextField
+        <EditText
+          style={{ ...settings }}
           id='time'
           type='time'
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={(value) => setstart(value)}
+          onChange={(e) => setstart(e)}
           inputProps={{
             step: 300, // 5 min
           }}
-          value={value}
           sx={{ width: 150 }}
         />
         <TextField
-          {...settings}
+          style={{ ...settings }}
           id='time'
           type='time'
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={(end) => setend(end)}
+          onChange={(e) => setend(e)}
           inputProps={{
             step: 300, // 5 min
           }}

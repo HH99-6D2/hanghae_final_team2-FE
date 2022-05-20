@@ -4,15 +4,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Grid } from "../elements";
 const Dateset = (props) => {
-  const MyDatePicker = styled(DatePicker)`
-    width: 36px;
-    height: 30px;
+  const MyDatePicker = styled(DatePicker)({
+    width: "155px",
+    height: "30px",
+    borderRadius: "15px",
+    backgroundColor: "white",
+    border: "1px solid #b9b9b9",
+    textAlign: "center",
+    marginTop: "10px",
+  });
 
-    border-radius: 18px;
-
-    background-color: white;
-    padding: 0px 53px;
-  `;
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   console.log(startDate);
@@ -37,5 +38,6 @@ const Dateset = (props) => {
     </>
   );
 };
+//   padding: 0px 53px;
 
 export default Dateset;

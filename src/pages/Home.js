@@ -22,16 +22,13 @@ const Home = (props) => {
         <MobileContainer>
           <Header />
 
-          <Button
-            border='1px solid black'
-            _onClick={() => {
-              navigate("/login");
-            }}
-            large
-          >
-            임시 로그인 버튼
-          </Button>
-          <Grid flex justifyContent='space-evenly'>
+          <Grid width='180px' margin='10px 50px'>
+            <Text bold size='21px'>
+              어떤 주제로 <br />
+              이야기 해볼까요?
+            </Text>
+          </Grid>
+          <Grid width='150px' margin='auto' flex justifyContent='space-evenly'>
             {/* {cate &&
               cate.data.map((p, idx) => {
                 return <Category {...p} key={idx} />;
@@ -75,8 +72,8 @@ const Home = (props) => {
               추천하는 채팅
             </Text>
           </Grid>
-          <MainChat />
-          <MainChat />
+          <MainChat src='http://res.heraldm.com/content/image/2022/04/23/20220423000095_0.jpg' />
+          <MainChat src='https://cdn.kado.net/news/photo/202101/1054679_483633_4425.jpg' />
         </MobileContainer>
       </Container>
     </React.Fragment>

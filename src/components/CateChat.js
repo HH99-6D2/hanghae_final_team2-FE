@@ -18,10 +18,12 @@ const CateChat = (props) => {
               <Text bold paddingbottom='6px'>
                 LG트윈스 이겨라
               </Text>
-              <Text>잠실 종합운동장</Text>
+              <Text color='#767676'>잠실 종합운동장</Text>
               <Grid flex>
-                <Text>2022.05.10</Text>
-                <Text margin='0px 10px'>7pm</Text>
+                <Text color='#767676'>2022.05.10</Text>
+                <Text color='#767676' margin='0px 10px'>
+                  7pm
+                </Text>
               </Grid>
             </Grid>
           </Grid>
