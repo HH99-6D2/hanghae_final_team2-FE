@@ -79,13 +79,13 @@ const CreateChat = (props) => {
           </Text>
           <Grid flex>
             <Button bg='#4D12FF' color='white' category>
-              카테1
+              스포츠
             </Button>
             <Button bg='#4D12FF' color='white' category>
-              카테2
+              전시회
             </Button>
             <Button bg='#4D12FF' color='white' category>
-              카테3
+              콘서트
             </Button>
           </Grid>
         </Grid>
@@ -107,6 +107,7 @@ const CreateChat = (props) => {
             일정
           </Text>
           <Dateset />
+          <Time />
         </Grid>
       </MobileContainer>
     </Container>
