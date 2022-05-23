@@ -24,10 +24,11 @@ const Login = (props) => {
           <Grid direction='column' signupFlex>
             <SocialLogin />
             <Grid>
-              <Button margin='13px auto' color='rgba(0, 0, 0, 0.5)'>
+              <Button textAlign margin='13px auto' color='rgba(0, 0, 0, 0.5)'>
                 기업 회원이신가요?
               </Button>
               <Button
+                textAlign
                 width='335px'
                 margin='0px auto'
                 color='rgba(0, 0, 0, 0.5)'

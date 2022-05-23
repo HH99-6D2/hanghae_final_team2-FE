@@ -34,7 +34,12 @@ const Time = () => {
           inputProps={{
             step: 300, // 5 min
           }}
-          sx={{ borderRadius: 5 }}
+          sx={{
+            borderRadius: 5,
+            "&.MuiInputBase-input ": {
+              borderRadius: 15,
+            },
+          }}
         />
         <EditText
           id='time'

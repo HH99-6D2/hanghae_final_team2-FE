@@ -10,6 +10,7 @@ import {
 } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { ReactComponent as Profilebig } from "../assets/Profilebig.svg";
 import axios from "axios";
 
 // 최초로그인시 보여줄 페이지(닉네임,이미지변경)
@@ -43,14 +44,15 @@ const LoginSucess = (props) => {
       <Container>
         <MobileContainer>
           <ProfileHeader>프로필 설정</ProfileHeader>
-          <Grid signupFlex height='318px' alignItems='center'>
+          <Grid signupFlex height='270px' alignItems='center'>
+            <Profilebig />
             <Image
               _onClick={() => {
                 console.log("이미지변경할거다");
               }}
               inlineStyles='position: relative;'
             >
-              <Grid inlineStyles='position: absolute; top:90px; left:110px;'>
+              <Grid inlineStyles='position: absolute; top:239px; left:217px;'>
                 <MdPhotoCamera size='20px' />
               </Grid>
             </Image>

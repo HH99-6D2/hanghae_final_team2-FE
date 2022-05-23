@@ -8,12 +8,12 @@ import {
   Image,
   Input,
   Container,
-  Buttons,
 } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 import axios from "axios";
-import profile from "../assets/profile.svg";
-import { Navigate } from "react-router-dom";
+import { ReactComponent as Profilebig } from "../assets/Profilebig.svg";
+import { useNavigate } from "react-router-dom";
+
 // 햄버거바->프로필 수정 클릭시 보여줄 페이지
 
 const MyProfile = (props) => {
@@ -22,6 +22,7 @@ const MyProfile = (props) => {
   const RETOKEN = sessionStorage.getItem("refresh");
   const nickname = sessionStorage.getItem("nick");
   const id = sessionStorage.getItem("id");
+  const navigate = useNavigate();
   const [nick, inputnick] = useState(nickname);
 
   const donick = () => {
@@ -81,7 +82,15 @@ const MyProfile = (props) => {
               저장
             </Button>
           </ProfileHeader>
-          <Grid signupFlex height='40vh' alignItems='center'>
+          <Grid
+            signupFlex
+            height='200px'
+            alignItems='center'
+            _onClick={() => navigate("/profileimage")}
+          >
+            <Profilebig />
+          </Grid>
+          <Grid signupFlex alignItems='center'>
             <Image inlineStyles='position: relative;'>
               {/* <Grid inlineStyles='position: absolute; top:90px; left:110px;'>
                 <Image src={profile} width='100px' height='100px'></Image>
@@ -97,17 +106,38 @@ const MyProfile = (props) => {
               defaultValue={nickname}
             ></Input>
           </Grid>
-          <Grid signupFlex>
+          <Grid flex direction='column' center>
+            <Text create bold width margin='27px 0px 7px 35px '>
+              위치정보 수집 동의
+            </Text>
             <Button
-              bg='black'
-              width='80%'
-              margin='30px 0px 0px 0px'
-              color='white'
-              _onClick={dologout}
+              color='#767676'
+              margin='0px auto 21px 18px'
+              profile
+              bordebottom='1px solid #EAEAEA '
             >
-              로그아웃
+              동의
             </Button>
           </Grid>
+          <Button
+            color='#4d12ff'
+            margin='0px auto 21px 18px'
+            profile
+            bordebottom='1px solid #EAEAEA '
+            bold
+            _onClick={dologout}
+          >
+            로그아웃
+          </Button>
+          <Button
+            color='#121212'
+            margin='0px auto 21px 18px'
+            profile
+            bordebottom='1px solid #EAEAEA '
+            _onClick={dologout}
+          >
+            회원탈퇴
+          </Button>
         </MobileContainer>
       </Container>
     </>

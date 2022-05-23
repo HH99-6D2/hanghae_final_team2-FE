@@ -23,6 +23,10 @@ const Button = (props) => {
     border,
     cursor,
     homeCateBtn,
+    textAlign,
+    profile,
+    bordebottom,
+    bold,
   } = props;
   const styles = {
     width: width,
@@ -37,6 +41,10 @@ const Button = (props) => {
     position: position,
     border: border,
     cursor: cursor,
+    textAlign: textAlign,
+    profile: profile,
+    bordebottom: bordebottom,
+    bold: bold,
   };
   if (large) {
     return (
@@ -78,6 +86,14 @@ const Button = (props) => {
         </MainBtn>
       </>
     );
+  } else if (profile) {
+    return (
+      <>
+        <ProfileBtn {...styles} onClick={_onClick}>
+          {children}
+        </ProfileBtn>
+      </>
+    );
   }
   return (
     <>
@@ -108,13 +124,30 @@ const ElButton = styled.div`
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
   ${(props) => (props.color ? `color: ${props.color};` : "")};
   ${(props) => (props.position ? `position:${props.position}` : "")};
-  text-align: center;
+  text-align: ${(props) => (props.textAlign ? "center" : "")};
   ${(props) => (props.width ? `width: ${props.width};` : "")};
   border: 0px;
   outline: 0px;
   cursor: pointer;
 `;
 
+const ProfileBtn = styled.div`
+  box-sizing: border-box;
+
+  padding: ${(props) => props.padding};
+  ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
+  ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
+  ${(props) => (props.color ? `color: ${props.color};` : "")};
+  ${(props) => (props.position ? `position:${props.position}` : "")};
+  text-align: ${(props) => (props.textAlign ? "center" : "")};
+  ${(props) => (props.width ? `width: ${props.width};` : `width:80%`)};
+  border: 0px;
+  outline: 0px;
+  cursor: pointer;
+  ${(props) =>
+    props.bordebottom ? `border-bottom: ${props.bordebottom};` : ""};
+  font-weight: ${(props) => (props.bold ? "600" : "400")};
+`;
 const LargeButton = styled.button`
   box-sizing: border-box;
   border-radius: 15px;
@@ -122,8 +155,8 @@ const LargeButton = styled.button`
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
   ${(props) => (props.color ? `color: ${props.color};` : "")};
-  text-align: center;
-  ${(props) => (props.width ? `width: ${props.width};` : "100%")};
+  text-align: ${(props) => (props.text - align ? "100%" : "75px")};
+  ${(props) => (props.width ? `width: ${props.width};` : `width:100%`)};
   ${(props) => (props.border ? `border: ${props.border};` : "")};
   cursor: pointer;
 `;

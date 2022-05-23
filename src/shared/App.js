@@ -1,5 +1,5 @@
-import './App.css';
-import React from 'react';
+import "./App.css";
+import React from "react";
 import {
   LoginSucess,
   Login,
@@ -17,9 +17,11 @@ import {
   Blocklist,
   ChatInform,
   ChatEdit,
-} from '../pages';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Header } from '../components';
+  ProfileImage,
+  Guid,
+} from "../pages";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Header } from "../components";
 
 function App() {
   // const is_login = `${accessToken}`;
@@ -44,6 +46,8 @@ function App() {
           <Route path='/blocklist' exact element={<Blocklist />} />
           <Route path='/chatInform' exact element={<ChatInform />} />
           <Route path='/editchat' exact element={<ChatEdit />} />
+          <Route path='/guid' exact element={<Guid />} />
+          <Route path='/profileimage' exact element={<ProfileImage />} />
         </>
       </Routes>
     </BrowserRouter>
