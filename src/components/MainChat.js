@@ -6,12 +6,7 @@ const MainChat = (props) => {
   const { src } = props;
   return (
     <>
-      <Image mainchat position='relative' src={src}>
-        {/* <Grid>
-          <Text color='white' size='25px' bold>
-            오래된 빵집 태극당
-          </Text>
-        </Grid> */}
+      <Image background mainchat position='relative' src={src}>
         <Grid position='absolute' left='270px'>
           <Like />
         </Grid>

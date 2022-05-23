@@ -10,7 +10,7 @@ const ChatInform = () => {
         <Grid margin='23px 0px'>
           <Image
             CateChat
-            src='http://newsimg.hankookilbo.com/2019/04/03/201904031896022167_10.jpg'
+            src='https://cdn.kado.net/news/photo/202101/1054679_483633_4425.jpg'
           />
         </Grid>
         <Grid flex margin='0px 49px'>

@@ -13,16 +13,7 @@ import CateChat from "./CateChat";
 
 // 햄버거바->채팅방관리-> 보여줄 탭
 
-// const MyBox = styled(Box)({
-//   display: "flex",
-//   justifyContent: "space-around",
-// });
 
-// const MyTabList = styled(TabList)({
-//   padding: "0px 8px",
-// });
-
-// onChange
 
 const MyChat = (props) => {
   const theme = createTheme({

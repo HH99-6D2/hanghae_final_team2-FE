@@ -16,6 +16,9 @@ const Image = (props) => {
     Profile,
     position,
     setting,
+    margin,
+    CateBtn,
+    background,
   } = props;
   const styles = {
     src: src,
@@ -28,7 +31,20 @@ const Image = (props) => {
     Profile: Profile,
     position: position,
     setting: setting,
+    margin: margin,
+    CateBtn: CateBtn,
+    background: background,
   };
+
+  if (CateBtn) {
+    return (
+      <>
+        <CateBtnImage {...styles} onClick={_onClick}>
+          {children}
+        </CateBtnImage>
+      </>
+    );
+  }
 
   if (CateChat) {
     return (
@@ -85,6 +101,7 @@ const ImageCircle = styled.div`
   width: var(--size);
   height: var(--size);
   border-radius: var(--size);
+  margin: ${(props) => props.margin};
 
   background-image: url("${(props) => props.src}");
   background-size: cover;
@@ -113,12 +130,12 @@ const MainImage = styled.div`
   width: 320px;
   height: 380px;
   margin: 18px auto;
-  border-radius: 15px;
+  border-radius: 10px;
   border: none;
-  background-image: url("${(props) => props.src}");
   background-size: cover;
   ${(props) => (props.position ? `position:${props.position}` : "")};
-  background: linear-gradient(to right, rgba(20, 20, 20, 0.7));
+  background-image: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 58.46%),
+    url("${(props) => props.src}");
 `;
 
 const ProfileImage = styled.div`
@@ -128,6 +145,14 @@ const ProfileImage = styled.div`
   height: var(--size);
   margin: 0px 3px;
   border-radius: var(--size);
+  background-image: url("${(props) => props.src}");
+  background-size: cover;
+`;
+
+const CateBtnImage = styled.div`
+  width: 174px;
+  height: 154px;
+  border-radius: 8px;
   background-image: url("${(props) => props.src}");
   background-size: cover;
 `;

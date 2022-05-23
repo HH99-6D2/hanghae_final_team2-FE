@@ -1,5 +1,6 @@
 import React from "react";
 import SocialLogin from "../components/SocialLogin";
+import { ReactComponent as Loginlogo } from "../assets/Loginlogo.svg";
 import {
   MobileContainer,
   Grid,
@@ -18,13 +19,19 @@ const Login = (props) => {
       <Container>
         <MobileContainer>
           <Grid signupFlex height='60vh' alignItems='center'>
-            <Text size='40px'>logo</Text>
+            <Loginlogo />
           </Grid>
           <Grid direction='column' signupFlex>
             <SocialLogin />
             <Grid>
-              <Button margin='13px auto'>기업 회원이신가요?</Button>
-              <Button width='335px' margin='0px auto'>
+              <Button margin='13px auto' color='rgba(0, 0, 0, 0.5)'>
+                기업 회원이신가요?
+              </Button>
+              <Button
+                width='335px'
+                margin='0px auto'
+                color='rgba(0, 0, 0, 0.5)'
+              >
                 가입 없이 둘러보기
               </Button>
             </Grid>

@@ -11,34 +11,37 @@ const Imageupload = (props) => {
   const [sendimage, setsend] = useState(null);
 
   const dochange = (e) => {
-    //서버로 이미지 보낼거
-    console.log(e.target.files[0]);
-    Loadfile(e.target.files[0]);
     setsend(e.target.files[0]);
-    console.log(sendimage);
-    const formData = new FormData();
-    formData.append("files", image);
+    Loadfile(e.target.files[0]);
     console.log(e.target.files[0]);
+    const formData = new FormData();
+    formData.append("file", e.target.files[0]);
 
-    // axios({
-    //   method: "POST",
-    //   url: "https://yogoloper.shop/api/images",
+    //서버로 이미지 보낼거
+    axios({
+      method: "POST",
+      url: "https://junehan-test.shop/api/user/upload",
 
-    //   headers: {
-    //     Authorization: `Bearer ${TOKEN}`,
-    //     "Content-Type": "multipart/form-data",
-    //   },
-    //   data: e.target.files[0],
-    // }).then((res) => {
-    //   console.log(res);
-    // });
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": `multipart/form-data`,
+      },
+      data: formData,
+    })
+      .then((res) => {
+        console.log(res.data);
+        console.log(res.data.url);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  //미리보기임
+  // 미리보기
   const Loadfile = (Blob) => {
-    const formData = new FormData();
+    const formDatas = new FormData();
 
-    formData.append("image", Blob);
+    formDatas.append("image", Blob);
 
     const reader = new FileReader();
     reader.readAsDataURL(Blob);
@@ -59,6 +62,7 @@ const Imageupload = (props) => {
 
       <input
         type='file'
+        name='file'
         accept='image/png,image/gif'
         onChange={dochange}
         style={{ display: "none" }}

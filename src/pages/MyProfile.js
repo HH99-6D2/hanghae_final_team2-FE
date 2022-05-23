@@ -13,6 +13,7 @@ import {
 import { MdPhotoCamera } from "react-icons/md";
 import axios from "axios";
 import profile from "../assets/profile.svg";
+import { Navigate } from "react-router-dom";
 // 햄버거바->프로필 수정 클릭시 보여줄 페이지
 
 const MyProfile = (props) => {
@@ -35,6 +36,7 @@ const MyProfile = (props) => {
       },
     }).then((res) => {
       console.log(res);
+      sessionStorage.setItem("nick", nick);
     });
   };
   // headers: {
@@ -64,14 +66,9 @@ const MyProfile = (props) => {
         accessToken: SoTOKEN,
       },
     });
-    // axios.post("http://junehan-test.shop/api/auth/logout", {
-    //   headers: {
-    //     Authorization: `bearer ${TOKEN}`,
-    //   },
-    //   body: {
-    //     accessToken: `${SoTOKEN}`,
-    //   },
-    // });
+
+    sessionStorage.clear();
+    Navigate("/");
   };
 
   return (

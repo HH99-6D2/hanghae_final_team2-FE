@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ProfileHeader, Dateset, Imageupload, Time } from "../components";
+import React, { useState } from 'react';
+import { ProfileHeader, Dateset, Imageupload, Time } from '../components';
 import {
   Container,
   MobileContainer,
@@ -7,14 +7,33 @@ import {
   Input,
   Text,
   Button,
-} from "../elements";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+  Buttons,
+} from '../elements';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
 const CreateChat = (props) => {
-  const TOKEN = sessionStorage.getItem("token");
-  const [name, inputname] = useState("");
-  const [tag, inputtag] = useState("");
+  const TOKEN = sessionStorage.getItem('token');
+  const [name, inputname] = useState('');
+  const [tag, inputtag] = useState('');
   const navigate = useNavigate();
+  // const [active, setActive] = useState(type[0]);
+
+  const category = [
+    {
+      src: '',
+      text: '스포츠',
+    },
+    {
+      src: '',
+      text: '전시회',
+    },
+    {
+      src: '',
+      text: '콘서트',
+    },
+  ];
 
   return (
     <Container>
@@ -48,7 +67,7 @@ const CreateChat = (props) => {
                 //   console.log(res);
                 // });
                 console.log(name, tag);
-                navigate("/addchatcheck", {
+                navigate('/addchatcheck', {
                   state: { title: name },
                 });
               }}
@@ -78,15 +97,22 @@ const CreateChat = (props) => {
             카테고리 선택
           </Text>
           <Grid flex>
-            <Button bg='#4D12FF' color='white' category>
-              카테1
-            </Button>
-            <Button bg='#4D12FF' color='white' category>
-              카테2
-            </Button>
-            <Button bg='#4D12FF' color='white' category>
-              카테3
-            </Button>
+            {/* {category.map((Category) => {
+              return (
+                <ButtonToggle
+                  value={location}
+                  key={Category}
+                  active={active === Category}
+                  Category
+                  src={Category.src}
+                  onClick={() => {
+                    setActive(Category);
+                  }}
+                >
+                  {Category.text}
+                </ButtonToggle>
+              );
+            })} */}
           </Grid>
         </Grid>
 
@@ -107,10 +133,36 @@ const CreateChat = (props) => {
             일정
           </Text>
           <Dateset />
+          <Time />
         </Grid>
       </MobileContainer>
     </Container>
   );
 };
+
+// const ButtonToggle = styled(Btn)`
+//   opacity: 1;
+//   width: 132px;
+//   height: 44px;
+//   margin: 6px;
+//   border: 0px;
+//   border-radius: 10px;
+//   font-size: 14px;
+//   cursor: pointer;
+//   ${({ active }) =>
+//     active &&
+//     `
+//     opacity: 1;
+//     color: white;
+//     background-color: #333333;
+//     border-radius: 10px
+//     font-size: 14px;
+//     `};
+//   &:hover {
+//     transition: all 0.5s;
+//     background-color: #23c8af;
+//     color: white;
+//   }
+// `;
 
 export default CreateChat;

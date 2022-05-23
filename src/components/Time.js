@@ -2,16 +2,20 @@ import * as React from "react";
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
+import { styled } from "@mui/material/styles";
 import { Grid } from "../elements";
 const Time = () => {
-  const settings = {
-    height: 30,
-    // margin: 10 auto,
-    // borderradius: 15,
-  };
-  // const EditText = styled(TextField)({
-  //   width: "200px",
-  // });
+  // const settings = {
+  //   height: 30,
+  //   // margin: 10 auto,
+  //   // borderradius: 15,
+  // };
+  const EditText = styled(TextField)({
+    width: "155px",
+    borderRadius: "15px",
+    marginTop: "20px",
+    height: "30px",
+  });
   const [startTime, setstart] = useState(null);
   const [endTime, setend] = useState(null);
 
@@ -20,30 +24,29 @@ const Time = () => {
     // <Stack component='form' noValidate spacing={3}>
     <>
       <Grid between>
-        <TextField
-          {...settings}
+        <EditText
           id='time'
           type='time'
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={(e) => setstart(e)}
+          onChange={(e) => console.log(e.target.value)}
           inputProps={{
             step: 300, // 5 min
           }}
-          sx={{ width: 150 }}
+          sx={{ borderRadius: 5 }}
         />
-        <TextField
-          {...settings}
+        <EditText
           id='time'
           type='time'
           InputLabelProps={{
             shrink: true,
           }}
-          onChange={(e) => setend(e)}
+          onChange={(e) => console.log(e.target.value)}
           inputProps={{
             step: 300, // 5 min
           }}
+          sx={{ borderRadius: 5 }}
         />
       </Grid>
     </>

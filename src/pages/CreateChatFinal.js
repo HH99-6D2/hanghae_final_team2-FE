@@ -11,9 +11,9 @@ import {
 import { ReactComponent as Info } from "../assets/Info.svg";
 import { useNavigate } from "react-router-dom";
 const CreateChatFinal = () => {
-  const navigateState = useNavigate().state;
+  // const navigateState = { title };
+  // navigateState = useNavigate().state;
 
-  console.log(navigateState);
   return (
     <>
       <Container>
