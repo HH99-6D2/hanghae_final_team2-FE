@@ -9,6 +9,11 @@ import CreateChat from "./CreateChat";
 import Auth from "./Auth";
 import CateChatlist from "./CateChatlist";
 import Sidebar from "./Sidebar";
+import CreateChatFinal from "./CreateChatFinal";
+import SerachChat from "./SerachChat";
+import Blocklist from "./Blocklist";
+import ChatInform from "./ChatInform";
+import ChatEdit from "./ChatEdit";
 export {
   Home,
   Login,
@@ -21,4 +26,9 @@ export {
   Auth,
   CateChatlist,
   Sidebar,
+  CreateChatFinal,
+  SerachChat,
+  Blocklist,
+  ChatInform,
+  ChatEdit,
 };

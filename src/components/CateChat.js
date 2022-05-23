@@ -4,6 +4,33 @@ import { Like } from "./";
 //카테고리 선택시 보여줄 채팅방 컴포넌트
 
 const CateChat = (props) => {
+  const { setting } = props;
+  if (setting) {
+    return (
+      <Grid flex direction='row'>
+        <Image
+          setting
+          src='http://res.heraldm.com/content/image/2022/04/23/20220423000095_0.jpg'
+        ></Image>
+        <Grid between width='317px' height='117px' margin='7px auto'>
+          <Grid flex>
+            <Grid margin='12px 5px 39px 0px'>
+              <Text bold paddingbottom='6px'>
+                LG트윈스 이겨라
+              </Text>
+              <Text color='#767676'>잠실 종합운동장</Text>
+              <Grid flex>
+                <Text color='#767676'>2022.05.10</Text>
+                <Text color='#767676' margin='0px 10px'>
+                  7pm
+                </Text>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+    );
+  }
   return (
     <Grid flex direction='column'>
       <Image

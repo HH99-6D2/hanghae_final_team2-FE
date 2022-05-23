@@ -8,10 +8,12 @@ import {
   Image,
   Input,
   Container,
+  Buttons,
 } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 import axios from "axios";
-
+import profile from "../assets/profile.svg";
+import { Navigate } from "react-router-dom";
 // 햄버거바->프로필 수정 클릭시 보여줄 페이지
 
 const MyProfile = (props) => {
@@ -34,6 +36,7 @@ const MyProfile = (props) => {
       },
     }).then((res) => {
       console.log(res);
+      sessionStorage.setItem("nick", nick);
     });
   };
   // headers: {
@@ -63,14 +66,9 @@ const MyProfile = (props) => {
         accessToken: SoTOKEN,
       },
     });
-    // axios.post("http://junehan-test.shop/api/auth/logout", {
-    //   headers: {
-    //     Authorization: `bearer ${TOKEN}`,
-    //   },
-    //   body: {
-    //     accessToken: `${SoTOKEN}`,
-    //   },
-    // });
+
+    sessionStorage.clear();
+    Navigate("/");
   };
 
   return (
@@ -85,9 +83,9 @@ const MyProfile = (props) => {
           </ProfileHeader>
           <Grid signupFlex height='40vh' alignItems='center'>
             <Image inlineStyles='position: relative;'>
-              <Grid inlineStyles='position: absolute; top:90px; left:110px;'>
-                <MdPhotoCamera size='20px' />
-              </Grid>
+              {/* <Grid inlineStyles='position: absolute; top:90px; left:110px;'>
+                <Image src={profile} width='100px' height='100px'></Image>
+              </Grid> */}
             </Image>
           </Grid>
           <Grid signupFlex>
@@ -102,15 +100,13 @@ const MyProfile = (props) => {
           <Grid signupFlex>
             <Button
               bg='black'
+              width='80%'
               margin='30px 0px 0px 0px'
               color='white'
               _onClick={dologout}
             >
               로그아웃
             </Button>
-          </Grid>
-          <Grid signupFlex>
-            
           </Grid>
         </MobileContainer>
       </Container>

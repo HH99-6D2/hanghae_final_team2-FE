@@ -9,20 +9,11 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { styled } from "@material-ui/core/styles";
-import MainChat from "./CateChat";
+import CateChat from "./CateChat";
 
 // 햄버거바->채팅방관리-> 보여줄 탭
 
-// const MyBox = styled(Box)({
-//   display: "flex",
-//   justifyContent: "space-around",
-// });
 
-// const MyTabList = styled(TabList)({
-//   padding: "0px 8px",
-// });
-
-// onChange
 
 const MyChat = (props) => {
   const theme = createTheme({
@@ -50,7 +41,7 @@ const MyChat = (props) => {
 
     return (
       <div
-        role="tabpanel"
+        role='tabpanel'
         hidden={value !== index}
         id={`simple-tabpanel-${index}`}
         aria-labelledby={`simple-tab-${index}`}
@@ -91,23 +82,23 @@ const MyChat = (props) => {
             <TabList
               value={value}
               onChange={handleChange}
-              aria-label="basic tabs example"
-              variant="fullWidth"
+              aria-label='basic tabs example'
+              variant='fullWidth'
               TabIndicatorProps={{ sx: { height: "" } }}
             >
-              <Tab label="만든 채팅방" {...a11yProps(0)} />
-              <Tab label="참여 채팅방" {...a11yProps(1)} />
-              <Tab label="관심 채팅방" {...a11yProps(2)} />
+              <Tab label='만든 채팅방' {...a11yProps(0)} />
+              <Tab label='참여 채팅방' {...a11yProps(1)} />
+              <Tab label='관심 채팅방' {...a11yProps(2)} />
             </TabList>
           </Box>
           <TabPanel value={value} index={0}>
-            <MainChat />
+            <CateChat setting />
           </TabPanel>
           <TabPanel value={value} index={1}>
             채팅방이 없습니다.
           </TabPanel>
           <TabPanel value={value} index={2}>
-            <MainChat />
+            <CateChat setting />
           </TabPanel>
         </Box>
       </ThemeProvider>

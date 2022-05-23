@@ -1,40 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Text, Grid, Image, Button } from "../elements";
 import axios from "axios";
 
 const Imageupload = (props) => {
+  const fileInput = useRef(null);
   const TOKEN = sessionStorage.getItem("token");
   const [image, imageSet] = useState(
     "https://www.missioninfra.net/img/noimg/noimg_4x3.gif"
   );
-  const [sengimage, setsend] = useState();
+  const [sendimage, setsend] = useState(null);
 
-  const dochange = async (e) => {
-    //서버로 이미지 보낼거
-    Loadfile(e.target.files[0]);
+  const dochange = (e) => {
     setsend(e.target.files[0]);
+    Loadfile(e.target.files[0]);
+    console.log(e.target.files[0]);
     const formData = new FormData();
-    formData.append("files", image);
+    formData.append("file", e.target.files[0]);
 
-    await axios({
+    //서버로 이미지 보낼거
+    axios({
       method: "POST",
-      url: "https://yogoloper.shop/api/images",
+      url: "https://junehan-test.shop/api/user/upload",
 
       headers: {
         Authorization: `Bearer ${TOKEN}`,
-        "Content-Type": "multipart/form-data",
+        "Content-Type": `multipart/form-data`,
       },
       data: formData,
-    }).then((res) => {
-      console.log(res);
-    });
+    })
+      .then((res) => {
+        console.log(res.data);
+        console.log(res.data.url);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
-  //미리보기임
+  // 미리보기
   const Loadfile = (Blob) => {
-    const formData = new FormData();
+    const formDatas = new FormData();
 
-    formData.append("image", Blob);
+    formDatas.append("image", Blob);
 
     const reader = new FileReader();
     reader.readAsDataURL(Blob);
@@ -49,11 +56,27 @@ const Imageupload = (props) => {
 
   return (
     <Grid margin=' 7px auto'>
-      <Text>썸네일</Text>
+      <Text color='#4D12FF' bold>
+        썸네일
+      </Text>
 
-      <input type='file' accept='image/png,image/gif' onChange={dochange} />
+      <input
+        type='file'
+        name='file'
+        accept='image/png,image/gif'
+        onChange={dochange}
+        style={{ display: "none" }}
+        ref={fileInput}
+      />
 
-      <Image margin='7px auto' CateChat src={image}></Image>
+      <Image
+        margin='7px auto'
+        CateChat
+        src={image}
+        _onClick={() => {
+          fileInput.current.click();
+        }}
+      ></Image>
     </Grid>
   );
 };

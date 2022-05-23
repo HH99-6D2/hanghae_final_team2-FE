@@ -18,6 +18,7 @@ const Buttons = (props) => {
     value,
     active,
     Sidebar,
+    Category,
   } = props;
 
   const styles = {
@@ -46,6 +47,19 @@ const Buttons = (props) => {
     );
   }
 
+  if (Category) {
+    return (
+      <React.Fragment>
+        <Grid profileFlex>
+          <Image Profile src={props.src} size='28' onClick={_onClick}></Image>
+          <CategoryButton {...styles} onClick={_onClick}>
+            {text ? text : children}
+          </CategoryButton>
+        </Grid>
+      </React.Fragment>
+    );
+  }
+
   return (
     <React.Fragment>
       <ElButton {...styles} onClick={_onClick}>
@@ -69,6 +83,7 @@ Buttons.defaultProps = {
 };
 
 const ElButton = styled(Button)({
+  margin: 'auto',
   color: '#4D12FF',
   width: '314px',
   height: '45px',
@@ -120,6 +135,54 @@ const SidebarButton = styled(Button)({
   width: '310px',
   height: '52px',
   borderBottom: '1px solid #EAEAEA',
+});
+
+const CategoryButton = styled(Button)({
+  margin: '5px 4px',
+  color: '#121212',
+  width: '93px',
+  height: '38px',
+  boxShadow: 'none',
+  textTransform: 'none',
+  fontSize: 14,
+  fontWeight: 600,
+  padding: '0',
+  border: '1px solid #ffffff',
+  borderRadius: '19px',
+  lineHeight: 1.5,
+  backgroundColor: '#ffffff',
+  borderColor: '#acacac',
+  boxSizing: 'border-box',
+  fontFamily: [
+    '-apple-system',
+    'BlinkMacSystemFont',
+    '"Segoe UI"',
+    'Roboto',
+    '"Helvetica Neue"',
+    'Arial',
+    'sans-serif',
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+  ].join(','),
+  '&:hover': {
+    backgroundColor: '#5D5FEF',
+    borderColor: '#5D5FEF',
+    boxShadow: 'none',
+    color: '#ffffff',
+  },
+  '&:active': {
+    boxShadow: 'none',
+    backgroundColor: '#4D12FF',
+    borderColor: '#4D12FF',
+    color: '#ffffff',
+  },
+  '&:focus': {
+    boxShadow: 'none',
+    backgroundColor: '#4D12FF',
+    borderColor: '#4D12FF',
+    color: '#ffffff',
+  },
 });
 
 export default Buttons;
