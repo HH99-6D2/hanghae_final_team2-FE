@@ -1,6 +1,7 @@
 import eslintConfigReactApp from "eslint-config-react-app";
 import React from "react";
 import styled, { withTheme } from "styled-components";
+import Text from "./Text";
 
 const Button = (props) => {
   const {
@@ -21,6 +22,7 @@ const Button = (props) => {
     mainlike,
     border,
     cursor,
+    homeCateBtn,
   } = props;
   const styles = {
     width: width,
@@ -50,6 +52,14 @@ const Button = (props) => {
         <CateButton {...styles} onClick={_onClick}>
           {children}
         </CateButton>
+      </>
+    );
+  } else if (homeCateBtn) {
+    return (
+      <>
+        <HomeCateBtn {...styles} onClick={_onClick}>
+          <Text padding='20px 100px 20px 18px'>{children}</Text>
+        </HomeCateBtn>
       </>
     );
   } else if (mini) {
@@ -92,7 +102,7 @@ Button.defaultProps = {
 
 const ElButton = styled.div`
   box-sizing: border-box;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: ${(props) => props.padding};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
@@ -166,6 +176,14 @@ const MainBtn = styled.div`
   left:30px;
   padding:9px 30px;
   cursor: pointer;
+  
+`;
+
+const HomeCateBtn = styled.div`
+  width: 174px;
+  height: 63px;
+  box-sizing: border-box;
+  text-align: start;
 `;
 
 export default Button;

@@ -35,24 +35,9 @@ const Imageupload = (props) => {
       .catch((err) => {
         console.log(err);
       });
-
-    // axios({
-    //   method: "POST",
-    //   url: "https://yogoloper.shop/api/images",formData,
-
-    //   headers: {
-    //     Authorization: `Bearer ${TOKEN}`,
-    //     "Content-Type": `multipart/form-data`,
-    //     accept: "application/json,",
-    //     "Access-Control-Allow-Origin": "*",
-    //   },
-    //
-    // }).then((res) => {
-    //   console.log(res);
-    // });
   };
 
-  //미리보기임
+  // 미리보기
   const Loadfile = (Blob) => {
     const formDatas = new FormData();
 
@@ -96,18 +81,3 @@ const Imageupload = (props) => {
   );
 };
 export default Imageupload;
-
-// axios({
-//   method: "POST",
-//   url: "https://yogoloper.shop/api/images",
-
-//   headers: {
-//     Authorization: `Bearer ${TOKEN}`,
-//     "Content-Type": "multipart/form-data",
-//     accept: "application/json,",
-//     "Access-Control-Allow-Origin": "*",
-//   },
-//   data:,
-// }).then((res) => {
-//   console.log(res);
-// });

@@ -38,6 +38,6 @@ const Dateset = (props) => {
     </>
   );
 };
-//   padding: 0px 53px;
+
 
 export default Dateset;
