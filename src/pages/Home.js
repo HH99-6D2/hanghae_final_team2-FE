@@ -62,7 +62,7 @@ const Home = (props) => {
             >
               콘서트
             </Button>
-            <Button 
+            <Button
               bg='#4D12FF'
               color='white'
               category
