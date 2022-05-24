@@ -19,7 +19,7 @@ import {
   ChatEdit,
 } from '../pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Header } from '../components';
+import { KakaoMap } from '../components';
 
 function App() {
   // const is_login = `${accessToken}`;

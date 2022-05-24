@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { ProfileHeader, Dateset, Imageupload, Time } from '../components';
+import {
+  ProfileHeader,
+  Dateset,
+  Imageupload,
+  Time,
+  KakaoMap,
+  KakaoMapEx,
+} from '../components';
 import {
   Container,
   MobileContainer,
@@ -18,7 +25,10 @@ const CreateChat = (props) => {
   const [name, inputname] = useState('');
   const [tag, inputtag] = useState('');
   const navigate = useNavigate();
-  // const [active, setActive] = useState(type[0]);
+
+  const KakaoMapData = (result) => {
+    console.log(result);
+  };
 
   const category = [
     {
@@ -129,7 +139,13 @@ const CreateChat = (props) => {
           />
         </Grid>
         <Grid margin='18px auto'>
-          <Text color='#4D12FF' bold>
+          <Text paddingbottom='17px' color='#4D12FF' bold>
+            위치정보
+          </Text>
+          <KakaoMapEx propFunction={KakaoMapData} />
+        </Grid>
+        <Grid margin='18px auto'>
+          <Text paddingbottom='17px' color='#4D12FF' bold>
             일정
           </Text>
           <Dateset />
