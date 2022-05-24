@@ -1,16 +1,26 @@
 import React, { useState } from "react";
 import { ProfileHeader } from "../components";
-import { Text, Container, MobileContainer, Grid, Image } from "../elements";
+import {
+  Text,
+  Container,
+  MobileContainer,
+  Grid,
+  Image,
+  Button,
+} from "../elements";
 
 const ChatInform = () => {
   return (
     <Container>
       <MobileContainer>
-        <ProfileHeader>채팅방 정보</ProfileHeader>
+        <ProfileHeader>
+          채팅방 정보
+          <Button mini>수정</Button>
+        </ProfileHeader>
         <Grid margin='23px 0px'>
           <Image
             CateChat
-            src='http://newsimg.hankookilbo.com/2019/04/03/201904031896022167_10.jpg'
+            src='https://cdn.kado.net/news/photo/202101/1054679_483633_4425.jpg'
           />
         </Grid>
         <Grid flex margin='0px 49px'>

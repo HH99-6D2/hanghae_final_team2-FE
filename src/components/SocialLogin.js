@@ -1,5 +1,6 @@
 import React from "react";
-import { Grid } from "../elements";
+import { Grid, Button } from "../elements";
+import { ReactComponent as Loginlogo } from "../assets/Loginlogo.svg";
 // const { Kakao } = window;
 const SocialLogin = (props) => {
   console.log(window.location.href);
@@ -13,10 +14,15 @@ const SocialLogin = (props) => {
         href='http://junehan-test.shop/api/auth/login?provider=kakao'
         style={style}
       >
-        <img
-          src='//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg'
-          width='80%'
-        />
+        <Button
+          textAlign
+          bg='#4D12FF'
+          width='314px'
+          margin='30px 0px 0px 0px'
+          color='white'
+        >
+          카카오계정으로 로그인하기
+        </Button>
       </a>
     </Grid>
   );

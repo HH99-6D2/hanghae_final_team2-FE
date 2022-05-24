@@ -10,7 +10,7 @@ const CateChat = (props) => {
       <Grid flex direction='row'>
         <Image
           setting
-          src='http://newsimg.hankookilbo.com/2019/04/03/201904031896022167_10.jpg'
+          src='http://res.heraldm.com/content/image/2022/04/23/20220423000095_0.jpg'
         ></Image>
         <Grid between width='317px' height='117px' margin='7px auto'>
           <Grid flex>

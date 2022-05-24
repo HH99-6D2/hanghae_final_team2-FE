@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-// import styled from 'styled-components';
 import { Button, Grid, Image } from '../elements';
 import { useNavigate } from 'react-router-dom';
 import kitchen from '../assets/kitchen.svg';
-// import { MdOutlineSportsBaseball } from 'react-icons/md';
+
 
 // import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

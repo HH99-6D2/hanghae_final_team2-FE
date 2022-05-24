@@ -43,7 +43,6 @@ const Like = () => {
       onClick={dolike}
       icon={<MainUnLike />}
       checkedIcon={<MainLike />}
-      
     ></Checkbox>
   );
 };
