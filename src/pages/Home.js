@@ -14,7 +14,6 @@ import kitchen from '../assets/kitchen.svg';
 
 const Home = (props) => {
   const navigate = useNavigate();
- 
 
   return (
     <React.Fragment>
