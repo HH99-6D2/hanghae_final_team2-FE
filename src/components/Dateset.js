@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Grid } from "../elements";
+import moment from "moment";
 const Dateset = (props) => {
   const MyDatePicker = styled(DatePicker)({
     width: "155px",
@@ -14,22 +15,40 @@ const Dateset = (props) => {
     marginTop: "10px",
   });
 
+  const changeFormat = (date, format) => {
+    if (moment(date).isValid()) {
+      return moment(date).format(format);
+    }
+  };
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  console.log(startDate);
-  console.log(endDate);
+
+  // console.log(startDate);
+  // console.log(endDate);
+  props.setstart(changeFormat(startDate, "yyyy-MM-DD"));
+  props.setend(changeFormat(endDate, "yyyy-MM-DD"));
   return (
     <>
       <Grid between height='40px'>
         <MyDatePicker
+          dateFormat='yyyy.MM.dd'
           selected={startDate}
           onChange={(date) => setStartDate(date)}
+          minDate={new Date()}
           selectsStart
           startDate={startDate}
+          placeholderText='시작 날짜'
+          popperModifiers={{
+            preventOverflow: { enabled: true },
+          }}
+          popperPlacement='auto'
         />
         <MyDatePicker
+          dateFormat='yyyy.MM.dd'
           selected={endDate}
           onChange={(date) => setEndDate(date)}
+          placeholderText='종료 날짜'
           selectsEnd
           endDate={endDate}
           minDate={startDate}
@@ -38,6 +57,5 @@ const Dateset = (props) => {
     </>
   );
 };
-
 
 export default Dateset;

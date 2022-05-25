@@ -1,5 +1,12 @@
-import React, { useState } from 'react';
-import { ProfileHeader, Dateset, Imageupload, Time } from '../components';
+import React, { useState } from "react";
+import {
+  ProfileHeader,
+  Dateset,
+  Imageupload,
+  Time,
+  KakaoMap,
+  KakaoMapEx,
+} from "../components";
 import {
   Container,
   MobileContainer,
@@ -8,30 +15,43 @@ import {
   Text,
   Button,
   Buttons,
-} from '../elements';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+} from "../elements";
+
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const CreateChat = (props) => {
-  const TOKEN = sessionStorage.getItem('token');
-  const [name, inputname] = useState('');
-  const [tag, inputtag] = useState('');
+  const TOKEN = sessionStorage.getItem("token");
+  const [name, inputname] = useState("");
+  const [tag, inputtag] = useState("");
+  const [start, setstart] = useState("");
+  const [end, setend] = useState("");
+  const [starttime, setstarttime] = useState("");
+  const [endtime, setendtime] = useState("");
+  const [url, seturl] = useState("");
+  const [place, setplace] = useState("");
   const navigate = useNavigate();
-  // const [active, setActive] = useState(type[0]);
 
+  console.log(start);
+  console.log(end);
+  console.log(url);
+  console.log(starttime, endtime);
+  const KakaoMapData = (result) => {
+    setplace(result);
+  };
+  console.log(place);
   const category = [
     {
-      src: '',
-      text: '스포츠',
+      src: "",
+      text: "스포츠",
     },
     {
-      src: '',
-      text: '전시회',
+      src: "",
+      text: "전시회",
     },
     {
-      src: '',
-      text: '콘서트',
+      src: "",
+      text: "콘서트",
     },
   ];
 
@@ -43,31 +63,8 @@ const CreateChat = (props) => {
             <Button
               cursor='pointer'
               _onClick={() => {
-                // axios({
-                //   method: "POST",
-                //   url: "https://yogoloper.shop/api/rooms",
-                //   headers: {
-                //     Authorization: `Bearer ${TOKEN}`,
-                //   },
-                //   data: {
-                //     title: { name },
-                //     positionX: 35.97664845766847,
-                //     positionY: 126.99597295767953,
-                //     regionAName: "서울",
-                //     regionBName: "송파구",
-                //     categoryId: 1,
-                //     startDate: "2022-05-11 12:00:00",
-                //     endDate: "2022-05-16 00:00:00",
-                //     maxUser: 10,
-                //     imageUrl:
-                //       "https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png",
-                //     tags: ["잠실야구장", "tag200", "tag300"],
-                //   },
-                // }).then((res) => {
-                //   console.log(res);
-                // });
                 console.log(name, tag);
-                navigate('/addchatcheck', {
+                navigate("/addchatcheck", {
                   state: { title: name },
                 });
               }}
@@ -79,7 +76,7 @@ const CreateChat = (props) => {
           </ProfileHeader>
         </Grid>
 
-        <Imageupload />
+        <Imageupload seturl={seturl} />
         <Grid margin=' 7px auto'>
           <Text paddingbottom='17px' color='#4D12FF' bold>
             채팅방 이름
@@ -121,7 +118,7 @@ const CreateChat = (props) => {
             태그 추가
           </Text>
           <Input
-            placeholder='태그를  입력해주세요'
+            placeholder='#강남#코엑스#영화관'
             create
             _onChange={(e) => {
               inputtag(e.target.value);
@@ -129,11 +126,17 @@ const CreateChat = (props) => {
           />
         </Grid>
         <Grid margin='18px auto'>
-          <Text color='#4D12FF' bold>
+          <Text paddingbottom='17px' color='#4D12FF' bold>
+            위치정보
+          </Text>
+          <KakaoMapEx propFunction={KakaoMapData} />
+        </Grid>
+        <Grid margin='18px auto'>
+          <Text paddingbottom='17px' color='#4D12FF' bold>
             일정
           </Text>
-          <Dateset />
-          <Time />
+          <Dateset setstart={setstart} setend={setend} />
+          <Time setstarttime={setstarttime} setendtime={setendtime} />
         </Grid>
       </MobileContainer>
     </Container>

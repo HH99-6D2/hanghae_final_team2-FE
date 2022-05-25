@@ -17,12 +17,13 @@ const Auth = () => {
         sessionStorage.setItem("id", res.data.user.id);
         sessionStorage.setItem("refresh", res.data.refreshToken);
         sessionStorage.setItem("nick", res.data.user.nickname);
+        sessionStorage.setItem("social", res.data.socialToken);
+        sessionStorage.setItem("socialre", res.data.socialRefreshToken);
+        sessionStorage.setItem("cType", res.data.user.cType);
 
-        // localStorage.setItem("social", res.data.socialToken);
         // localStorage.setItem("timeout", moment().add(8, "m"));
         // console.log(moment()._d);
         navigate("/loginsucess");
-        
       });
   }, []);
 

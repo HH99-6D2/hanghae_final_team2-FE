@@ -14,6 +14,7 @@ const Imageupload = (props) => {
     setsend(e.target.files[0]);
     Loadfile(e.target.files[0]);
     console.log(e.target.files[0]);
+
     const formData = new FormData();
     formData.append("file", e.target.files[0]);
 
@@ -30,7 +31,8 @@ const Imageupload = (props) => {
     })
       .then((res) => {
         console.log(res.data);
-        console.log(res.data.url);
+        setsend(res.data.url);
+        props.seturl(res.data.url);
       })
       .catch((err) => {
         console.log(err);

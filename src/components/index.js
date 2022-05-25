@@ -12,6 +12,8 @@ import Time from './Time';
 import Header from './Header';
 import Blockperson from './Blockperson';
 import CategorySlick from './CategorySlick';
+import KakaoMap from './KakaoMap';
+import KakaoMapEx from './KakaoMapEx';
 
 export {
   Category,
@@ -28,4 +30,6 @@ export {
   Header,
   Blockperson,
   CategorySlick,
+  KakaoMap,
+  KakaoMapEx,
 };

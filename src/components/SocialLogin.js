@@ -15,6 +15,7 @@ const SocialLogin = (props) => {
         style={style}
       >
         <Button
+          textAlign
           bg='#4D12FF'
           width='314px'
           margin='30px 0px 0px 0px'

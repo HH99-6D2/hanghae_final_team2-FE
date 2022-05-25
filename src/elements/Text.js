@@ -67,6 +67,6 @@ const Create = styled.div`
   font-weight: ${(props) => (props.bold ? "600" : "400")};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   padding-bottom: ${(props) => props.paddingbottom};
-  width: 75px;
+  width: ${(props) => (props.width ? "100%" : "75px")};
 `;
 export default Text;

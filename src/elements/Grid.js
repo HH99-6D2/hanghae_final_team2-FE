@@ -28,6 +28,7 @@ const Grid = (props) => {
     top,
     boxShadow,
     categoryFlex,
+    SearchFlex,
   } = props;
 
   const styles = {
@@ -54,6 +55,7 @@ const Grid = (props) => {
     top,
     boxShadow,
     categoryFlex,
+    SearchFlex,
   };
 
   return (
@@ -104,6 +106,10 @@ const Wrapper = styled.div`
   ${(props) => (props.profileFlex ? `display: flex; align-items: center` : '')}
   ${(props) => (props.boxShadow ? `box-shadow: 0px 1px #00000040` : '')}
   ${(props) => (props.categoryFlex ? `display: flex; overflow-x: auto` : '')}
+  ${(props) =>
+    props.SearchFlex
+      ? `display: flex; align-items: center; justify-content: space-between;`
+      : ''}
 `;
 
 export default Grid;

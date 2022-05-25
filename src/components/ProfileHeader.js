@@ -13,7 +13,7 @@ const ProfileHeader = (props) => {
     return (
       <Grid flex alignItems='center' margin='39px 10px 20px 34px'>
         <Back size='30' onClick={() => navigate("/")} cursor='pointer' />
-        <Grid width='160px' margin='0 0 0 63px' textAlign='center'>
+        <Grid width='160px' margin='0 auto'>
           <Text bold size='20px'>
             {children}
           </Text>
@@ -24,7 +24,7 @@ const ProfileHeader = (props) => {
     return (
       <Grid flex alignItems='center' margin='39px 10px 20px 34px'>
         <Back size='30' onClick={() => navigate(-1)} cursor='pointer' />
-        <Grid width='160px' margin='0 0 0 63px' textAlign='center'>
+        <Grid width='160px' margin='0px auto'>
           <Text bold size='20px'>
             {children}
           </Text>

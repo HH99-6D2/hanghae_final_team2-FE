@@ -25,9 +25,16 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <!-- 카카오맵 -->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a46ab79bc5bc8b837c1ac5ceb9c21a19&libraries=services"
+    ></script>
     <!--소셜로그인 확인 -->
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-    <script>Kakao.init("97e52c88c7858048242e7337e401390b")</script>
+    <script>
+      Kakao.init('97e52c88c7858048242e7337e401390b');
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

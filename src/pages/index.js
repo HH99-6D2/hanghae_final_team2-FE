@@ -14,6 +14,9 @@ import SerachChat from "./SerachChat";
 import Blocklist from "./Blocklist";
 import ChatInform from "./ChatInform";
 import ChatEdit from "./ChatEdit";
+import ProfileImage from "./ProfileImage";
+import Guid from "./Guid";
+
 export {
   Home,
   Login,
@@ -31,4 +34,6 @@ export {
   Blocklist,
   ChatInform,
   ChatEdit,
+  ProfileImage,
+  Guid,
 };
