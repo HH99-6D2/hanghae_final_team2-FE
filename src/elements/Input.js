@@ -8,7 +8,6 @@ const Input = (props) => {
     placeholder,
     _onChange,
     _onClick,
-    value,
     type,
     multiLine,
     width,

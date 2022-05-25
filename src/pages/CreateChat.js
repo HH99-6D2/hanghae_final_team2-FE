@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   ProfileHeader,
   Dateset,
@@ -6,7 +6,7 @@ import {
   Time,
   KakaoMap,
   KakaoMapEx,
-} from '../components';
+} from "../components";
 import {
   Container,
   MobileContainer,
@@ -15,33 +15,43 @@ import {
   Text,
   Button,
   Buttons,
-} from '../elements';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+} from "../elements";
+
+import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 const CreateChat = (props) => {
-  const TOKEN = sessionStorage.getItem('token');
-  const [name, inputname] = useState('');
-  const [tag, inputtag] = useState('');
+  const TOKEN = sessionStorage.getItem("token");
+  const [name, inputname] = useState("");
+  const [tag, inputtag] = useState("");
+  const [start, setstart] = useState("");
+  const [end, setend] = useState("");
+  const [starttime, setstarttime] = useState("");
+  const [endtime, setendtime] = useState("");
+  const [url, seturl] = useState("");
+  const [place, setplace] = useState("");
   const navigate = useNavigate();
 
+  console.log(start);
+  console.log(end);
+  console.log(url);
+  console.log(starttime, endtime);
   const KakaoMapData = (result) => {
-    console.log(result);
+    setplace(result);
   };
-
+  console.log(place);
   const category = [
     {
-      src: '',
-      text: '스포츠',
+      src: "",
+      text: "스포츠",
     },
     {
-      src: '',
-      text: '전시회',
+      src: "",
+      text: "전시회",
     },
     {
-      src: '',
-      text: '콘서트',
+      src: "",
+      text: "콘서트",
     },
   ];
 
@@ -53,10 +63,9 @@ const CreateChat = (props) => {
             <Button
               cursor='pointer'
               _onClick={() => {
-               
                 console.log(name, tag);
-                navigate('/addchatcheck', {
-                  state: { title: name ,},
+                navigate("/addchatcheck", {
+                  state: { title: name },
                 });
               }}
               mini
@@ -67,7 +76,7 @@ const CreateChat = (props) => {
           </ProfileHeader>
         </Grid>
 
-        <Imageupload />
+        <Imageupload seturl={seturl} />
         <Grid margin=' 7px auto'>
           <Text paddingbottom='17px' color='#4D12FF' bold>
             채팅방 이름
@@ -109,7 +118,7 @@ const CreateChat = (props) => {
             태그 추가
           </Text>
           <Input
-            placeholder='태그를  입력해주세요'
+            placeholder='#강남#코엑스#영화관'
             create
             _onChange={(e) => {
               inputtag(e.target.value);
@@ -126,8 +135,8 @@ const CreateChat = (props) => {
           <Text paddingbottom='17px' color='#4D12FF' bold>
             일정
           </Text>
-          <Dateset />
-          <Time />
+          <Dateset setstart={setstart} setend={setend} />
+          <Time setstarttime={setstarttime} setendtime={setendtime} />
         </Grid>
       </MobileContainer>
     </Container>

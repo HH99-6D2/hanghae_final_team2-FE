@@ -17,17 +17,11 @@ import {
   Blocklist,
   ChatInform,
   ChatEdit,
-<<<<<<< HEAD
-} from '../pages';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { KakaoMap } from '../components';
-=======
-  ProfileImage,
   Guid,
+  ProfileImage,
 } from "../pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "../components";
->>>>>>> 03161ddc0fbdfa3b26dd44b84a4d07121853745a
+import { KakaoMap } from "../components";
 
 function App() {
   // const is_login = `${accessToken}`;

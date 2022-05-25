@@ -1,5 +1,5 @@
 /*global kakao*/
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const { kakao } = window;
 
@@ -10,7 +10,7 @@ function KakaoMap({ searchPlace }) {
   useEffect(() => {
     var infowindow = new kakao.maps.load({ zIndex: 1 });
     var markers = [];
-    const container = document.getElementById('myMap');
+    const container = document.getElementById("myMap");
     const options = {
       center: new kakao.maps.LatLng(33.450701, 126.570667),
       level: 3,
@@ -39,7 +39,7 @@ function KakaoMap({ searchPlace }) {
 
     // 검색결과 목록 하단에 페이지 번호 표시
     function displayPagination(pagination) {
-      var paginationEl = document.getElementById('pagination'),
+      var paginationEl = document.getElementById("pagination"),
         fragment = document.createDocumentFragment(),
         i;
 
@@ -49,12 +49,12 @@ function KakaoMap({ searchPlace }) {
       }
 
       for (i = 1; i <= pagination.last; i++) {
-        var el = document.createElement('a');
-        el.href = '#';
+        var el = document.createElement("a");
+        el.href = "#";
         el.innerHTML = i;
 
         if (i === pagination.current) {
-          el.className = 'on';
+          el.className = "on";
         } else {
           el.onclick = (function (i) {
             return function () {
@@ -74,11 +74,11 @@ function KakaoMap({ searchPlace }) {
         position: new kakao.maps.LatLng(place.y, place.x),
       });
 
-      kakao.maps.event.addListener(marker, 'click', function () {
+      kakao.maps.event.addListener(marker, "click", function () {
         infowindow.setContent(
           '<div style="padding:5px;font-size:12px;">' +
             place.place_name +
-            '</div>',
+            "</div>"
         );
         infowindow.open(map, marker);
       });
@@ -90,13 +90,13 @@ function KakaoMap({ searchPlace }) {
       <div
         id='myMap'
         style={{
-          width: '320px',
-          height: '170px',
+          width: "320px",
+          height: "170px",
         }}
       ></div>
       <div id='result-list'>
         {Places.map((item, i) => (
-          <div key={i} style={{ marginTop: '20px' }}>
+          <div key={i} style={{ marginTop: "20px" }}>
             <span>{i + 1}</span>
             <div>
               <h5>{item.place_name}</h5>
