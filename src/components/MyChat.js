@@ -13,8 +13,6 @@ import CateChat from "./CateChat";
 
 // 햄버거바->채팅방관리-> 보여줄 탭
 
-
-
 const MyChat = (props) => {
   const theme = createTheme({
     components: {

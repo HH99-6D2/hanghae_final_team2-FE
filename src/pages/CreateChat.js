@@ -43,32 +43,10 @@ const CreateChat = (props) => {
             <Button
               cursor='pointer'
               _onClick={() => {
-                // axios({
-                //   method: "POST",
-                //   url: "https://yogoloper.shop/api/rooms",
-                //   headers: {
-                //     Authorization: `Bearer ${TOKEN}`,
-                //   },
-                //   data: {
-                //     title: { name },
-                //     positionX: 35.97664845766847,
-                //     positionY: 126.99597295767953,
-                //     regionAName: "서울",
-                //     regionBName: "송파구",
-                //     categoryId: 1,
-                //     startDate: "2022-05-11 12:00:00",
-                //     endDate: "2022-05-16 00:00:00",
-                //     maxUser: 10,
-                //     imageUrl:
-                //       "https://www.google.com/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png",
-                //     tags: ["잠실야구장", "tag200", "tag300"],
-                //   },
-                // }).then((res) => {
-                //   console.log(res);
-                // });
+               
                 console.log(name, tag);
                 navigate('/addchatcheck', {
-                  state: { title: name },
+                  state: { title: name ,},
                 });
               }}
               mini

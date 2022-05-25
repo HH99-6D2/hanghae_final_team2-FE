@@ -59,14 +59,14 @@ function Sidebar(props) {
     <React.Fragment>
       <Container>
         <MobileContainer>
-          <Grid
-            margin='25px 28px 0 auto'
-            cursor='pointer'
-            onClick={() => {
-              window.location.replace("/");
-            }}
-          >
-            <Image src={cancel} size='22' />
+          <Grid margin='25px 28px 0 auto' cursor='pointer'>
+            <Image
+              _onClick={() => {
+                navigate("/");
+              }}
+              src={cancel}
+              size='22'
+            />
           </Grid>
           <Grid profileFlex margin='17px 33px'>
             <Image src={profile} size='58'></Image>

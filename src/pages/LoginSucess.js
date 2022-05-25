@@ -25,7 +25,7 @@ const LoginSucess = (props) => {
   const doclick = () => {
     axios({
       method: "patch",
-      url: "https://junehan-test.shop/api/user/update",
+      url: "https://junehan-test.shop/api/user",
       headers: {
         Authorization: `Bearer ${TOKEN}`,
       },

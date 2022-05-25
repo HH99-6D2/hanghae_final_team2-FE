@@ -35,7 +35,7 @@ const Time = () => {
             step: 300, // 5 min
           }}
           sx={{
-            borderRadius: 5,
+            borderRadius: 15,
             "&.MuiInputBase-input ": {
               borderRadius: 15,
             },

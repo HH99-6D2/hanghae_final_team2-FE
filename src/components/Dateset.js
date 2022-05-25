@@ -24,8 +24,13 @@ const Dateset = (props) => {
         <MyDatePicker
           selected={startDate}
           onChange={(date) => setStartDate(date)}
+          minDate={new Date()}
           selectsStart
           startDate={startDate}
+          popperModifiers={{
+            preventOverflow: { enabled: true },
+          }}
+          popperPlacement='auto'
         />
         <MyDatePicker
           selected={endDate}
