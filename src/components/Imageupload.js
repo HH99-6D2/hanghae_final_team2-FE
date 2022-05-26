@@ -31,7 +31,6 @@ const Imageupload = (props) => {
     })
       .then((res) => {
         console.log(res.data);
-        setsend(res.data.url);
         props.seturl(res.data.url);
       })
       .catch((err) => {

@@ -1,5 +1,4 @@
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Grid } from "../elements";
@@ -24,37 +23,33 @@ const Dateset = (props) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  // console.log(startDate);
-  // console.log(endDate);
   props.setstart(changeFormat(startDate, "yyyy-MM-DD"));
   props.setend(changeFormat(endDate, "yyyy-MM-DD"));
   return (
-    <>
-      <Grid between height='40px'>
-        <MyDatePicker
-          dateFormat='yyyy.MM.dd'
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          minDate={new Date()}
-          selectsStart
-          startDate={startDate}
-          placeholderText='시작 날짜'
-          popperModifiers={{
-            preventOverflow: { enabled: true },
-          }}
-          popperPlacement='auto'
-        />
-        <MyDatePicker
-          dateFormat='yyyy.MM.dd'
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          placeholderText='종료 날짜'
-          selectsEnd
-          endDate={endDate}
-          minDate={startDate}
-        />
-      </Grid>
-    </>
+    <Grid between height='40px'>
+      <MyDatePicker
+        dateFormat='yyyy.MM.dd'
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        minDate={new Date()}
+        selectsStart
+        startDate={startDate}
+        placeholderText='시작 날짜'
+        popperModifiers={{
+          preventOverflow: { enabled: true },
+        }}
+        popperPlacement='auto'
+      />
+      <MyDatePicker
+        dateFormat='yyyy.MM.dd'
+        selected={endDate}
+        onChange={(date) => setEndDate(date)}
+        placeholderText='종료 날짜'
+        selectsEnd
+        endDate={endDate}
+        minDate={startDate}
+      />
+    </Grid>
   );
 };
 

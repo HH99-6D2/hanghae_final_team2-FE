@@ -1,15 +1,8 @@
 import React, { useState } from "react";
-import { ProfileHeader, Dateset, Imageupload, Time } from "../components";
-import {
-  Container,
-  MobileContainer,
-  Grid,
-  Input,
-  Text,
-  Button,
-  Buttons,
-} from "../elements";
+import { Dateset, Imageupload, Time } from "../components";
+import { Grid, Input, Text, Button } from "../elements";
 import axios from "axios";
+import ProfileHeader from "./common/ProfileHeader";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
@@ -36,42 +29,41 @@ const CreateChat = (props) => {
   ];
 
   return (
-    <Container>
-      <MobileContainer>
-        <Grid>
-          <ProfileHeader save>
-            <Button
-              cursor='pointer'
-              _onClick={() => {
-                console.log("채팅방 수정하는 버튼");
-              }}
-              mini
-            >
-              저장
-            </Button>
-            채팅방 수정
-          </ProfileHeader>
-        </Grid>
-
-        <Imageupload />
-        <Grid margin=' 7px auto'>
-          <Text paddingbottom='17px' color='#4D12FF' bold>
-            채팅방 이름
-          </Text>
-          <Input
-            placeholder='원래 채팅방 이름'
-            create
-            _onChange={(e) => {
-              inputname(e.target.value);
+    <>
+      <Grid>
+        <ProfileHeader save>
+          <Button
+            cursor='pointer'
+            _onClick={() => {
+              console.log("채팅방 수정하는 버튼");
             }}
-          />
-        </Grid>
-        <Grid margin=' 7px auto'>
-          <Text padding='3px 16px' color='#4D12FF' bold>
-            카테고리 선택
-          </Text>
-          <Grid flex>
-            {/* {category.map((Category) => {
+            mini
+          >
+            저장
+          </Button>
+          채팅방 수정
+        </ProfileHeader>
+      </Grid>
+
+      <Imageupload />
+      <Grid margin=' 7px auto'>
+        <Text paddingbottom='17px' color='#4D12FF' bold>
+          채팅방 이름
+        </Text>
+        <Input
+          placeholder='원래 채팅방 이름'
+          create
+          _onChange={(e) => {
+            inputname(e.target.value);
+          }}
+        />
+      </Grid>
+      <Grid margin=' 7px auto'>
+        <Text padding='3px 16px' color='#4D12FF' bold>
+          카테고리 선택
+        </Text>
+        <Grid flex>
+          {/* {category.map((Category) => {
               return (
                 <ButtonToggle
                   value={location}
@@ -87,30 +79,29 @@ const CreateChat = (props) => {
                 </ButtonToggle>
               );
             })} */}
-          </Grid>
         </Grid>
+      </Grid>
 
-        <Grid margin='0px auto'>
-          <Text paddingbottom='17px' color='#4D12FF' bold>
-            태그 추가
-          </Text>
-          <Input
-            placeholder='원래있던 태그'
-            create
-            _onChange={(e) => {
-              inputtag(e.target.value);
-            }}
-          />
-        </Grid>
-        <Grid margin='18px auto'>
-          <Text color='#4D12FF' bold>
-            일정
-          </Text>
-          <Dateset />
-          <Time />
-        </Grid>
-      </MobileContainer>
-    </Container>
+      <Grid margin='0px auto'>
+        <Text paddingbottom='17px' color='#4D12FF' bold>
+          태그 추가
+        </Text>
+        <Input
+          placeholder='원래있던 태그'
+          create
+          _onChange={(e) => {
+            inputtag(e.target.value);
+          }}
+        />
+      </Grid>
+      <Grid margin='18px auto'>
+        <Text color='#4D12FF' bold>
+          일정
+        </Text>
+        <Dateset />
+        <Time />
+      </Grid>
+    </>
   );
 };
 

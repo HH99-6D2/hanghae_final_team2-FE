@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import {
   LoginSucess,
@@ -21,36 +20,35 @@ import {
   ProfileImage,
 } from "../pages";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { KakaoMap } from "../components";
-
+import { MobileContainer, Container } from "../elements";
 function App() {
-  // const is_login = `${accessToken}`;
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' exact element={<Home />} />
-        <Route path='/login' exact element={<Login />} />
-        <Route path='/loginsucess' exact element={<LoginSucess />} />
-        <>
-          <Route path='/profile' exact element={<MyProfile />} />
-          <Route path='/chatlist' exact element={<MyChatList />} />
-          <Route path='/alarmsetting' exact element={<AlarmSetting />} />
-          <Route path='/newalarm' exact element={<NewAlarm />} />
-          <Route path='/addchat' exact element={<CreateChat />} />
-          <Route path='/catechat/:category' exact element={<CateChatlist />} />
-          <Route path='/auth' exact element={<Auth />} />
-          <Route path='/sidebar' exact element={<Sidebar />} />
-          <Route path='/addchatcheck' exact element={<CreateChatFinal />} />
-          <Route path='/search' exact element={<SerachChat />} />
-          <Route path='/blocklist' exact element={<Blocklist />} />
-          <Route path='/chatInform' exact element={<ChatInform />} />
-          <Route path='/editchat' exact element={<ChatEdit />} />
-          <Route path='/guid' exact element={<Guid />} />
-          <Route path='/profileimage' exact element={<ProfileImage />} />
-        </>
-      </Routes>
-    </BrowserRouter>
+    <Container>
+      <MobileContainer>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/loginsucess' element={<LoginSucess />} />
+            <Route path='/profile' element={<MyProfile />} />
+            <Route path='/chatlist' element={<MyChatList />} />
+            <Route path='/alarmsetting' element={<AlarmSetting />} />
+            <Route path='/newalarm' element={<NewAlarm />} />
+            <Route path='/addchat' element={<CreateChat />} />
+            <Route path='/catechat/:category' element={<CateChatlist />} />
+            <Route path='/auth' element={<Auth />} />
+            <Route path='/sidebar' element={<Sidebar />} />
+            <Route path='/addchatcheck' element={<CreateChatFinal />} />
+            <Route path='/search' element={<SerachChat />} />
+            <Route path='/blocklist' element={<Blocklist />} />
+            <Route path='/chatInform' element={<ChatInform />} />
+            <Route path='/editchat' element={<ChatEdit />} />
+            <Route path='/guid' element={<Guid />} />
+            <Route path='/profileimage' element={<ProfileImage />} />
+          </Routes>
+        </BrowserRouter>
+      </MobileContainer>
+    </Container>
   );
 }
 

@@ -1,7 +1,6 @@
 import React from "react";
-import { Grid, Button } from "../elements";
-import { ReactComponent as Loginlogo } from "../assets/Loginlogo.svg";
-// const { Kakao } = window;
+import { Grid, Button } from "../../../elements";
+
 const SocialLogin = (props) => {
   console.log(window.location.href);
   const style = {

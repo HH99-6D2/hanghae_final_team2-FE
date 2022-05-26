@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import moment from "moment";
 
 const Auth = () => {
   const navigate = useNavigate();
@@ -21,8 +20,6 @@ const Auth = () => {
         sessionStorage.setItem("socialre", res.data.socialRefreshToken);
         sessionStorage.setItem("cType", res.data.user.cType);
 
-        // localStorage.setItem("timeout", moment().add(8, "m"));
-        // console.log(moment()._d);
         navigate("/loginsucess");
       });
   }, []);
