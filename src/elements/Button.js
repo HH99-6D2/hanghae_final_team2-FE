@@ -1,7 +1,8 @@
-import eslintConfigReactApp from "eslint-config-react-app";
 import React from "react";
 import styled, { withTheme } from "styled-components";
 import Text from "./Text";
+import Image from "./Image";
+import Grid from "./Grid";
 
 const Button = (props) => {
   const {
@@ -22,11 +23,12 @@ const Button = (props) => {
     mainlike,
     border,
     cursor,
-    homeCateBtn,
+    chatCateBtn,
     textAlign,
     profile,
     bordebottom,
     bold,
+    src,
   } = props;
   const styles = {
     width: width,
@@ -45,6 +47,7 @@ const Button = (props) => {
     profile: profile,
     bordebottom: bordebottom,
     bold: bold,
+    src: src,
   };
   if (large) {
     return (
@@ -57,12 +60,15 @@ const Button = (props) => {
   } else if (category) {
     return (
       <>
-        <CateButton {...styles} onClick={_onClick}>
-          {children}
-        </CateButton>
+        <Grid profileFlex>
+          <CateButton {...styles} onClick={_onClick}>
+            <Image Profile src={props.src} size='28'></Image>
+            {children}
+          </CateButton>
+        </Grid>
       </>
     );
-  } else if (homeCateBtn) {
+  } else if (chatCateBtn) {
     return (
       <>
         <HomeCateBtn {...styles} onClick={_onClick}>
@@ -163,18 +169,18 @@ const LargeButton = styled.button`
 
 const CateButton = styled.div`
   box-sizing: border-box;
-  border-radius: 20px;
-  padding: ${(props) => props.padding};
+  border-radius: 19px;
+  padding: 5px 10px;
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")};
   ${(props) => (props.bg ? `background-color: ${props.bg};` : "")};
   ${(props) => (props.color ? `color: ${props.color};` : "")};
   ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
-  text-align: center;
-  min-width: 90px;
-  height: 70px;
+  width: 90px;
+  height: 40px;
   margin: 15px;
   position: relative;
   cursor: pointer;
+  box-shadow: 0px 0px 10px;
 `;
 
 const MiniButton = styled.div`
@@ -217,6 +223,8 @@ const HomeCateBtn = styled.div`
   height: 63px;
   box-sizing: border-box;
   text-align: start;
+  background-image: url("${(props) => props.src}");
+  background-size: cover;
 `;
 
 export default Button;

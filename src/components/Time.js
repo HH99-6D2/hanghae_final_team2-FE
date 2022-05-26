@@ -28,40 +28,38 @@ const Time = (props) => {
   props.setendtime(changeFormat(endtime, "HH:mm:ss"));
 
   return (
-    <>
-      <Grid between height='40px'>
-        <MytimePicker
-          dateFormat='aa h:mm'
-          locale={ko}
-          selected={starttime}
-          onChange={(time) => setStarttime(time)}
-          // minDate={new Date()}
-          selectsStart
-          showTimeSelect
-          showTimeSelectOnly
-          startDate={starttime}
-          placeholderText='시작 시간'
-          timeIntervals={10}
-          popperModifiers={{
-            preventOverflow: { enabled: true },
-          }}
-          popperPlacement='auto'
-        />
-        <MytimePicker
-          dateFormat='aa h:mm'
-          locale={ko}
-          selected={endtime}
-          timeIntervals={10}
-          showTimeSelect
-          showTimeSelectOnly
-          onChange={(time) => setEndtime(time)}
-          selectsEnd
-          placeholderText='종료 시간'
-          endDate={endtime}
-          // minDate={startDate}
-        />
-      </Grid>
-    </>
+    <Grid between height='40px'>
+      <MytimePicker
+        dateFormat='aa h:mm'
+        locale={ko}
+        selected={starttime}
+        onChange={(time) => setStarttime(time)}
+        // minDate={new Date()}
+        selectsStart
+        showTimeSelect
+        showTimeSelectOnly
+        startDate={starttime}
+        placeholderText='시작 시간'
+        timeIntervals={10}
+        popperModifiers={{
+          preventOverflow: { enabled: true },
+        }}
+        popperPlacement='auto'
+      />
+      <MytimePicker
+        dateFormat='aa h:mm'
+        locale={ko}
+        selected={endtime}
+        timeIntervals={10}
+        showTimeSelect
+        showTimeSelectOnly
+        onChange={(time) => setEndtime(time)}
+        selectsEnd
+        placeholderText='종료 시간'
+        endDate={endtime}
+        // minDate={startDate}
+      />
+    </Grid>
   );
 };
 

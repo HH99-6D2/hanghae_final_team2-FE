@@ -1,14 +1,6 @@
 import React, { useState } from "react";
-import ProfileHeader from "../components/ProfileHeader";
-import {
-  MobileContainer,
-  Grid,
-  Button,
-  Text,
-  Image,
-  Input,
-  Container,
-} from "../elements";
+import ProfileHeader from "./common/ProfileHeader";
+import { Grid, Button, Text, Image, Input } from "../elements";
 
 import axios from "axios";
 import Profilebig from "../assets/Profilebig.svg";
@@ -135,21 +127,19 @@ const MyProfile = (props) => {
 
   return (
     <>
-      <Container>
-        <MobileContainer>
-          <ProfileHeader save>
-            프로필 수정
-            <Button mini _onClick={donick}>
-              저장
-            </Button>
-          </ProfileHeader>
-          <Grid
-            signupFlex
-            height='200px'
-            alignItems='center'
-            _onClick={() => navigate("/profileimage")}
-          >
-            {/* {Setting.map((Setting) => (
+      <ProfileHeader save>
+        프로필 수정
+        <Button mini _onClick={donick}>
+          저장
+        </Button>
+      </ProfileHeader>
+      <Grid
+        signupFlex
+        height='200px'
+        alignItems='center'
+        _onClick={() => navigate("/profileimage")}
+      >
+        {/* {Setting.map((Setting) => (
               <img
                 src={
                   location.state.cType === Setting.Type
@@ -158,51 +148,49 @@ const MyProfile = (props) => {
                 }
               ></img>
             ))} */}
-          </Grid>
+      </Grid>
 
-          <Grid signupFlex>
-            <Input
-              width='80%'
-              _onChange={(e) => {
-                inputnick(e.target.value);
-              }}
-              defaultValue={nickname}
-            ></Input>
-          </Grid>
-          <Grid flex direction='column' center>
-            <Text create bold width margin='27px 0px 7px 35px '>
-              위치정보 수집 동의
-            </Text>
-            <Button
-              color='#767676'
-              margin='0px auto 21px 18px'
-              profile
-              bordebottom='1px solid #EAEAEA '
-            >
-              동의
-            </Button>
-          </Grid>
-          <Button
-            color='#4d12ff'
-            margin='0px auto 21px 18px'
-            profile
-            bordebottom='1px solid #EAEAEA '
-            bold
-            _onClick={dologout}
-          >
-            로그아웃
-          </Button>
-          <Button
-            color='#121212'
-            margin='0px auto 21px 18px'
-            profile
-            bordebottom='1px solid #EAEAEA '
-            _onClick={dosignout}
-          >
-            회원탈퇴
-          </Button>
-        </MobileContainer>
-      </Container>
+      <Grid signupFlex>
+        <Input
+          width='80%'
+          _onChange={(e) => {
+            inputnick(e.target.value);
+          }}
+          defaultValue={nickname}
+        ></Input>
+      </Grid>
+      <Grid flex direction='column' center>
+        <Text create bold width margin='27px 0px 7px 35px '>
+          위치정보 수집 동의
+        </Text>
+        <Button
+          color='#767676'
+          margin='0px auto 21px 18px'
+          profile
+          bordebottom='1px solid #EAEAEA '
+        >
+          동의
+        </Button>
+      </Grid>
+      <Button
+        color='#4d12ff'
+        margin='0px auto 21px 18px'
+        profile
+        bordebottom='1px solid #EAEAEA '
+        bold
+        _onClick={dologout}
+      >
+        로그아웃
+      </Button>
+      <Button
+        color='#121212'
+        margin='0px auto 21px 18px'
+        profile
+        bordebottom='1px solid #EAEAEA '
+        _onClick={dosignout}
+      >
+        회원탈퇴
+      </Button>
     </>
   );
 };

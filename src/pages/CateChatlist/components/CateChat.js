@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Grid, Text, Image } from "../elements";
-import { Like } from "./";
+import { Grid, Text, Image } from "../../../elements";
+import { Like } from "../../../components";
 //카테고리 선택시 보여줄 채팅방 컴포넌트
 
 const CateChat = (props) => {

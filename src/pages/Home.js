@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { MainChat, Header, CategorySlick } from '../components';
+import React, { useEffect, useState } from "react";
+import { MainChat, Header, CategorySlick } from "../components";
 import {
   Container,
   Grid,
@@ -7,10 +7,10 @@ import {
   Button,
   Text,
   Image,
-} from '../elements';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import kitchen from '../assets/kitchen.svg';
+} from "../elements";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import kitchen from "../assets/kitchen.svg";
 
 const Home = (props) => {
   const navigate = useNavigate();

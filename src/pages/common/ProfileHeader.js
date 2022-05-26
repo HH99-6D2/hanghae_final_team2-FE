@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
-import { Text, Grid, Button } from "../elements";
+import { Text, Grid } from "../../elements";
 import { useNavigate } from "react-router-dom";
-import { ReactComponent as Back } from "../assets/Back.svg";
+import { ReactComponent as Back } from "../../assets/Back.svg";
 
 //메인을 제외한 나머지 페이지들의 헤더
 

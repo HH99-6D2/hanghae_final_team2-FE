@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import ProfileHeader from "../components/ProfileHeader";
-import {
-  MobileContainer,
-  Image,
-  Grid,
-  Buttons,
-  Input,
-  Container,
-} from "../elements";
+import ProfileHeader from "./common/ProfileHeader";
+import { Image, Grid, Buttons, Input } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Profilebig } from "../assets/Profilebig.svg";
@@ -40,47 +33,43 @@ const LoginSucess = (props) => {
   };
 
   return (
-    <React.Fragment>
-      <Container>
-        <MobileContainer>
-          <ProfileHeader>프로필 설정</ProfileHeader>
-          <Grid signupFlex height='270px' alignItems='center'>
-            <Profilebig />
-            <Image
-              _onClick={() => {
-                console.log("이미지변경할거다");
-              }}
-              inlineStyles='position: relative;'
-            >
-              <Grid inlineStyles='position: absolute; top:239px; left:217px;'>
-                <MdPhotoCamera size='20px' />
-              </Grid>
-            </Image>
+    <>
+      <ProfileHeader>프로필 설정</ProfileHeader>
+      <Grid signupFlex height='270px' alignItems='center'>
+        <Profilebig />
+        <Image
+          _onClick={() => {
+            console.log("이미지변경할거다");
+          }}
+          inlineStyles='position: relative;'
+        >
+          <Grid inlineStyles='position: absolute; top:239px; left:217px;'>
+            <MdPhotoCamera size='20px' />
           </Grid>
-          <Grid signupFlex margin='36px auto'>
-            <Input
-              width='310px'
-              border='2px solid #4D12FF'
-              _onChange={(e) => {
-                inputnick(e.target.value);
-              }}
-              defaultValue={nickname}
-            >
-              닉네임
-            </Input>
-          </Grid>
-          <Grid signupFlex>
-            <Buttons
-              _onClick={() => {
-                doclick();
-              }}
-            >
-              시작하기
-            </Buttons>
-          </Grid>
-        </MobileContainer>
-      </Container>
-    </React.Fragment>
+        </Image>
+      </Grid>
+      <Grid signupFlex margin='36px auto'>
+        <Input
+          width='310px'
+          border='2px solid #4D12FF'
+          _onChange={(e) => {
+            inputnick(e.target.value);
+          }}
+          defaultValue={nickname}
+        >
+          닉네임
+        </Input>
+      </Grid>
+      <Grid signupFlex>
+        <Buttons
+          _onClick={() => {
+            doclick();
+          }}
+        >
+          시작하기
+        </Buttons>
+      </Grid>
+    </>
   );
 };
 export default LoginSucess;

@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as Blockuser } from "../assets/Blockuser.svg";
-import { Grid, Text, Button } from "../elements";
+import { ReactComponent as Blockuser } from "../../../assets/Blockuser.svg";
+import { Grid, Text, Button } from "../../../elements";
 const Blockperson = (props) => {
   return (
     <Grid flex margin='8px 26px'>

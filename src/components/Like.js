@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Checkbox } from "@mui/material";
-import { MdOutlineSportsBaseball } from "react-icons/md";
 import axios from "axios";
 import { ReactComponent as MainUnLike } from "../assets/MainUnLike.svg";
 import { ReactComponent as MainLike } from "../assets/MainLike.svg";

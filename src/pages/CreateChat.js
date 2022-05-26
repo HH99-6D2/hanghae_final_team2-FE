@@ -1,24 +1,10 @@
 import React, { useState } from "react";
-import {
-  ProfileHeader,
-  Dateset,
-  Imageupload,
-  Time,
-  KakaoMap,
-  KakaoMapEx,
-} from "../components";
-import {
-  Container,
-  MobileContainer,
-  Grid,
-  Input,
-  Text,
-  Button,
-  Buttons,
-} from "../elements";
-
+import { Dateset, Imageupload, Time, KakaoMapEx } from "../components";
+import { Grid, Input, Text, Button } from "../elements";
+import ProfileHeader from "./common/ProfileHeader";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+
+import categorysports from "../assets/categorysports.svg";
 
 const CreateChat = (props) => {
   const TOKEN = sessionStorage.getItem("token");
@@ -32,14 +18,13 @@ const CreateChat = (props) => {
   const [place, setplace] = useState("");
   const navigate = useNavigate();
 
-  console.log(start);
-  console.log(end);
-  console.log(url);
-  console.log(starttime, endtime);
   const KakaoMapData = (result) => {
     setplace(result);
   };
-  console.log(place);
+
+  const region = place.address_name?.split(" ");
+  const placename = place.place_name?.split(" ");
+
   const category = [
     {
       src: "",
@@ -47,103 +32,129 @@ const CreateChat = (props) => {
     },
     {
       src: "",
-      text: "전시회",
+      text: "공연",
     },
     {
       src: "",
-      text: "콘서트",
+      text: "박람회 및 전시회",
+    },
+    {
+      src: "",
+      text: "여행",
+    },
+    {
+      src: "",
+      text: "맛집",
+    },
+    {
+      src: "",
+      text: "영화",
     },
   ];
 
   return (
-    <Container>
-      <MobileContainer>
+    <>
+      <Grid>
+        <ProfileHeader save>
+          <Button
+            cursor='pointer'
+            _onClick={() => {
+              navigate("/addchatcheck", {
+                state: {
+                  title: name,
+                  place: place,
+                  category: "스포츠",
+                  region: region,
+                  image: url,
+                  tag: tag,
+                  placename: placename,
+                  startdate: start,
+                  enddate: end,
+                  starttime: starttime,
+                  endtime: endtime,
+                },
+              });
+            }}
+            mini
+          >
+            저장
+          </Button>
+          채팅방 생성
+        </ProfileHeader>
+      </Grid>
+
+      <Imageupload seturl={seturl} />
+      <Grid margin=' 7px auto'>
+        <Text paddingbottom='17px' color='#4D12FF' bold>
+          채팅방 이름
+        </Text>
+        <Input
+          placeholder='채팅방 제목을 입력해주세요'
+          create
+          _onChange={(e) => {
+            inputname(e.target.value);
+          }}
+        />
+      </Grid>
+      <Grid margin=' 7px auto'>
+        <Text paddingbottom='17px' color='#4D12FF' bold>
+          카테고리 선택
+        </Text>
+
+        <Button src={categorysports} category>
+          <Text>스포츠</Text>
+        </Button>
         <Grid>
-          <ProfileHeader save>
-            <Button
-              cursor='pointer'
-              _onClick={() => {
-                console.log(name, tag);
-                navigate("/addchatcheck", {
-                  state: { title: name },
-                });
-              }}
-              mini
-            >
-              저장
-            </Button>
-            채팅방 생성
-          </ProfileHeader>
+          <img src={categorysports} border='1px solid black'></img>
         </Grid>
+        {/* {category.map((Category) => {
+            //   return (
+            //     <ButtonToggle
+            //       value={location}
+            //       key={Category}
+            //       active={active === Category}
+            //       Category
+            //       src={Category.src}
+            //       onClick={() => {
+            //         setActive(Category);
+            //       }}
+            //     >
+            //       {Category.text}
+            //     </ButtonToggle>
+            //   );
+            // })} */}
+      </Grid>
 
-        <Imageupload seturl={seturl} />
-        <Grid margin=' 7px auto'>
-          <Text paddingbottom='17px' color='#4D12FF' bold>
-            채팅방 이름
-          </Text>
-          <Input
-            placeholder='채팅방 제목을 입력해주세요'
-            create
-            _onChange={(e) => {
-              inputname(e.target.value);
-            }}
-          />
-        </Grid>
-        <Grid margin=' 7px auto'>
-          <Text padding='3px 16px' color='#4D12FF' bold>
-            카테고리 선택
-          </Text>
-          <Grid flex>
-            {/* {category.map((Category) => {
-              return (
-                <ButtonToggle
-                  value={location}
-                  key={Category}
-                  active={active === Category}
-                  Category
-                  src={Category.src}
-                  onClick={() => {
-                    setActive(Category);
-                  }}
-                >
-                  {Category.text}
-                </ButtonToggle>
-              );
-            })} */}
-          </Grid>
-        </Grid>
-
-        <Grid margin='0px auto'>
-          <Text paddingbottom='17px' color='#4D12FF' bold>
-            태그 추가
-          </Text>
-          <Input
-            placeholder='#강남#코엑스#영화관'
-            create
-            _onChange={(e) => {
-              inputtag(e.target.value);
-            }}
-          />
-        </Grid>
-        <Grid margin='18px auto'>
-          <Text paddingbottom='17px' color='#4D12FF' bold>
-            위치정보
-          </Text>
-          <KakaoMapEx propFunction={KakaoMapData} />
-        </Grid>
-        <Grid margin='18px auto'>
-          <Text paddingbottom='17px' color='#4D12FF' bold>
-            일정
-          </Text>
-          <Dateset setstart={setstart} setend={setend} />
-          <Time setstarttime={setstarttime} setendtime={setendtime} />
-        </Grid>
-      </MobileContainer>
-    </Container>
+      <Grid margin='0px auto'>
+        <Text paddingbottom='17px' color='#4D12FF' bold>
+          태그 추가
+        </Text>
+        <Input
+          placeholder='#강남#코엑스#영화관'
+          create
+          _onChange={(e) => {
+            inputtag(e.target.value);
+          }}
+        />
+      </Grid>
+      <Grid margin='18px auto'>
+        <Text paddingbottom='17px' color='#4D12FF' bold>
+          위치정보
+        </Text>
+        <KakaoMapEx propFunction={KakaoMapData} />
+      </Grid>
+      <Grid margin='18px auto'>
+        <Text paddingbottom='17px' color='#4D12FF' bold>
+          일정
+        </Text>
+        <Dateset setstart={setstart} setend={setend} />
+        <Time setstarttime={setstarttime} setendtime={setendtime} />
+      </Grid>
+    </>
   );
 };
 
-// const ButtonToggle = styled(Btn)`
+// const ButtonToggle = styled(Button)`
 //   opacity: 1;
 //   width: 132px;
 //   height: 44px;
