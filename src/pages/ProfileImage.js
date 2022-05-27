@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, Button } from "../elements";
-import ProfileHeader from "./common/ProfileHeader";
+import ProfileHeader from "../components/common/ProfileHeader";
 import Profile1 from "../assets/Profile1.svg";
 import Profile2 from "../assets/Profile2.svg";
 import Profile3 from "../assets/Profile3.svg";

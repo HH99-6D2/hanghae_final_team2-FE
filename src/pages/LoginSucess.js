@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProfileHeader from "./common/ProfileHeader";
+import ProfileHeader from "../components/common/ProfileHeader";
 import { Image, Grid, Buttons, Input } from "../elements";
 import { MdPhotoCamera } from "react-icons/md";
 import { useNavigate } from "react-router-dom";

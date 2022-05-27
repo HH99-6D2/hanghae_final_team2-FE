@@ -12,7 +12,7 @@ import {
   CateChatlist,
   Sidebar,
   CreateChatFinal,
-  SerachChat,
+  SearchChat,
   Blocklist,
   ChatInform,
   ChatEdit,
@@ -24,6 +24,7 @@ import { MobileContainer, Container } from '../elements';
 import GlobalStyle from '../styles/globalStyle';
 function App() {
   return (
+
       <Container>
         <MobileContainer>
           <GlobalStyle />
@@ -51,6 +52,7 @@ function App() {
           </BrowserRouter>
         </MobileContainer>
       </Container>
+
   );
 }
 
