@@ -3,7 +3,7 @@ import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
 
-import ProfileHeader from "./common/ProfileHeader";
+import ProfileHeader from "../components/common/ProfileHeader";
 import { Grid, Text } from "../elements";
 
 //햄버거바 ->앱 알림설정 클릭시 보여줄 페이지

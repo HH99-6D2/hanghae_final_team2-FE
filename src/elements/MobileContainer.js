@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const MobileContainer = ({ children }) => {
   return <Wrapper>{children}</Wrapper>;
@@ -7,8 +7,9 @@ const MobileContainer = ({ children }) => {
 
 const Wrapper = styled.div`
   position: relative;
-  min-width: 320px;
+  min-width: 375px;
   min-height: 730px;
+  width: 100%;
   margin: auto;
   background: #ffffff;
   display: flex;

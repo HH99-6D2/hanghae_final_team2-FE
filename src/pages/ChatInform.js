@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, Grid, Image, Button } from "../elements";
-import ProfileHeader from "./common/ProfileHeader";
+import ProfileHeader from "../components/common/ProfileHeader";
 const ChatInform = () => {
   return (
     <>

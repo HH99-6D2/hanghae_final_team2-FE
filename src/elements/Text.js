@@ -13,6 +13,7 @@ const Text = (props) => {
     onClick,
     width,
     create,
+    bbold,
   } = props;
 
   const styles = {
@@ -23,6 +24,7 @@ const Text = (props) => {
     padding,
     paddingbottom,
     width,
+    bbold,
   };
   if (create) {
     return (
@@ -58,6 +60,7 @@ const ElText = styled.div`
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
   padding-bottom: ${(props) => props.paddingbottom};
   ${(props) => (props.width ? `width: ${props.width};` : "")}
+  font-weight: ${(props) => (props.bbold ? "700" : "")};
 `;
 
 const Create = styled.div`

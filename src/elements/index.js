@@ -1,6 +1,6 @@
 import Container from "./Container";
 import Button from "./Button";
-import Buttons from "../pages/Sidebar/components/Buttons";
+import Buttons from "./Buttons";
 import MobileContainer from "./MobileContainer";
 import Grid from "./Grid";
 import Image from "./Image";

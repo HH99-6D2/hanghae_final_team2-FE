@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProfileHeader from "./common/ProfileHeader";
+import ProfileHeader from "../components/common/ProfileHeader";
 import { Text, Grid, Image, Buttons } from "../elements";
 import { ReactComponent as Info } from "../assets/Info.svg";
 import { useNavigate, useLocation } from "react-router-dom";

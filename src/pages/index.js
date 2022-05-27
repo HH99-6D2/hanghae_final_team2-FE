@@ -1,17 +1,17 @@
-import Home from "./Home/Home";
-import Login from "./Login/Login";
+import Home from "./Home";
+import Login from "./Login";
 import LoginSucess from "./LoginSucess";
-import MyChatList from "./Mychatlist/MyChatList";
+import MyChatList from "./MyChatList";
 import MyProfile from "./MyProfile";
 import AlarmSetting from "./AlarmSetting";
-import NewAlarm from "./NewAlarm/NewAlarm";
+import NewAlarm from "./NewAlarm";
 import CreateChat from "./CreateChat";
 import Auth from "./Auth";
-import CateChatlist from "./CateChatlist/CateChatlist";
-import Sidebar from "./Sidebar/Sidebar";
+import CateChatlist from "./CateChatlist";
+import Sidebar from "../components/home/Sidebar";
 import CreateChatFinal from "./CreateChatFinal";
-import SerachChat from "./SerachChat";
-import Blocklist from "./Blocklist/Blocklist";
+import SearchChat from "./SearchChat";
+import Blocklist from "./Blocklist";
 import ChatInform from "./ChatInform";
 import ChatEdit from "./ChatEdit";
 import ProfileImage from "./ProfileImage";
@@ -30,7 +30,7 @@ export {
   CateChatlist,
   Sidebar,
   CreateChatFinal,
-  SerachChat,
+  SearchChat,
   Blocklist,
   ChatInform,
   ChatEdit,

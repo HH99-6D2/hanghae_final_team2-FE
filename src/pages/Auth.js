@@ -20,7 +20,11 @@ const Auth = () => {
         sessionStorage.setItem("socialre", res.data.socialRefreshToken);
         sessionStorage.setItem("cType", res.data.user.cType);
 
-        navigate("/loginsucess");
+        if (sessionStorage.getItem("nick") === "") {
+          navigate("/loginsucess");
+        } else {
+          navigate("/");
+        }
       });
   }, []);
 

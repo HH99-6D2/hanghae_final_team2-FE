@@ -12,7 +12,7 @@ import {
   CateChatlist,
   Sidebar,
   CreateChatFinal,
-  SerachChat,
+  SearchChat,
   Blocklist,
   ChatInform,
   ChatEdit,
@@ -35,11 +35,11 @@ function App() {
             <Route path='/alarmsetting' element={<AlarmSetting />} />
             <Route path='/newalarm' element={<NewAlarm />} />
             <Route path='/addchat' element={<CreateChat />} />
-            <Route path='/catechat/:category' element={<CateChatlist />} />
+            <Route path='/catechat' element={<CateChatlist />} />
             <Route path='/auth' element={<Auth />} />
             <Route path='/sidebar' element={<Sidebar />} />
             <Route path='/addchatcheck' element={<CreateChatFinal />} />
-            <Route path='/search' element={<SerachChat />} />
+            <Route path='/search' element={<SearchChat />} />
             <Route path='/blocklist' element={<Blocklist />} />
             <Route path='/chatInform' element={<ChatInform />} />
             <Route path='/editchat' element={<ChatEdit />} />

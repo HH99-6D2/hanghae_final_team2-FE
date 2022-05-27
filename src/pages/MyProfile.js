@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ProfileHeader from "./common/ProfileHeader";
+import ProfileHeader from "../components/common/ProfileHeader";
 import { Grid, Button, Text, Image, Input } from "../elements";
 
 import axios from "axios";
