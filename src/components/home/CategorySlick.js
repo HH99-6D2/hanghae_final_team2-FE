@@ -46,7 +46,7 @@ const CategorySlick = () => {
             <Grid margin='0px 10px'>
               <CateBtn
                 onClick={() =>
-                  navigate("/catechat", {
+                  navigate("/catechat/${Setting.text}", {
                     state: { category: `${Setting.text}` },
                   })
                 }
