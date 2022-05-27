@@ -83,7 +83,7 @@ const Home = (props) => {
 const MainBackground = styled.div`
   background: #7879f1;
   width: 100%;
-  height: 187px;
+  height: 260px;
   display: flex;
   justify-content: center;
   padding-top: 70px;

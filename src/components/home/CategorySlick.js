@@ -74,8 +74,8 @@ const CateText = styled.div`
   font-size: 16px;
   color: white;
   background: ${(props) => props.background};
-  width: 156px;
-  height: 42px;
+  width: 173px;
+  height: 62px;
   border-radius: 0px 0px 10px 10px;
   padding-left: 17px;
   padding-top: 20px;
