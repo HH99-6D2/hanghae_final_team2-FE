@@ -114,6 +114,8 @@ const CateImage = styled.div`
   border-radius: 15px;
   background-image: url("${(props) => props.src}");
   background-size: cover;
+  background-position: center;
+  position: relative;
   ${(props) => (props.border ? `border:${props.border}` : "none")};
 `;
 const Setting = styled.div`
