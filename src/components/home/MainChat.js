@@ -17,7 +17,6 @@ const MainChat = (props) => {
       <Grid position='absolute' left='256px' top='20px'>
         <Like roomid={id} />
       </Grid>
-
       <Button mainlike>채팅방 들어가기</Button>
     </MainImg>
   );

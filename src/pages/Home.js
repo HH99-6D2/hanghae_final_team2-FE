@@ -17,6 +17,7 @@ const Home = (props) => {
       method: "get",
       url: "https://yogoloper.shop/api/rooms",
     }).then((res) => {
+      console.log(res.data)
       setBestchat(res.data);
     });
   }, []);

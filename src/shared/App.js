@@ -22,6 +22,7 @@ import {
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MobileContainer, Container } from "../elements";
 import GlobalStyle from "../styles/globalStyle";
+import Chat from "../pages/Chat";
 function App() {
   return (
     <Container>
@@ -47,6 +48,7 @@ function App() {
             <Route path='/editchat' element={<ChatEdit />} />
             <Route path='/guid' element={<Guid />} />
             <Route path='/profileimage' element={<ProfileImage />} />
+            <Route path='/chat/:chatid' element={<Chat />} />
           </Routes>
         </BrowserRouter>
       </MobileContainer>
