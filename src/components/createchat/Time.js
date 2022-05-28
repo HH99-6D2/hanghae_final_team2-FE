@@ -7,13 +7,13 @@ import { ko } from "date-fns/esm/locale";
 import "react-datepicker/dist/react-datepicker.css";
 const Time = (props) => {
   const MytimePicker = styled(DatePicker)({
-    width: "155px",
+    width: "140px",
     height: "30px",
     borderRadius: "15px",
     backgroundColor: "white",
     border: "1px solid #b9b9b9",
     textAlign: "center",
-    marginTop: "10px",
+    margin: "0px 10px 0px 10px",
   });
 
   const changeFormat = (date, format) => {

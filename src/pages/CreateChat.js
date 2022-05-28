@@ -63,7 +63,7 @@ const CreateChat = (props) => {
                 state: {
                   title: name,
                   place: place,
-                  category: "스포츠",
+                  category: "여행",
                   region: region,
                   image: url,
                   tag: tag,

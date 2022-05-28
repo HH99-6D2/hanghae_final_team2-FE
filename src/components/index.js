@@ -4,5 +4,15 @@ import Like from "./common/Like";
 import Time from "./createchat/Time";
 import KakaoMap from "./createchat/KakaoMap";
 import KakaoMapEx from "./createchat/KakaoMapEx";
-
-export { Dateset, Imageupload, Like, Time, KakaoMap, KakaoMapEx };
+import CateChat from "./categorychat/CateChat";
+import Notfound from "./searchchat/Notfound";
+export {
+  Dateset,
+  Imageupload,
+  Like,
+  Time,
+  KakaoMap,
+  KakaoMapEx,
+  CateChat,
+  Notfound,
+};
