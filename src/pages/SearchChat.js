@@ -1,70 +1,71 @@
-import React, { useState } from "react";
-import { ReactComponent as Searchglas } from "../assets/Searchglas.svg";
-import { ReactComponent as Filter } from "../assets/Filter.svg";
-import ProfileHeader from "../components/common/ProfileHeader";
-import { Grid, Text, Button } from "../elements";
-import styled from "styled-components";
-import axios from "axios";
-import Modal from "@mui/material/Modal";
-import Box from "@mui/material/Box";
-import { Dateset, CateChat, Notfound } from "../components";
+import React, { useState } from 'react';
+import { ReactComponent as Searchglas } from '../assets/Searchglas.svg';
+import { ReactComponent as Filter } from '../assets/Filter.svg';
+import ProfileHeader from '../components/common/ProfileHeader';
+import { Grid, Text, Button } from '../elements';
+import styled from 'styled-components';
+import axios from 'axios';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import { Dateset, CateChat, Notfound } from '../components';
 const SerachChat = () => {
-  const [search, setSearch] = useState("");
-  const [result, setResult] = useState("");
-  const [start, setstart] = useState("");
-  const [end, setend] = useState("");
+  const [search, setSearch] = useState('');
+  const [result, setResult] = useState('');
+  const [start, setstart] = useState('');
+  const [end, setend] = useState('');
   const [open, setOpen] = useState(false);
-  const [errormsg, setErrormsg] = useState("");
+  const [errormsg, setErrormsg] = useState('');
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [selectedMenu, setSelectedMenu] = useState("");
-  const [selectedBefore, setSelectedBefore] = useState("");
-  const [color, setColor] = useState("white");
+  const [selectedMenu, setSelectedMenu] = useState('');
+  const [selectedBefore, setSelectedBefore] = useState('');
+  const [region, setRegion] = useState('전체');
+  const [color, setColor] = useState('white');
   console.log(selectedMenu);
   const Setting = [
     {
-      id: "전체",
+      id: '전체',
     },
     {
-      id: "서울",
+      id: '서울',
     },
     {
-      id: "인천",
+      id: '인천',
     },
     {
-      id: "강원",
+      id: '강원',
     },
     {
-      id: "경기",
+      id: '경기',
     },
     {
-      id: "충남",
+      id: '충남',
     },
     {
-      id: "충북",
+      id: '충북',
     },
     {
-      id: "경남",
+      id: '경남',
     },
     {
-      id: "경북",
+      id: '경북',
     },
     {
-      id: "전남",
+      id: '전남',
     },
     {
-      id: "전북",
+      id: '전북',
     },
     {
-      id: "제주도",
+      id: '제주도',
     },
   ];
 
   const sendword = () => {
     axios({
-      method: "get",
+      method: 'get',
       url: `https://yogoloper.shop/api/rooms/search?&sort=1&word=${search}`,
-    }).then((res) => {
+    }).then(res => {
       // if (res.status == 404) {
       //   setErrormsg(res.status);
       //   return;
@@ -74,13 +75,13 @@ const SerachChat = () => {
   };
 
   //지역선택
-  const handleMenu = (id) => {
+  const handleMenu = id => {
     if (selectedBefore === id) {
       setSelectedMenu(null);
       setSelectedBefore(null);
       return;
     }
-    setColor("#4D12FF");
+    setColor('#4D12FF');
     setSelectedMenu(id);
     setSelectedBefore(id);
   };
@@ -88,9 +89,9 @@ const SerachChat = () => {
   const dofileter = () => {
     handleClose();
     axios({
-      method: "get",
+      method: 'get',
       url: `https://yogoloper.shop/api/rooms/search?&sort=1&startDate=${start}&endDate=${end}&word=${search}`,
-    }).then((res) => {
+    }).then(res => {
       if (res.status == 404) {
         setErrormsg(res.status);
         return;
@@ -101,16 +102,20 @@ const SerachChat = () => {
   const style = {
     width: 315,
     height: 452,
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    bgcolor: "background.paper",
-    borderRadius: "10px",
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    bgcolor: 'background.paper',
+    borderRadius: '10px',
     boxShadow: 24,
     p: 4,
   };
-  console.log(start, end);
+
+  const onChange = e => {
+    setRegion(e.target.id);
+  };
+
   return (
     <>
       <ProfileHeader search>
@@ -120,7 +125,7 @@ const SerachChat = () => {
         </Grid>
       </ProfileHeader>
       <Grid position='relative' flex>
-        <Inputsearch onChange={(e) => setSearch(e.target.value)} />
+        <Inputsearch onChange={e => setSearch(e.target.value)} />
         <Grid position='absolute' top='26px' left='309px' _onClick={sendword}>
           <Searchglas />
         </Grid>
@@ -146,11 +151,20 @@ const SerachChat = () => {
             지역
           </Text>
           <Grid flex flexwrap>
-            {Setting.map((Setting) => {
+            {Setting.map(Setting => {
               return (
-                <RegionBtn onClick={() => handleMenu(Setting.id)}>
-                  {Setting.id}
-                </RegionBtn>
+                <Badge checked={region === Setting.id}>
+                  <label>
+                    {Setting.id}
+                    <Radio
+                      type='radio'
+                      id={Setting.id}
+                      name='region'
+                      checked={region === Setting.id}
+                      onChange={onChange}
+                    />
+                  </label>
+                </Badge>
               );
             })}
           </Grid>
@@ -168,7 +182,7 @@ const SerachChat = () => {
       </Modal>
       <Notfound />
       {result &&
-        result.map((list) => {
+        result.map(list => {
           return <CateChat list={list} />;
         })}
     </>
@@ -194,9 +208,21 @@ const RegionBtn = styled.div`
   margin-bottom: 10px;
   margin-right: 10px;
   cursor: pointer;
-  background-color: ${color};
   &:hover {
     background-color: #4d12ff;
   }
 `;
+
+const Badge = styled.div`
+  border-radius: 30px;
+  border: 1px solid #B9B9B9;
+  padding: 4px 9px;
+  margin: 2px 5px;
+  ${({ checked }) => checked && 'background-color: #4d12ff; color: #fff;'}
+`;
+
+const Radio = styled.input`
+  display: none;
+`;
+
 export default SerachChat;
