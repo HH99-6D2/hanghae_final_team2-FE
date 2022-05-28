@@ -194,7 +194,7 @@ const RegionBtn = styled.div`
   margin-bottom: 10px;
   margin-right: 10px;
   cursor: pointer;
-  background-color: ${color};
+  background-color: color;
   &:hover {
     background-color: #4d12ff;
   }
