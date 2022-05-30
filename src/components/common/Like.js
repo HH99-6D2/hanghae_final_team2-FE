@@ -10,7 +10,12 @@ const Like = (props) => {
   const { roomid } = props;
 
   const dolike = () => {
+    if (!TOKEN) {
+      return;
+    }
+
     setlike(!like);
+
     if (like) {
       axios({
         method: "get",

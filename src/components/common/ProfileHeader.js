@@ -2,12 +2,12 @@ import React from "react";
 import { Text, Grid } from "../../elements";
 import { useNavigate } from "react-router-dom";
 import { ReactComponent as Back } from "../../assets/Back.svg";
-
+import Like from "./Like";
 //메인을 제외한 나머지 페이지들의 헤더
 
 const ProfileHeader = (props) => {
   const navigate = useNavigate();
-  const { children, save, back, search, column } = props;
+  const { children, save, back, search, column, chatinform } = props;
   if (save) {
     return (
       <Grid flex alignItems='center' margin='39px 10px 20px 34px'>
@@ -49,6 +49,23 @@ const ProfileHeader = (props) => {
           <Text bold size='20px'>
             {children}
           </Text>
+        </Grid>
+      </Grid>
+    );
+  } else if (chatinform) {
+    return (
+      <Grid
+        flex
+        alignItems='center'
+        margin='18px 29px 15px 28px'
+        position='relative'
+      >
+        <Back size='30' onClick={() => navigate("/")} cursor='pointer' />
+        <Grid width='100px' margin='auto' textAlign='center'>
+          <Text size='12px'>{children}</Text>
+        </Grid>
+        <Grid position='absolute'>
+          <Like />
         </Grid>
       </Grid>
     );
