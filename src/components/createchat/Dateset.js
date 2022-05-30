@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 const Dateset = (props) => {
   const { width } = props;
   const MyDatePicker = styled(DatePicker)({
-    width: "140px",
+    width: "130px",
     height: "30px",
     borderRadius: "15px",
     backgroundColor: "white",

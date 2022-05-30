@@ -17,72 +17,39 @@ const SerachChat = () => {
   const [errormsg, setErrormsg] = useState("");
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [selectedMenu, setSelectedMenu] = useState("");
-  const [selectedBefore, setSelectedBefore] = useState("");
-  const [color, setColor] = useState("white");
-  console.log(selectedMenu);
+
+  const [region, setRegion] = useState("전체");
+
   const Setting = [
-    {
-      id: "전체",
-    },
-    {
-      id: "서울",
-    },
-    {
-      id: "인천",
-    },
-    {
-      id: "강원",
-    },
-    {
-      id: "경기",
-    },
-    {
-      id: "충남",
-    },
-    {
-      id: "충북",
-    },
-    {
-      id: "경남",
-    },
-    {
-      id: "경북",
-    },
-    {
-      id: "전남",
-    },
-    {
-      id: "전북",
-    },
-    {
-      id: "제주도",
-    },
+    "전체",
+    "서울",
+    "인천",
+    "강원",
+    "경기",
+    "충남",
+    "충북",
+    "경남",
+    "전남",
+    "전북",
+    "제주도",
   ];
 
   const sendword = () => {
+    if (!search) {
+      return;
+    }
     axios({
       method: "get",
       url: `https://yogoloper.shop/api/rooms/search?&sort=1&word=${search}`,
-    }).then((res) => {
-      // if (res.status == 404) {
-      //   setErrormsg(res.status);
-      //   return;
-      // }
-      setResult(res.data);
-    });
-  };
-
-  //지역선택
-  const handleMenu = (id) => {
-    if (selectedBefore === id) {
-      setSelectedMenu(null);
-      setSelectedBefore(null);
-      return;
-    }
-    setColor("#4D12FF");
-    setSelectedMenu(id);
-    setSelectedBefore(id);
+    })
+      .then((res) => {
+        setResult(res.data);
+        setErrormsg("");
+      })
+      .catch((err) => {
+        setErrormsg(err);
+        setResult("");
+      });
   };
 
   const dofileter = () => {
@@ -90,13 +57,15 @@ const SerachChat = () => {
     axios({
       method: "get",
       url: `https://yogoloper.shop/api/rooms/search?&sort=1&startDate=${start}&endDate=${end}&word=${search}`,
-    }).then((res) => {
-      if (res.status == 404) {
-        setErrormsg(res.status);
-        return;
-      }
-      setResult(res.data);
-    });
+    })
+      .then((res) => {
+        setResult(res.data);
+        setErrormsg("");
+      })
+      .catch((err) => {
+        setErrormsg(err);
+        setResult("");
+      });
   };
   const style = {
     width: 315,
@@ -110,7 +79,11 @@ const SerachChat = () => {
     boxShadow: 24,
     p: 4,
   };
-  console.log(start, end);
+
+  const onChange = (e) => {
+    setRegion(e.target.id);
+  };
+
   return (
     <>
       <ProfileHeader search>
@@ -125,6 +98,18 @@ const SerachChat = () => {
           <Searchglas />
         </Grid>
       </Grid>
+      {start && end && (
+        <Grid flex margin='2px auto' width='317px'>
+          <Text bold>일정</Text>
+          <Text margin='0px 13px 0px 4px'>
+            {start.replaceAll("-", ".")}
+            {"~"}
+            {end.replaceAll("-", ".")}
+          </Text>
+          <Text bold>지역</Text>
+          <Text>{region}</Text>
+        </Grid>
+      )}
 
       <Modal
         open={open}
@@ -136,11 +121,11 @@ const SerachChat = () => {
           <Grid textAlign='center'>
             <Text bold>필터</Text>
           </Grid>
-          <Text create bold margin='10px 0px 10px -19px'>
+          <Text create bold margin='4px 0px 10px -19px'>
             일정
           </Text>
           <Grid signupFlex>
-            <Dateset setstart={setstart} setend={setend} />
+            <Dateset setstart={setstart} setend={setend} width='120px' />
           </Grid>
           <Text create bold margin='10px 0px 10px -19px'>
             지역
@@ -148,9 +133,18 @@ const SerachChat = () => {
           <Grid flex flexwrap>
             {Setting.map((Setting) => {
               return (
-                <RegionBtn onClick={() => handleMenu(Setting.id)}>
-                  {Setting.id}
-                </RegionBtn>
+                <Badge checked={region === Setting}>
+                  <label>
+                    {Setting}
+                    <Radio
+                      type='radio'
+                      id={Setting}
+                      name='region'
+                      checked={region === Setting}
+                      onChange={onChange}
+                    />
+                  </label>
+                </Badge>
               );
             })}
           </Grid>
@@ -166,11 +160,12 @@ const SerachChat = () => {
           </Button>
         </Box>
       </Modal>
-      <Notfound />
+
       {result &&
         result.map((list) => {
           return <CateChat list={list} />;
         })}
+      {errormsg && <Notfound />}
     </>
   );
 };
@@ -183,20 +178,21 @@ const Inputsearch = styled.input`
   height: 45px;
 `;
 
-const RegionBtn = styled.div`
-  width: 50px;
-  height: 24px;
+const Badge = styled.div`
   border-radius: 30px;
   border: 1px solid #b9b9b9;
-  text-align: center;
-  align-items: center;
-  color: #b9b9b9;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  padding: 4px 9px;
+  margin: 2px 5px;
+  ${({ checked }) => checked && "background-color: #4d12ff; color: #fff;"}
   cursor: pointer;
-  background-color: color;
+  color: #b9b9b9;
   &:hover {
     background-color: #4d12ff;
   }
 `;
+
+const Radio = styled.input`
+  display: none;
+`;
+
 export default SerachChat;

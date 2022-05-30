@@ -3,8 +3,7 @@ import { Dateset, Imageupload, Time, KakaoMapEx } from "../components";
 import { Grid, Input, Text, Button } from "../elements";
 import ProfileHeader from "../components/common/ProfileHeader";
 import { useNavigate } from "react-router-dom";
-
-import categorysports from "../assets/categorysports.svg";
+import styled from "styled-components";
 
 const CreateChat = (props) => {
   const TOKEN = sessionStorage.getItem("token");
@@ -17,37 +16,41 @@ const CreateChat = (props) => {
   const [url, seturl] = useState("");
   const [place, setplace] = useState("");
   const navigate = useNavigate();
+  const [cate, setCate] = useState("스포츠");
 
   const KakaoMapData = (result) => {
     setplace(result);
   };
-
+  console.log(cate);
   const region = place.address_name?.split(" ");
   const placename = place.place_name?.split(" ");
 
+  const onChange = (e) => {
+    setCate(e.target.id);
+  };
   const category = [
     {
-      src: "",
+      src: "/images/categorysports.svg",
       text: "스포츠",
     },
     {
-      src: "",
+      src: "/images/categoryconcert.svg",
       text: "공연",
     },
     {
-      src: "",
+      src: "/images/categoryexpo.svg",
       text: "박람회 및 전시회",
     },
     {
-      src: "",
+      src: "/images/categorytrip.svg",
       text: "여행",
     },
     {
-      src: "",
+      src: "/images/categoryeat.svg",
       text: "맛집",
     },
     {
-      src: "",
+      src: "/images/categorymovie.svg",
       text: "영화",
     },
   ];
@@ -100,29 +103,27 @@ const CreateChat = (props) => {
         <Text paddingbottom='17px' color='#4D12FF' bold>
           카테고리 선택
         </Text>
-
-        <Button src={categorysports} category>
-          <Text>스포츠</Text>
-        </Button>
-        <Grid>
-          <img src={categorysports} border='1px solid black'></img>
-        </Grid>
-        {/* {category.map((Category) => {
-            //   return (
-            //     <ButtonToggle
-            //       value={location}
-            //       key={Category}
-            //       active={active === Category}
-            //       Category
-            //       src={Category.src}
-            //       onClick={() => {
-            //         setActive(Category);
-            //       }}
-            //     >
-            //       {Category.text}
-            //     </ButtonToggle>
-            //   );
-            // })} */}
+        <Container>
+          {category.map((category) => {
+            return (
+              <Item checked={cate === category.text}>
+                <label>
+                  {category}
+                  <Radio
+                    type='radio'
+                    id={category.text}
+                    name='cate'
+                    checked={cate === category.text}
+                    onChange={onChange}
+                  >
+                    <Image src={category.src} />
+                    {category.text}
+                  </Radio>
+                </label>
+              </Item>
+            );
+          })}
+        </Container>
       </Grid>
 
       <Grid margin='0px auto'>
@@ -154,29 +155,35 @@ const CreateChat = (props) => {
   );
 };
 
-// const ButtonToggle = styled(Button)`
-//   opacity: 1;
-//   width: 132px;
-//   height: 44px;
-//   margin: 6px;
-//   border: 0px;
-//   border-radius: 10px;
-//   font-size: 14px;
-//   cursor: pointer;
-//   ${({ active }) =>
-//     active &&
-//     `
-//     opacity: 1;
-//     color: white;
-//     background-color: #333333;
-//     border-radius: 10px
-//     font-size: 14px;
-//     `};
-//   &:hover {
-//     transition: all 0.5s;
-//     background-color: #23c8af;
-//     color: white;
-//   }
-// `;
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+`;
 
+const Item = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 19px;
+  margin: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  ${({ checked }) => checked && "background-color: #4d12ff; color: #fff;"}
+  &:hover {
+    background-color: #4d12ff;
+    color: white;
+  }
+`;
+
+const Image = styled.div`
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  background-image: url("${(props) => props.src}");
+`;
+
+const Radio = styled.input`
+  display: none;
+`;
 export default CreateChat;
