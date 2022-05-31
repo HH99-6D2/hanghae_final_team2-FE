@@ -1,32 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Checkbox } from '@mui/material';
+import styled from 'styled-components';
 import axios from 'axios';
-import { ReactComponent as MainUnLike } from '../../assets/MainUnLike.svg';
-import { ReactComponent as MainLike } from '../../assets/MainLike.svg';
-import { ReactComponent as Purpleheart } from '../../assets/Purpleheart.svg';
+
 const Like = (props) => {
-	const TOKEN = sessionStorage.getItem('token');
-	const { roomid, purple, ischecked } = props;
-	const [like, setlike] = useState(null);
-	const [islike, setIslike] = useState(ischecked);
-
+	const { roomid, ischecked } = props;
 	useEffect(() => {
-		setlike(ischecked ? true : false);
-	}, [like]);
+		console.log(ischecked);
+	}, [ischecked]);
 
-	const dolike = () => {
-		if (!TOKEN) {
-			return;
-		}
-
-		setlike(!like);
-
-		if (like) {
+	const [like, setlike] = useState(ischecked);
+	const dolike = (e) => {
+		e.stopPropagation();
+		console.log(ischecked);
+		if (!like) {
 			axios({
 				method: 'get',
 				url: `https://yogoloper.shop/api/rooms/likes/${roomid}`,
 				headers: {
-					Authorization: `Bearer ${TOKEN}`,
+					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 				},
 			}).then((res) => {
 				console.log(res);
@@ -36,32 +27,39 @@ const Like = (props) => {
 				method: 'delete',
 				url: `https://yogoloper.shop/api/rooms/likes/${roomid}`,
 				headers: {
-					Authorization: `Bearer ${TOKEN}`,
+					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 				},
 			}).then((res) => {
 				console.log(res);
 			});
 		}
+		setlike((prev) => !prev);
 	};
-	if (purple) {
-		return (
-			<Checkbox
-				defaultChecked={ischecked}
-				onClick={dolike}
-				icon={<Purpleheart />}
-				checkedIcon={<MainLike />}
-			></Checkbox>
-		);
-	}
 
 	return (
-		<Checkbox
-			defaultChecked={ischecked}
-			onClick={dolike}
-			icon={<MainUnLike />}
-			checkedIcon={<MainLike />}
-		></Checkbox>
+		<>
+			<label>
+				<Input type='checkbox' onClick={dolike} checked={like} readOnly />
+				{like ? <LikeIcon /> : <UnlikeIcon />}
+			</label>
+		</>
 	);
 };
 
 export default Like;
+
+const Input = styled.input`
+	display: none;
+`;
+
+const LikeIcon = styled.div`
+	width: 30px;
+	height: 30px;
+	background-image: url('/images/MainLike.svg');
+`;
+
+const UnlikeIcon = styled.div`
+	width: 30px;
+	height: 30px;
+	background-image: url('/images/Purpleheart.svg');
+`;
