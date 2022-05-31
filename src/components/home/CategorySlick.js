@@ -93,5 +93,9 @@ const Scroll = styled.div`
   max-width: 420px;
   display: flex;
   overflow-x: auto;
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
+  //스크롤안보이게
 `;
 export default CategorySlick;

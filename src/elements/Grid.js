@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Grid = (props) => {
   const {
@@ -29,6 +29,7 @@ const Grid = (props) => {
     boxShadow,
     categoryFlex,
     SearchFlex,
+    flexwrap,
   } = props;
 
   const styles = {
@@ -56,6 +57,7 @@ const Grid = (props) => {
     boxShadow,
     categoryFlex,
     SearchFlex,
+    flexwrap,
   };
 
   return (
@@ -66,11 +68,11 @@ const Grid = (props) => {
 };
 
 Grid.defaultProps = {
-  margin: '',
+  margin: "",
   flex: false,
   justifyContent: false,
   alignItems: false,
-  direction: '',
+  direction: "",
   inlineStyles: false,
   _onClick: () => {},
   signupFlex: false,
@@ -89,27 +91,29 @@ const Wrapper = styled.div`
   position: ${(props) => props.position};
   left: ${(props) => props.left};
   top: ${(props) => props.top};
-  ${(props) => (props.flex ? 'display: flex' : '')};
+  ${(props) => (props.flex ? "display: flex" : "")};
+
   ${(props) =>
-    props.justifyContent ? `justify-content: ${props.justifyContent}` : ''};
-  ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : '')};
-  ${(props) => (props.textAlign ? `text-align: ${props.textAlign}` : '')};
-  ${(props) => (props.direction ? `flex-direction: ${props.direction}` : '')};
-  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : '')};
+    props.justifyContent ? `justify-content: ${props.justifyContent}` : ""};
+  ${(props) => (props.alignItems ? `align-items: ${props.alignItems}` : "")};
+  ${(props) => (props.textAlign ? `text-align: ${props.textAlign}` : "")};
+  ${(props) => (props.direction ? `flex-direction: ${props.direction}` : "")};
+  ${(props) => (props.inlineStyles ? `${props.inlineStyles}` : "")};
+  ${(props) => (props.flexwrap ? "flex-wrap: wrap" : "")};
   ${(props) =>
-    props.signupFlex ? `display: flex; justify-content: center;` : ''};
+    props.signupFlex ? `display: flex; justify-content: center;` : ""};
   ${(props) =>
-    props.Category ? `position: absolute; top:20px; left:19px;` : ''};
+    props.Category ? `position: absolute; top:20px; left:19px;` : ""};
   ${(props) =>
-    props.between ? `display: flex; justify-content: space-between;` : ''};
-  ${(props) => (props.bottomborder ? `border-bottom:1px solid gray` : '')};
-  ${(props) => (props.profileFlex ? `display: flex; align-items: center` : '')}
-  ${(props) => (props.boxShadow ? `box-shadow: 0px 1px #00000040` : '')}
-  ${(props) => (props.categoryFlex ? `display: flex; overflow-x: auto` : '')}
+    props.between ? `display: flex; justify-content: space-between;` : ""};
+  ${(props) => (props.bottomborder ? `border-bottom:1px solid gray` : "")};
+  ${(props) => (props.profileFlex ? `display: flex; align-items: center` : "")}
+  ${(props) => (props.boxShadow ? `box-shadow: 0px 1px #00000040` : "")}
+  ${(props) => (props.categoryFlex ? `display: flex; overflow-x: auto` : "")}
   ${(props) =>
     props.SearchFlex
       ? `display: flex; align-items: center; justify-content: space-between;`
-      : ''}
+      : ""}
 `;
 
 export default Grid;

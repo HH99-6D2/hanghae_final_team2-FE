@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import axios from "axios";
+import styled from "styled-components";
 
-const Like = props => {
+const Like = (props) => {
   const { roomid, isLike } = props;
   const [like, setlike] = useState(isLike);
 
   const dolike = (e) => {
-    setlike(prev => !prev);
+    setlike((prev) => !prev);
     if (like) {
       axios({
-        method: 'get',
+        method: "get",
         url: `https://yogoloper.shop/api/rooms/likes/${roomid}`,
         headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
-      }).then(res => {
+      }).then((res) => {
         console.log(res);
       });
     } else {
       axios({
-        method: 'delete',
+        method: "delete",
         url: `https://yogoloper.shop/api/rooms/likes/${roomid}`,
         headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+          Authorization: `Bearer ${sessionStorage.getItem("token")}`,
         },
-      }).then(res => {
+      }).then((res) => {
         console.log(res);
       });
     }
