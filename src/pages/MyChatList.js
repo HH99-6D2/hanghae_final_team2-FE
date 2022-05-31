@@ -7,17 +7,6 @@ import axios from 'axios';
 const MyChatList = (props) => {
 	const [chatlist, setChatlist] = useState('');
 	const TOKEN = sessionStorage.getItem('token');
-	// useEffect(() => {
-	// 	axios({
-	// 		method: 'get',
-	// 		url: `https://yogoloper.shop/api/rooms/management?option`,
-	// 		headers: {
-	// 			Authorization: `Bearer ${TOKEN}`,
-	// 		},
-	// 	}).then((res) => {
-	// 		console.log(res);
-	// 	});
-	// }, []);
 
 	return (
 		<>

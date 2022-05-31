@@ -11,35 +11,35 @@ const CateChat = (props) => {
 	const day = list?.startDate.split(' ');
 	console.log(mychat);
 	if (made) {
-		{
-			mychat &&
-				mychat.map((madelist) => {
-					return (
-						<Grid flex direction='row'>
-							<Image setting src={madelist.imageUrl}></Image>
-							<Grid between width='317px' height='117px' margin='7px auto'>
-								<Grid flex>
-									<Grid margin='12px 5px 39px 0px'>
-										<Text bold paddingbottom='6px'>
-											{madelist.title}
-										</Text>
-										<Text color='#767676'>
-											{madelist.regionAName}
-											{madelist.regionBName}
-										</Text>
-										<Grid flex>
-											<Text color='#767676'>{madelist.startDate}</Text>
-											<Text color='#767676' margin='0px 10px'>
-												7pm
-											</Text>
-										</Grid>
-									</Grid>
-								</Grid>
-							</Grid>
-						</Grid>
-					);
-				});
-		}
+		// {
+		// 	mychat &&
+		// 		mychat.map((madelist) => {
+		// 			return (
+		// 				<Grid flex direction='row'>
+		// 					<Image setting src={madelist.imageUrl}></Image>
+		// 					<Grid between width='317px' height='117px' margin='7px auto'>
+		// 						<Grid flex>
+		// 							<Grid margin='12px 5px 39px 0px'>
+		// 								<Text bold paddingbottom='6px'>
+		// 									{madelist.title}
+		// 								</Text>
+		// 								<Text color='#767676'>
+		// 									{madelist.regionAName}
+		// 									{madelist.regionBName}
+		// 								</Text>
+		// 								<Grid flex>
+		// 									<Text color='#767676'>{madelist.startDate}</Text>
+		// 									<Text color='#767676' margin='0px 10px'>
+		// 										7pm
+		// 									</Text>
+		// 								</Grid>
+		// 							</Grid>
+		// 						</Grid>
+		// 					</Grid>
+		// 				</Grid>
+		// 			);
+		// 		});
+		// }
 	}
 	return (
 		<Grid flex direction='column'>

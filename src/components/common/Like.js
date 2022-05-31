@@ -10,7 +10,7 @@ const Like = (props) => {
 
 	const [like, setlike] = useState(ischecked);
 	const dolike = (e) => {
-		e.stopPropagation();
+		// e.stopPropagation();
 		console.log(ischecked);
 		if (!like) {
 			axios({
@@ -39,7 +39,7 @@ const Like = (props) => {
 	return (
 		<>
 			<label>
-				<Input type='checkbox' onClick={dolike} checked={like} readOnly />
+				<Input type='checkbox' onChange={dolike} checked={like} />
 				{like ? <LikeIcon /> : <UnlikeIcon />}
 			</label>
 		</>

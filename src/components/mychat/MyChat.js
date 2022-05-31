@@ -7,28 +7,33 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-import CateChat from '../categorychat/CateChat';
-
+import { Grid, Text, Image } from '../../elements';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import Like from '../common/Like';
 // 햄버거바->채팅방관리-> 보여줄 탭
 
 const MyChat = (props) => {
 	const TOKEN = sessionStorage.getItem('token');
-	const [mychatlist, setMychatlist] = useState('');
+	const [madechatlist, setMadechatlist] = useState('');
+	const [joinchatlist, setjoinchatlist] = useState('');
+	const [likechat, setLikechat] = useState('');
+	const navigate = useNavigate();
+
 	const theme = createTheme({
 		components: {
 			MuiTab: {
 				styleOverrides: {
 					textColorPrimary: {
-						color: 'gray',
+						color: '#B9B9B9',
 						'&.Mui-selected': {
-							color: '#000000',
+							color: '#4d12ff',
 							fontWeight: '800',
 						},
 					},
 					indicator: {
 						height: 2,
-						backgroundColor: 'black',
+						backgroundColor: '#4d12ff',
 					},
 				},
 			},
@@ -79,8 +84,7 @@ const MyChat = (props) => {
 					Authorization: `Bearer ${TOKEN}`,
 				},
 			}).then((res) => {
-				setMychatlist(res.data);
-				console.log(res.data);
+				setMadechatlist(res.data);
 			});
 		} else if (value === 1) {
 			axios({
@@ -90,8 +94,7 @@ const MyChat = (props) => {
 					Authorization: `Bearer ${TOKEN}`,
 				},
 			}).then((res) => {
-				setMychatlist(res.data);
-				console.log(res.data);
+				setjoinchatlist(res.data);
 			});
 		} else {
 			axios({
@@ -101,8 +104,7 @@ const MyChat = (props) => {
 					Authorization: `Bearer ${TOKEN}`,
 				},
 			}).then((res) => {
-				setMychatlist(res.data);
-				console.log(res.data);
+				setLikechat(res.data);
 			});
 		}
 	};
@@ -124,14 +126,126 @@ const MyChat = (props) => {
 							<Tab label='관심 채팅방' {...a11yProps(2)} />
 						</TabList>
 					</Box>
+
 					<TabPanel value={value} index={0}>
-						<CateChat made mychat={mychatlist} />
+						{madechatlist &&
+							madechatlist.map((list) => {
+								return (
+									<Grid flex direction='row' key={list.imageUrl}>
+										<Image
+											setting
+											src={list.imageUrl}
+											_onClick={(e) => {
+												navigate('/chatInform', {
+													state: { roomid: list?.id },
+												});
+											}}
+										></Image>
+										<Grid
+											between
+											width='317px'
+											height='117px'
+											margin='7px auto'
+										>
+											<Grid flex>
+												<Grid margin='12px 5px 39px 0px'>
+													<Text bold paddingbottom='6px'>
+														{list.title}
+													</Text>
+													<Text color='#767676'>
+														{list.regionAName}
+														{list.regionBName}
+													</Text>
+													<Grid flex>
+														<Text color='#767676'>{list.startDate}</Text>
+													</Grid>
+												</Grid>
+											</Grid>
+										</Grid>
+									</Grid>
+								);
+							})}
 					</TabPanel>
 					<TabPanel value={value} index={1}>
-						채팅방이 없습니다.
+						{joinchatlist &&
+							joinchatlist.map((list) => {
+								return (
+									<Grid flex direction='row' key={list.imageUrl}>
+										<Image
+											setting
+											src={list.imageUrl}
+											_onClick={(e) => {
+												navigate('/chatInform', {
+													state: { roomid: list?.id },
+												});
+											}}
+										></Image>
+										<Grid
+											between
+											width='317px'
+											height='117px'
+											margin='7px auto'
+										>
+											<Grid flex>
+												<Grid margin='12px 5px 39px 0px'>
+													<Text bold paddingbottom='6px'>
+														{list.title}
+													</Text>
+													<Text color='#767676'>
+														{list.regionAName}
+														{list.regionBName}
+													</Text>
+													<Grid flex>
+														<Text color='#767676'>{list.startDate}</Text>
+													</Grid>
+												</Grid>
+											</Grid>
+										</Grid>
+									</Grid>
+								);
+							})}
 					</TabPanel>
 					<TabPanel value={value} index={2}>
-						<CateChat made mychat={mychatlist} />
+						{likechat &&
+							likechat.map((list) => {
+								return (
+									<Grid flex direction='row' key={list.imageUrl}>
+										<Image
+											setting
+											src={list.imageUrl}
+											_onClick={(e) => {
+												navigate('/chatInform', {
+													state: { roomid: list?.id },
+												});
+											}}
+										></Image>
+										<Grid
+											between
+											width='317px'
+											height='117px'
+											margin='7px auto'
+										>
+											<Grid flex>
+												<Grid margin='12px 5px 39px 0px'>
+													<Text bold paddingbottom='6px'>
+														{list.title}
+													</Text>
+													<Text color='#767676'>
+														{list.regionAName}
+														{list.regionBName}
+													</Text>
+													<Grid flex>
+														<Text color='#767676'>{list.startDate}</Text>
+													</Grid>
+												</Grid>
+											</Grid>
+											<Grid margin='0px 35px 0px 0px'>
+												<Like />
+											</Grid>
+										</Grid>
+									</Grid>
+								);
+							})}
 					</TabPanel>
 				</Box>
 			</ThemeProvider>
@@ -140,3 +254,17 @@ const MyChat = (props) => {
 };
 
 export default MyChat;
+const CountNum = styled.div`
+	width: 20px;
+	height: 20px;
+	background-image: url('${(props) => props.src}');
+`;
+const TagText = styled.div`
+	background: #eaeaea;
+	height: 23px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 5px;
+`;

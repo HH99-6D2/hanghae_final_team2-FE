@@ -22,6 +22,9 @@ const ChatInform = () => {
 		axios({
 			method: 'get',
 			url: `https://yogoloper.shop/api/rooms/${location.state.roomid}`,
+			headers: {
+				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+			},
 		}).then((res) => {
 			setChatinform(res.data);
 			console.log(res.data);
