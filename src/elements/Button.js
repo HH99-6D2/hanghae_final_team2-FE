@@ -207,7 +207,7 @@ const MainBtn = styled.div`
   color: #4d12ff;
   position:absolute;
   text-align: center;
-  width: 130px
+  /* width: 130px */
   border: 0px;
   outline: 0px;
   height:40px;

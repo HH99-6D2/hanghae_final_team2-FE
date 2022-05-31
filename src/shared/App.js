@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import {
   LoginSucess,
   Login,
@@ -18,15 +18,16 @@ import {
   ChatEdit,
   Guid,
   ProfileImage,
-} from "../pages";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { MobileContainer, Container } from "../elements";
-import GlobalStyle from "../styles/globalStyle";
-import Chat from "../pages/Chat";
+} from '../pages';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { MobileContainer, Container } from '../elements';
+import GlobalStyle from '../styles/globalStyle';
+import Chat from '../pages/Chat';
+import axios from 'axios';
 function App() {
   return (
     <Container>
-      <MobileContainer>
+      {/* <MobileContainer> */}
         <GlobalStyle />
         <BrowserRouter>
           <Routes>
@@ -51,7 +52,7 @@ function App() {
             <Route path='/chat/:chatid' element={<Chat />} />
           </Routes>
         </BrowserRouter>
-      </MobileContainer>
+      {/* </MobileContainer> */}
     </Container>
   );
 }

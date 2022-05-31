@@ -41,15 +41,12 @@ const Imageupload = (props) => {
   // 미리보기
   const Loadfile = (Blob) => {
     const formDatas = new FormData();
-
     formDatas.append("image", Blob);
-
     const reader = new FileReader();
     reader.readAsDataURL(Blob);
     return new Promise((resolve) => {
       reader.onload = () => {
         imageSet(reader.result);
-
         resolve();
       };
     });

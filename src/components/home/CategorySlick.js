@@ -43,7 +43,7 @@ const CategorySlick = () => {
       <Scroll>
         {Setting.map((Setting) => {
           return (
-            <Grid margin='0px 10px'>
+            <Grid margin='0px 10px' key={Setting.text}>
               <CateBtn
                 onClick={() =>
                   navigate("/catechat/${Setting.text}", {

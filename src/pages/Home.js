@@ -70,6 +70,7 @@ const Home = (props) => {
         bestchat.map((list) => {
           return (
             <MainChat
+              key={list.id}
               src={list.imageUrl}
               id={list.id}
               title={list.title}

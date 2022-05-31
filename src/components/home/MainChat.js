@@ -2,8 +2,10 @@ import * as React from "react";
 import { Grid, Button, Text } from "../../elements";
 import Like from "../common/Like";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 // 메인화면에 보여줄 추천하는 채팅방 컴포넌트
 const MainChat = (props) => {
+  const navigate = useNavigate()
   const { src, id, title, startday } = props;
 
   return (
@@ -17,7 +19,7 @@ const MainChat = (props) => {
       <Grid position='absolute' left='256px' top='20px'>
         <Like roomid={id} />
       </Grid>
-      <Button mainlike>채팅방 들어가기</Button>
+      <Button mainlike _onClick={() => {navigate(`/chat/${id}`)}}>채팅방 들어가기</Button>
     </MainImg>
   );
 };
