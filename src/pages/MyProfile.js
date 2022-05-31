@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import ProfileHeader from "../components/common/ProfileHeader";
-import { Grid, Button, Text, Image, Input } from "../elements";
+import React, { useState } from 'react';
+import ProfileHeader from '../components/common/ProfileHeader';
+import { Grid, Button, Text, Image, Input } from '../elements';
 
-import axios from "axios";
-import Profilebig from "../assets/Profilebig.svg";
-import { useLocation, useNavigate } from "react-router-dom";
-import Profile11 from "../assets/Profile11.svg";
-import Profile22 from "../assets/Profile22.svg";
-import Profile33 from "../assets/Profile33.svg";
-import Profile44 from "../assets/Profile44.svg";
-import Profile55 from "../assets/Profile55.svg";
-import Profile66 from "../assets/Profile66.svg";
-import Profile77 from "../assets/Profile77.svg";
-import Profile88 from "../assets/Profile88.svg";
-import Profile99 from "../assets/Profile99.svg";
-import Profile100 from "../assets/Profile100.svg";
+import axios from 'axios';
+import Profilebig from '../assets/Profilebig.svg';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Profile11 from '../assets/Profile11.svg';
+import Profile22 from '../assets/Profile22.svg';
+import Profile33 from '../assets/Profile33.svg';
+import Profile44 from '../assets/Profile44.svg';
+import Profile55 from '../assets/Profile55.svg';
+import Profile66 from '../assets/Profile66.svg';
+import Profile77 from '../assets/Profile77.svg';
+import Profile88 from '../assets/Profile88.svg';
+import Profile99 from '../assets/Profile99.svg';
+import Profile100 from '../assets/Profile100.svg';
 
 // 햄버거바->프로필 수정 클릭시 보여줄 페이지
 
-const MyProfile = (props) => {
-  const TOKEN = sessionStorage.getItem("token");
-  const SoTOKEN = sessionStorage.getItem("social");
-  const RETOKEN = sessionStorage.getItem("refresh");
-  const nickname = sessionStorage.getItem("nick");
-  const id = sessionStorage.getItem("id");
+const MyProfile = props => {
+  const TOKEN = sessionStorage.getItem('token');
+  const SoTOKEN = sessionStorage.getItem('social');
+  const RETOKEN = sessionStorage.getItem('refresh');
+  const nickname = sessionStorage.getItem('nick');
+  const id = sessionStorage.getItem('id');
   const navigate = useNavigate();
-
+  const [isChoosing, setIsChoosing] = useState(false);
   const [nick, inputnick] = useState(nickname);
   const location = useLocation();
 
@@ -77,8 +77,8 @@ const MyProfile = (props) => {
   //닉네임과 캐릭터 변경
   const donick = () => {
     axios({
-      method: "patch",
-      url: "https://junehan-test.shop/api/user",
+      method: 'patch',
+      url: 'https://junehan-test.shop/api/user',
       headers: {
         Authorization: `Bearer ${TOKEN}`,
       },
@@ -86,16 +86,16 @@ const MyProfile = (props) => {
         nickname: `${nick}`,
         cType: location.state.cType,
       },
-    }).then((res) => {
+    }).then(res => {
       console.log(res);
-      sessionStorage.setItem("nick", nick);
+      sessionStorage.setItem('nick', nick);
     });
   };
   //로그아웃
   const dologout = () => {
     axios({
-      method: "patch",
-      url: "https://junehan-test.shop/api/auth/logout",
+      method: 'patch',
+      url: 'https://junehan-test.shop/api/auth/logout',
       headers: {
         Authorization: `Bearer ${TOKEN}`,
       },
@@ -105,14 +105,14 @@ const MyProfile = (props) => {
     });
 
     sessionStorage.clear();
-    navigate("/");
+    navigate('/');
   };
 
   //회원탈퇴
   const dosignout = () => {
     axios({
-      method: "post",
-      url: "https://junehan-test.shop/api/auth/signout",
+      method: 'post',
+      url: 'https://junehan-test.shop/api/auth/signout',
       headers: {
         Authorization: `Bearer ${TOKEN}`,
       },
@@ -122,9 +122,18 @@ const MyProfile = (props) => {
     });
 
     sessionStorage.clear();
-    navigate("/");
+    navigate('/');
   };
 
+  if (isChoosing) {
+    return (
+      <>
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(number => (
+          <img url={`/images/bigprofile${number}.svg`} alt='프로필' key={number} />
+        ))}
+      </>
+    );
+  }
   return (
     <>
       <ProfileHeader save>
@@ -137,7 +146,7 @@ const MyProfile = (props) => {
         signupFlex
         height='200px'
         alignItems='center'
-        _onClick={() => navigate("/profileimage")}
+        _onClick={() => navigate('/profileimage')}
       >
         {/* {Setting.map((Setting) => (
               <img
@@ -153,7 +162,7 @@ const MyProfile = (props) => {
       <Grid signupFlex>
         <Input
           width='80%'
-          _onChange={(e) => {
+          _onChange={e => {
             inputnick(e.target.value);
           }}
           defaultValue={nickname}
