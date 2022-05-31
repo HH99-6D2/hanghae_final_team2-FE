@@ -15,7 +15,7 @@ import Blocklist from "./Blocklist";
 import ChatInform from "./ChatInform";
 import ChatEdit from "./ChatEdit";
 import ProfileImage from "./ProfileImage";
-import Guid from "./Guid";
+import Guide from "./Guide";
 
 
 export {
@@ -36,5 +36,5 @@ export {
   ChatInform,
   ChatEdit,
   ProfileImage,
-  Guid,
+  Guide,
 };
