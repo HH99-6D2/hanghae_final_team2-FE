@@ -14,15 +14,16 @@ const MyProfile = (props) => {
 	const RETOKEN = sessionStorage.getItem('refresh');
 	const nickname = sessionStorage.getItem('nick');
 	const id = sessionStorage.getItem('id');
+	const cType = sessionStorage.getItem('cType');
 	const navigate = useNavigate();
 
 	const [nick, inputnick] = useState(nickname);
-	const location = useLocation();
+
 	const [open, setOpen] = useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
-	const [isChoosing, setIsChoosing] = useState(0);
+	const [isChoosing, setIsChoosing] = useState(cType);
 	const Settings = [
 		'/images/profile1.svg',
 		'/images/profile2.svg',
@@ -36,8 +37,6 @@ const MyProfile = (props) => {
 		'/images/profile10.svg',
 	];
 
-	
-
 	//닉네임과 캐릭터 변경
 	const donick = () => {
 		axios({
@@ -48,11 +47,14 @@ const MyProfile = (props) => {
 			},
 			data: {
 				nickname: `${nick}`,
-				cType: location.state.cType,
+				cType: `${isChoosing}`,
 			},
 		}).then((res) => {
-			console.log(res);
 			sessionStorage.setItem('nick', nick);
+			sessionStorage.setItem('cType', isChoosing);
+			console.log(res);
+
+			navigate('/');
 		});
 	};
 	//로그아웃
@@ -108,9 +110,7 @@ const MyProfile = (props) => {
 	};
 
 	const choose = (idx) => {
-		console.log(idx);
 		setIsChoosing(idx);
-
 		handleClose();
 	};
 	console.log(isChoosing);
@@ -122,8 +122,13 @@ const MyProfile = (props) => {
 					저장
 				</Button>
 			</ProfileHeader>
+
 			<Grid signupFlex height='200px' alignItems='center'>
-				<ProfileImage onClick={handleOpen} />
+				{cType ? (
+					<ProfileImage onClick={handleOpen} src={Settings[isChoosing]} />
+				) : (
+					<ProfileImage src={'/images/profileundefined.svg'} />
+				)}
 			</Grid>
 
 			<Grid signupFlex>
@@ -164,7 +169,7 @@ const MyProfile = (props) => {
 				aria-describedby='modal-modal-description'
 			>
 				<Box sx={style}>
-					<Grid flex flexwrap>
+					<Grid signupFlex flexwrap alignItems='center'>
 						{Settings.map((profileimg, idx) => {
 							return (
 								<Badge
@@ -204,15 +209,17 @@ const style = {
 	bgcolor: 'background.paper',
 	borderRadius: '10px',
 	boxShadow: 24,
+	padding: '10px 50px',
 	p: 4,
 };
 export default MyProfile;
 
 const ProfileImage = styled.div`
-	background-image: url('/images/profileundefined.svg');
-	width: 80px;
-	height: 80px;
+	background-image: url('${(props) => props.src}');
+	width: 120px;
+	height: 120px;
 	background-size: cover;
+	border-radius: 70%;
 `;
 
 const Radio = styled.input`
