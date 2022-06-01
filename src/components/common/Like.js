@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 import axios from 'axios';
+import { ResetTvRounded } from '@mui/icons-material';
 
 const Like = (props) => {
 	const { roomid, ischecked } = props;
-
-	const [like, setlike] = useState(ischecked);
+	console.log(ischecked, roomid);
+	const [like, setlike] = useState(ischecked ? ischecked : false);
 
 	const dolike = (e) => {
 		e.stopPropagation();

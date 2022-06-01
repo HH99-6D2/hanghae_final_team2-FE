@@ -53,6 +53,7 @@ const CateChat = (props) => {
 				<Grid
 					position='absolute'
 					left='256px'
+					top='7px'
 					_onClick={(e) => {
 						e.stopPropagation();
 					}}
