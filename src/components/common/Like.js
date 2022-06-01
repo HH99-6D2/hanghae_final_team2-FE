@@ -2,25 +2,26 @@ import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 import axios from 'axios';
-import { ResetTvRounded } from '@mui/icons-material';
 
 const Like = (props) => {
 	const { roomid, ischecked } = props;
-	console.log(ischecked, roomid);
-	const [like, setlike] = useState(ischecked ? ischecked : false);
+
+	const [like, setlike] = useState(false);
+
+	useEffect(() => {
+		setlike(ischecked);
+	}, [ischecked]);
 
 	const dolike = (e) => {
 		e.stopPropagation();
-		console.log(ischecked);
-		if (like) {
+
+		if (!like) {
 			axios({
 				method: 'get',
 				url: `https://yogoloper.shop/api/rooms/likes/${roomid}`,
 				headers: {
 					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 				},
-			}).then((res) => {
-				console.log(res);
 			});
 		} else {
 			axios({
@@ -29,8 +30,6 @@ const Like = (props) => {
 				headers: {
 					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 				},
-			}).then((res) => {
-				console.log(res);
 			});
 		}
 		setlike((prev) => !prev);

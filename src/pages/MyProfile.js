@@ -22,8 +22,7 @@ const MyProfile = (props) => {
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 
-	const [type, setctype] = useState(location.state && location.state.cType);
-	const [isChoosing, setIsChoosing] = useState('');
+	const [isChoosing, setIsChoosing] = useState(0);
 	const Settings = [
 		'/images/profile1.svg',
 		'/images/profile2.svg',
@@ -36,6 +35,8 @@ const MyProfile = (props) => {
 		'/images/profile9.svg',
 		'/images/profile10.svg',
 	];
+
+	
 
 	//닉네임과 캐릭터 변경
 	const donick = () => {
@@ -106,12 +107,13 @@ const MyProfile = (props) => {
 		setIsChoosing(e.target.id);
 	};
 
-	const choose = (e) => {
-		console.log(e.target);
-		setIsChoosing(e.target.id);
-		console.log(isChoosing);
+	const choose = (idx) => {
+		console.log(idx);
+		setIsChoosing(idx);
+
 		handleClose();
 	};
+	console.log(isChoosing);
 	return (
 		<>
 			<ProfileHeader save>
@@ -162,14 +164,17 @@ const MyProfile = (props) => {
 				aria-describedby='modal-modal-description'
 			>
 				<Box sx={style}>
-					<Grid flex flexwrap onClose={handleClose}>
+					<Grid flex flexwrap>
 						{Settings.map((profileimg, idx) => {
 							return (
 								<Badge
 									checked={isChoosing === profileimg}
 									key={idx}
 									src={profileimg}
-									onClick={choose}
+									onClick={() => {
+										console.log(idx);
+										choose(idx);
+									}}
 								>
 									<label>
 										<Radio
