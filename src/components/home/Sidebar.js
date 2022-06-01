@@ -42,11 +42,23 @@ const Supports = [
 		title: '이용 약관 및 문의',
 	},
 ];
-
+const ChooseImage = [
+	'/images/profile1.svg',
+	'/images/profile2.svg',
+	'/images/profile3.svg',
+	'/images/profile4.svg',
+	'/images/profile5.svg',
+	'/images/profile6.svg',
+	'/images/profile7.svg',
+	'/images/profile8.svg',
+	'/images/profile9.svg',
+	'/images/profile10.svg',
+];
 function Sidebar(props) {
 	const navigate = useNavigate();
 	const nickname = sessionStorage.getItem('nick');
 	const token = sessionStorage.getItem('token');
+	const cType = sessionStorage.getItem('cType');
 	return (
 		<>
 			<Grid margin='25px 28px 0 auto' cursor='pointer'>
@@ -59,7 +71,7 @@ function Sidebar(props) {
 				/>
 			</Grid>
 			<Grid profileFlex margin='17px 33px'>
-				<Image src={profile} size='58'></Image>
+				<Image src={ChooseImage[cType]} size='58'></Image>
 				<Grid margin='0 0 0 11px'>
 					<Text size='21px' padding='0 0 7px 0'>
 						{nickname} 님
