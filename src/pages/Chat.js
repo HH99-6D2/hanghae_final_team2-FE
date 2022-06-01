@@ -129,7 +129,6 @@ const Chat = () => {
     const formData = new FormData();
     formData.append('file', e.target.files[0]);
 
-    //서버로 이미지 보낼거
     axios({
       method: 'POST',
       url: 'https://junehan-test.shop/api/user/upload',

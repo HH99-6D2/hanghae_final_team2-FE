@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
+
 import styled from 'styled-components';
 import axios from 'axios';
 
 const Like = (props) => {
 	const { roomid, ischecked } = props;
-	useEffect(() => {
-		console.log(ischecked);
-	}, [ischecked]);
 
 	const [like, setlike] = useState(ischecked);
 
 	const dolike = (e) => {
-		// e.stopPropagation();
+		e.stopPropagation();
 		console.log(ischecked);
 		if (like) {
 			axios({

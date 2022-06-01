@@ -3,7 +3,6 @@ import ProfileHeader from '../components/common/ProfileHeader';
 import { Grid, Button, Text, Image, Input } from '../elements';
 
 import axios from 'axios';
-import Profilebig from '../assets/Profilebig.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Profile11 from '../assets/Profile11.svg';
 import Profile22 from '../assets/Profile22.svg';

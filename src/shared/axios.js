@@ -20,15 +20,15 @@ const instances = axios.create({
 });
 
 instance.interceptors.request.use(
-  (config) => {
+  config => {
     const accessToken = sessionStorage.getItem('token');
     config.headers.common['X-AUTH-TOKEN'] = `${accessToken}`;
     console.log(accessToken);
     return config;
   },
-  (err) => {
+  err => {
     console.log(err);
-  },
+  }
 );
 
 const api = {
@@ -37,13 +37,11 @@ const api = {
   // getPost함수에서는 instance.get('http://localhost:3000/posts')로 요청을 보내게 됩니다.
   // get과 delete의 경우 두 번째 인자에 데이터를 담아 보낼수 없기 때문에 서버에 데이터를 보낼경우 쿼리를 이용하여 보내주도록 합니다.
 
-  loginAX: (id, password) =>
-    instances.post('/login', { id: id, password: password }),
-  signupAX: (id, password) =>
-    instances.post('/signup', { id: id, password: password }),
-  numberCheckAX: (number) => instances.get(`/checkNum?number=${number}`),
+  loginAX: (id, password) => instances.post('/login', { id: id, password: password }),
+  signupAX: (id, password) => instances.post('/signup', { id: id, password: password }),
+  numberCheckAX: number => instances.get(`/checkNum?number=${number}`),
   logoutAX: () => instances.post('/logout'),
-  likeChatAX: (roomId) => instances.post(`/api/rooms/likes/${roomId}`),
+  likeChatAX: roomId => instances.post(`/api/rooms/likes/${roomId}`),
 };
 
 export default { api };
