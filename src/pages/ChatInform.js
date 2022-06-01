@@ -7,7 +7,9 @@ import axios from 'axios';
 import moment from 'moment';
 const ChatInform = () => {
 	const location = useLocation();
+	const navigate = useNavigate();
 	const [chatinform, setChatinform] = useState('');
+	const [roomid, setRoomid] = useState(location.state.roomid);
 	const TOKEN = sessionStorage.getItem('token');
 	const now = moment();
 	const startcheck = now.isBetween(
@@ -35,12 +37,13 @@ const ChatInform = () => {
 	const joinchat = () => {
 		axios({
 			method: 'get',
-			url: `https://yogoloper.shop/api/rooms/join/${location.state.roomid}`,
+			url: `https://yogoloper.shop/api/rooms/join/${roomid}`,
 			headers: {
 				Authorization: `Bearer ${TOKEN}`,
 			},
 		}).then((res) => {
 			console.log(res);
+			navigate(`/chat/${roomid}`);
 		});
 	};
 	return (
@@ -48,7 +51,11 @@ const ChatInform = () => {
 			<Chatimage src={chatinform.imageUrl} />
 
 			<Chatinform>
-				<ProfileHeader chatinform roomid={chatinform.id}>
+				<ProfileHeader
+					chatinform
+					roomid={chatinform.id}
+					ischecked={chatinform.isLike}
+				>
 					{chatinform.spot}
 				</ProfileHeader>
 				<Grid flex margin='0px 49px'>

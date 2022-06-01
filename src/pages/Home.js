@@ -16,6 +16,9 @@ const Home = (props) => {
 		axios({
 			method: 'get',
 			url: 'https://yogoloper.shop/api/rooms',
+			headers: {
+				Authorization: `Bearer ${TOKEN}`,
+			},
 		}).then((res) => {
 			setBestchat(res.data);
 		});
@@ -74,6 +77,7 @@ const Home = (props) => {
 							id={list.id}
 							title={list.title}
 							startday={list.startDate.split(' ')[0]}
+							ischecked={list.isLike}
 						/>
 					);
 				})}

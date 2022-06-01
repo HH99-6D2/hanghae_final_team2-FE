@@ -18,8 +18,12 @@ const CateChatlist = (props) => {
 		axios({
 			method: 'get',
 			url: `https://yogoloper.shop/api/rooms/search?category=${location.state.category}&sort=1&startDate=${today}&endDate=${endtime}`,
+			headers: {
+				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+			},
 		}).then((res) => {
 			setChat(res.data);
+			console.log(chat);
 		});
 	}, []);
 
@@ -32,7 +36,7 @@ const CateChatlist = (props) => {
 			</ProfileHeader>
 			{chat &&
 				chat.map((list) => {
-					return <CateChat key={list.id} list={list} />;
+					return <CateChat key={list.id} list={list} ischecked={list.isLike} />;
 				})}
 		</>
 	);
