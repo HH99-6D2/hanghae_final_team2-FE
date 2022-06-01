@@ -240,7 +240,7 @@ const MyChat = (props) => {
 												</Grid>
 											</Grid>
 											<Grid margin='0px 35px 0px 0px'>
-												<Like />
+												<Like roomid={list.id} />
 											</Grid>
 										</Grid>
 									</Grid>

@@ -9,10 +9,11 @@ const Like = (props) => {
 	}, [ischecked]);
 
 	const [like, setlike] = useState(ischecked);
+
 	const dolike = (e) => {
 		// e.stopPropagation();
 		console.log(ischecked);
-		if (!like) {
+		if (like) {
 			axios({
 				method: 'get',
 				url: `https://yogoloper.shop/api/rooms/likes/${roomid}`,
