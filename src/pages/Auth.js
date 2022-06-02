@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const Auth = () => {
 	const navigate = useNavigate();
 
-	let code = new URL(window.location.href).searchParams.get('code');
-	console.log(window.location.href);
+	//	let code = new URL(window.location.href).searchParams.get('code');
+	console.log(window.location.search);
+	console.log(window.location);
 	useEffect(() => {
 		axios
 			.get(`https://junehan-test.shop/api/auth/oauth?code=${code}`)
