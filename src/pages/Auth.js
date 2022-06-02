@@ -6,7 +6,7 @@ const Auth = () => {
 	const navigate = useNavigate();
 
 	let code = new URL(window.location.href).searchParams.get('code');
-
+	console.log(window.location.href);
 	useEffect(() => {
 		axios
 			.get(`https://junehan-test.shop/api/auth/oauth?code=${code}`)
