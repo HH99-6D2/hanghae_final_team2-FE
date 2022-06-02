@@ -125,7 +125,10 @@ const MyProfile = (props) => {
 
 			<Grid signupFlex height='200px' alignItems='center'>
 				{isNaN(cType) ? (
-					<ProfileImage src={'/images/profileundefined.svg'} />
+					<ProfileImage
+						src={'/images/profileundefined.svg'}
+						onClick={handleOpen}
+					/>
 				) : (
 					<ProfileImage onClick={handleOpen} src={Settings[isChoosing]} />
 				)}

@@ -66,7 +66,10 @@ const LoginSucess = (props) => {
 			<ProfileHeader>프로필 설정</ProfileHeader>
 			<Grid signupFlex height='270px' alignItems='center'>
 				{isNaN(cType) ? (
-					<ProfileImage src={'/images/profileundefined.svg'} />
+					<ProfileImage
+						src={'/images/profileundefined.svg'}
+						onClick={handleOpen}
+					/>
 				) : (
 					<ProfileImage onClick={handleOpen} src={Settings[isChoosing]} />
 				)}
