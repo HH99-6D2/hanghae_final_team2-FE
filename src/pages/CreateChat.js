@@ -100,7 +100,7 @@ const CreateChat = (props) => {
 			</Grid>
 
 			<Imageupload seturl={seturl} />
-			<Grid margin=' 7px auto'>
+			<Grid margin=' 7px auto' width='328px'>
 				<Text paddingbottom='17px' color='#4D12FF' bold>
 					채팅방 이름
 				</Text>
@@ -137,7 +137,7 @@ const CreateChat = (props) => {
 				</Container>
 			</Grid>
 
-			<Grid margin='0px auto'>
+			<Grid margin='0px auto' width='328px'>
 				<Text paddingbottom='17px' color='#4D12FF' bold>
 					태그 추가
 				</Text>
@@ -149,7 +149,7 @@ const CreateChat = (props) => {
 					}}
 				/>
 			</Grid>
-			<Grid margin='18px auto'>
+			<Grid margin='18px auto' width='328px'>
 				<Text paddingbottom='17px' color='#4D12FF' bold>
 					위치정보
 				</Text>

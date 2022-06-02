@@ -5,10 +5,15 @@ import axios from 'axios';
 const Like = (props) => {
 	const { roomid, ischecked } = props;
 
-	const [like, setlike] = useState(ischecked);
+	const [like, setlike] = useState(false);
+
+	useEffect(() => {
+		setlike(ischecked);
+	}, [ischecked]);
+
 	const dolike = (e) => {
 		e.stopPropagation();
-		console.log(ischecked);
+
 		if (!like) {
 			axios({
 				method: 'get',
@@ -16,8 +21,6 @@ const Like = (props) => {
 				headers: {
 					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 				},
-			}).then((res) => {
-				console.log(res);
 			});
 		} else {
 			axios({
@@ -26,8 +29,6 @@ const Like = (props) => {
 				headers: {
 					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
 				},
-			}).then((res) => {
-				console.log(res);
 			});
 		}
 		setlike((prev) => !prev);

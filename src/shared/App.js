@@ -17,7 +17,6 @@ import {
 	ChatInform,
 	ChatEdit,
 	Guide,
-	ProfileImage,
 } from '../pages';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Container } from '../elements';
@@ -47,7 +46,6 @@ function App() {
 					<Route path='/chatInform' element={<ChatInform />} />
 					<Route path='/editchat' element={<ChatEdit />} />
 					<Route path='/guide' element={<Guide />} />
-					<Route path='/profileimage' element={<ProfileImage />} />
 					<Route path='/chat/:chatid' element={<Chat />} />
 				</Routes>
 			</BrowserRouter>

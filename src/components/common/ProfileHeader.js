@@ -7,7 +7,16 @@ import Like from './Like';
 
 const ProfileHeader = (props) => {
 	const navigate = useNavigate();
-	const { children, save, back, search, column, chatinform, roomid } = props;
+	const {
+		children,
+		save,
+		back,
+		search,
+		column,
+		chatinform,
+		roomid,
+		ischecked,
+	} = props;
 	if (save) {
 		return (
 			<Grid flex alignItems='center' margin='39px 10px 20px 34px'>
@@ -74,7 +83,7 @@ const ProfileHeader = (props) => {
 					<Text size='14px'>{children}</Text>
 				</Grid>
 				<Grid position='absolute' left='290px' flex>
-					<Like purple roomid={roomid} />
+					<Like purple roomid={roomid} ischecked={ischecked} />
 				</Grid>
 			</Grid>
 		);

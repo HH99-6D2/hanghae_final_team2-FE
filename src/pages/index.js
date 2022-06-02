@@ -14,9 +14,7 @@ import SearchChat from "./SearchChat";
 import Blocklist from "./Blocklist";
 import ChatInform from "./ChatInform";
 import ChatEdit from "./ChatEdit";
-import ProfileImage from "./ProfileImage";
 import Guide from "./Guide";
-
 
 export {
   Home,
@@ -35,6 +33,5 @@ export {
   Blocklist,
   ChatInform,
   ChatEdit,
-  ProfileImage,
   Guide,
 };
