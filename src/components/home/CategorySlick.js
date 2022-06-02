@@ -7,32 +7,32 @@ const CategorySlick = () => {
 	const navigate = useNavigate();
 	const Settings = [
 		{
-			src: '/images/sportsmain.svg',
+			src: '/images/homecategory/sportsmain.svg',
 			background: '#4D12FF',
 			text: '스포츠',
 		},
 		{
-			src: '/images/concertmain.svg',
+			src: '/images/homecategory/concertmain.svg',
 			background: '#5D5FEF',
 			text: '공연',
 		},
 		{
-			src: '/images/expomain.svg',
+			src: '/images/homecategory/expomain.svg',
 			background: '#7879F1',
 			text: '박람회 및 전시회',
 		},
 		{
-			src: '/images/tripmain.svg',
+			src: '/images/homecategory/tripmain.svg',
 			background: '#4D12FF',
 			text: '여행',
 		},
 		{
-			src: '/images/eatmain.svg',
+			src: '/images/homecategory/eatmain.svg',
 			background: '#5D5FEF',
 			text: '맛집',
 		},
 		{
-			src: '/images/moviemain.svg',
+			src: '/images/homecategory/moviemain.svg',
 			background: '#7879F1',
 			text: '영화',
 		},

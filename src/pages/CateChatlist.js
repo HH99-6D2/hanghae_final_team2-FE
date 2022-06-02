@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import CateChat from '../components/categorychat/CateChat';
 import ProfileHeader from '../components/common/ProfileHeader';
 import { Grid } from '../elements';
-import { ReactComponent as Filter } from '../assets/Filter.svg';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
@@ -31,7 +30,7 @@ const CateChatlist = (props) => {
 		<>
 			<ProfileHeader search>
 				<Grid position='absolute' top='40px' left='325px'>
-					<Filter />
+					<img src={'/images/searchfilter.svg'} />
 				</Grid>
 			</ProfileHeader>
 			{chat &&

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Grid, Image } from '.';
-import Search from '../assets/Search.svg';
 
 const Input = (props) => {
 	const {
@@ -75,7 +74,11 @@ const Input = (props) => {
 						onChange={_onChange}
 						defaultValue={defaultValue}
 					/>
-					<Image size='30' src={Search} _onClick={_onClick} />
+					<Image
+						size='30'
+						src={'/images/searchglass.svg'}
+						_onClick={_onClick}
+					/>
 				</Grid>
 			</>
 		);

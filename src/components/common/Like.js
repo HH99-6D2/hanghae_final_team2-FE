@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -54,11 +53,11 @@ const Input = styled.input`
 const LikeIcon = styled.div`
 	width: 30px;
 	height: 30px;
-	background-image: url('/images/MainLike.svg');
+	background-image: url('/images/like.svg');
 `;
 
 const UnlikeIcon = styled.div`
 	width: 30px;
 	height: 30px;
-	background-image: url('/images/Purpleheart.svg');
+	background-image: url('/images/unlike.svg');
 `;

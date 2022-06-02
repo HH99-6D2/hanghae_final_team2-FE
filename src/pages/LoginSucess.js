@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import ProfileHeader from '../components/common/ProfileHeader';
 import { Image, Grid, Buttons, Input } from '../elements';
-import { MdPhotoCamera } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as Profilebig } from '../assets/Profilebig.svg';
 import axios from 'axios';
 import styled from 'styled-components';
 import Modal from '@mui/material/Modal';
@@ -22,6 +20,7 @@ const LoginSucess = (props) => {
 	const cType = sessionStorage.getItem('cType');
 	const [isChoosing, setIsChoosing] = useState('');
 	const Settings = [
+		'/images/profile0.svg',
 		'/images/profile1.svg',
 		'/images/profile2.svg',
 		'/images/profile3.svg',
@@ -31,7 +30,6 @@ const LoginSucess = (props) => {
 		'/images/profile7.svg',
 		'/images/profile8.svg',
 		'/images/profile9.svg',
-		'/images/profile10.svg',
 	];
 	//닉네임 변경
 	const donick = () => {

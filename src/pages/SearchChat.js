@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { ReactComponent as Searchglas } from '../assets/Searchglas.svg';
-import { ReactComponent as Filter } from '../assets/Filter.svg';
 import ProfileHeader from '../components/common/ProfileHeader';
 import { Grid, Text, Button } from '../elements';
 import styled from 'styled-components';
@@ -41,6 +39,9 @@ const SerachChat = () => {
 		axios({
 			method: 'get',
 			url: `https://yogoloper.shop/api/rooms/search?&sort=1&word=${search}`,
+			headers: {
+				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+			},
 		})
 			.then((res) => {
 				setResult(res.data);
@@ -57,6 +58,9 @@ const SerachChat = () => {
 		axios({
 			method: 'get',
 			url: `https://yogoloper.shop/api/rooms/search?&sort=1&startDate=${start}&endDate=${end}&word=${search}`,
+			headers: {
+				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+			},
 		})
 			.then((res) => {
 				setResult(res.data);
@@ -89,13 +93,13 @@ const SerachChat = () => {
 			<ProfileHeader search>
 				검색
 				<Grid position='absolute' top='40px' left='325px' _onClick={handleOpen}>
-					<Filter />
+					<img src={'/images/searchfilter.svg'} />
 				</Grid>
 			</ProfileHeader>
 			<Grid position='relative' flex>
 				<Inputsearch onChange={(e) => setSearch(e.target.value)} />
 				<Grid position='absolute' top='26px' left='309px' _onClick={sendword}>
-					<Searchglas />
+					<img src={'/images/searchglass.svg'} />
 				</Grid>
 			</Grid>
 			{start && end && (
@@ -163,7 +167,7 @@ const SerachChat = () => {
 
 			{result &&
 				result.map((list) => {
-					return <CateChat key={list} list={list} />;
+					return <CateChat key={list} list={list} ischecked={list.isLike} />;
 				})}
 			{errormsg && <Notfound />}
 		</>

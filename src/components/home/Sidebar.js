@@ -1,32 +1,25 @@
 import React from 'react';
 import { Grid, Image, Text, Buttons } from '../../elements';
 import { useNavigate } from 'react-router-dom';
-import profile from '../../assets/profile.svg';
-import addChat from '../../assets/addChat.svg';
-import editChat from '../../assets/editChat.svg';
-import blackList from '../../assets/blackList.svg';
-import appAlert from '../../assets/appAlert.svg';
-import askService from '../../assets/askService.svg';
-import cancel from '../../assets/cancel.svg';
 
 const Settings = [
 	{
-		url: addChat,
+		url: '/images/sidebar/addchat.svg',
 		title: '채팅방 만들기',
 		navi: '/addchat',
 	},
 	{
-		url: editChat,
+		url: '/images/sidebar/editchat.svg',
 		title: '채팅방 관리',
 		navi: '/chatlist',
 	},
 	{
-		url: blackList,
+		url: '/images/sidebar/blackList.svg',
 		title: '차단 목록',
 		navi: '/blocklist',
 	},
 	{
-		url: appAlert,
+		url: '/images/sidebar/appalert.svg',
 		title: '앱 알림 설정',
 		navi: '/alarmsetting',
 	},
@@ -38,11 +31,12 @@ const Supports = [
 		title: '채팅방 만들기',
 	},
 	{
-		url: askService,
+		url: '/images/sidebar/askservice.svg',
 		title: '이용 약관 및 문의',
 	},
 ];
 const ChooseImage = [
+	'/images/profile0.svg',
 	'/images/profile1.svg',
 	'/images/profile2.svg',
 	'/images/profile3.svg',
@@ -52,7 +46,6 @@ const ChooseImage = [
 	'/images/profile7.svg',
 	'/images/profile8.svg',
 	'/images/profile9.svg',
-	'/images/profile10.svg',
 ];
 function Sidebar(props) {
 	const navigate = useNavigate();
@@ -66,7 +59,7 @@ function Sidebar(props) {
 					_onClick={() => {
 						navigate('/');
 					}}
-					src={cancel}
+					src={'/images/cancel.svg'}
 					size='22'
 				/>
 			</Grid>

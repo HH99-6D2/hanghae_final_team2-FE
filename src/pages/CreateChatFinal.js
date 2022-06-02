@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProfileHeader from '../components/common/ProfileHeader';
 import { Text, Grid, Image, Buttons } from '../elements';
-import { ReactComponent as Info } from '../assets/Info.svg';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
@@ -42,7 +41,7 @@ const CreateChatFinal = () => {
 		<>
 			<ProfileHeader back></ProfileHeader>
 			<Grid signupFlex>
-				<Info />
+				<img src={'/images/createchatinfo.svg'} />
 				<Text margin='0px 6px' bold size='14px'>
 					아래 정보로 채팅방을 생성하시겠습니까?
 				</Text>

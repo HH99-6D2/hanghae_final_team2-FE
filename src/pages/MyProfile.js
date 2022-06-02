@@ -25,6 +25,7 @@ const MyProfile = (props) => {
 
 	const [isChoosing, setIsChoosing] = useState(cType);
 	const Settings = [
+		'/images/profile0.svg',
 		'/images/profile1.svg',
 		'/images/profile2.svg',
 		'/images/profile3.svg',
@@ -34,7 +35,6 @@ const MyProfile = (props) => {
 		'/images/profile7.svg',
 		'/images/profile8.svg',
 		'/images/profile9.svg',
-		'/images/profile10.svg',
 	];
 
 	//닉네임과 캐릭터 변경

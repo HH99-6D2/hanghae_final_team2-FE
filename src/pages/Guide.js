@@ -24,7 +24,7 @@ export default function DotsMobileStepper() {
 		<>
 			{activeStep === 0 && (
 				<>
-					<GuidImage src='images/guidfirst.svg' />
+					<GuidImage src='images/guidefirst.svg' />
 					<Grid signupFlex textAlign='center'>
 						<Text bbold size='21px'>
 							감정과 정보를 공유하는 <br />
@@ -49,7 +49,7 @@ export default function DotsMobileStepper() {
 
 			{activeStep === 1 && (
 				<>
-					<GuidImage src='images/guidsecond.svg' />
+					<GuidImage src='images/guidesecond.svg' />
 					<Grid signupFlex textAlign='center'>
 						<Text bbold size='21px'>
 							정해진 시간 안에서 <br />
@@ -74,7 +74,7 @@ export default function DotsMobileStepper() {
 			)}
 			{activeStep === 2 && (
 				<>
-					<GuidImage src='images/guidlast.svg' />
+					<GuidImage src='images/guidelast.svg' />
 					<Grid signupFlex textAlign='center'>
 						<Text bbold size='21px'>
 							이브이챗에 오신 것을 <br />
