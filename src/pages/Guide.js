@@ -40,7 +40,7 @@ export default function DotsMobileStepper() {
 					</Grid>
 					<PassBtn
 						onClick={() => {
-							navigate('/');
+							navigate('/login');
 						}}
 					>
 						건너뛰기
@@ -66,7 +66,7 @@ export default function DotsMobileStepper() {
 					</Grid>
 					<PassBtn
 						onClick={() => {
-							navigate('/');
+							navigate('/login');
 						}}
 					>
 						건너뛰기

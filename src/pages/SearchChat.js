@@ -196,7 +196,7 @@ const SerachChat = () => {
 const Inputsearch = styled.input`
 	width: 320px;
 	margin: 20px auto;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 10px;
 	height: 45px;
 `;
