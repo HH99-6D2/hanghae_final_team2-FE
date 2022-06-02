@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Image, Text, Buttons } from '../../elements';
 import { useNavigate } from 'react-router-dom';
-
+import styled from 'styled-components';
 const Settings = [
 	{
 		url: '/images/sidebar/addchat.svg',
@@ -52,6 +52,7 @@ function Sidebar(props) {
 	const nickname = sessionStorage.getItem('nick');
 	const token = sessionStorage.getItem('token');
 	const cType = sessionStorage.getItem('cType');
+
 	return (
 		<>
 			<Grid margin='25px 28px 0 20px' cursor='pointer'>
@@ -64,7 +65,12 @@ function Sidebar(props) {
 				/>
 			</Grid>
 			<Grid profileFlex margin='17px 33px'>
-				<Image src={ChooseImage[cType]} size='58'></Image>
+				{isNaN(cType) ? (
+					<ProfileImage src={'/images/profileundefined.svg'} />
+				) : (
+					<ProfileImage src={ChooseImage[cType]} />
+				)}
+
 				<Grid margin='0 0 0 11px'>
 					<Text size='21px' padding='0 0 7px 0'>
 						{nickname} 님
@@ -127,3 +133,10 @@ function Sidebar(props) {
 }
 
 export default Sidebar;
+const ProfileImage = styled.div`
+	background-image: url('${(props) => props.src}');
+	width: 58px;
+	height: 58px;
+	background-size: cover;
+	border-radius: 70%;
+`;
