@@ -63,18 +63,18 @@ const CreateChat = (props) => {
 					<Button
 						cursor='pointer'
 						_onClick={() => {
-							if (
-								!name ||
-								!place ||
-								!tag ||
-								!url ||
-								!start ||
-								!end ||
-								!starttime ||
-								!endtime
-							) {
-								return;
-							}
+							// if (
+							// 	!name ||
+							// 	!place ||
+							// 	!tag ||
+							// 	!url ||
+							// 	!start ||
+							// 	!end ||
+							// 	!starttime ||
+							// 	!endtime
+							// ) {
+							// 	return;
+							// }
 							navigate('/addchatcheck', {
 								state: {
 									title: name,

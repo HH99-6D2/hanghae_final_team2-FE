@@ -46,7 +46,7 @@ const Home = (props) => {
 						if (TOKEN) {
 							navigate('/addchat');
 						} else {
-							navigate('/login');
+							navigate('/guide');
 						}
 					}}
 				>

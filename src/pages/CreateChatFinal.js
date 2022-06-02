@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import ProfileHeader from '../components/common/ProfileHeader';
-import { Text, Grid, Image, Buttons } from '../elements';
+import { Text, Grid, Image } from '../elements';
 import { useNavigate, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
 import axios from 'axios';
 
 const CreateChatFinal = () => {
@@ -22,8 +23,8 @@ const CreateChatFinal = () => {
 				title: send.title,
 				positionX: send.place.x,
 				positionY: send.place.y,
-				regionAName: send.region[0],
-				regionBName: send.region[1],
+				regionAName: send?.region[0],
+				regionBName: send?.region[1],
 				spot: send.placename[0],
 				category: send.category,
 				startDate: `${send.startdate} ${send.starttime} `,
@@ -88,11 +89,24 @@ const CreateChatFinal = () => {
 					</Text>
 				</Grid>
 			</Grid>
-			<Buttons margin='auto' _onClick={createchat}>
+			<CreateBtn margin='auto' onClick={createchat}>
 				채팅방 생성하기
-			</Buttons>
+			</CreateBtn>
 		</>
 	);
 };
 
 export default CreateChatFinal;
+
+const CreateBtn = styled.div`
+	width: 315px;
+	height: 45px;
+	display: fles;
+	color: white;
+	background-color: #4d12ff;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	margin: 40px auto;
+	cursor: pointer;
+`;
