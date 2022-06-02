@@ -117,7 +117,7 @@ const CreateChat = (props) => {
 					카테고리 선택
 				</Text>
 				<Container>
-					{categorys.map((category) => {
+					{categorys?.map((category) => {
 						return (
 							<Item checked={cate === category.text} key={category.text}>
 								<Label>
