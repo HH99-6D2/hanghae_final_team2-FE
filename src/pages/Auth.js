@@ -5,12 +5,11 @@ import { useNavigate } from 'react-router-dom';
 const Auth = () => {
 	const navigate = useNavigate();
 
-	//	let code = new URL(window.location.href).searchParams.get('code');
-	console.log(window.location.search);
-	console.log(window.location);
+	let code = new URL(window.location.href).searchParams.get('code');
+
 	useEffect(() => {
 		axios
-			.get(`https://junehan-test.shop/api/auth/oauth?code=${code}`)
+			.get(`https://junehan-test.shop/api/auth/oauth/?code=${code}`)
 			.then((res) => {
 				console.log(res);
 				sessionStorage.setItem('token', res.data.accessToken);
