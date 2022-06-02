@@ -157,7 +157,7 @@ const GuidImage = styled.div`
 
 const StartBtn = styled.div`
 	width: 100px;
-	height: 32px;
+	height: 34px;
 	background: #eb4c3f;
 	border-radius: 20px;
 	color: white;

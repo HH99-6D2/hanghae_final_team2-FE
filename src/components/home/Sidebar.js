@@ -54,7 +54,7 @@ function Sidebar(props) {
 	const cType = sessionStorage.getItem('cType');
 	return (
 		<>
-			<Grid margin='25px 28px 0 auto' cursor='pointer'>
+			<Grid margin='25px 28px 0 20px' cursor='pointer'>
 				<Image
 					_onClick={() => {
 						navigate('/');

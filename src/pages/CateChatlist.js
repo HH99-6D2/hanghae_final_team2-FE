@@ -12,18 +12,29 @@ const CateChatlist = (props) => {
 	const today = moment().format('YYYY-MM-DD');
 	const endtime = moment().add(7, 'days').format('YYYY-MM-DD');
 	const [chat, setChat] = useState('');
+	const TOKEN = sessionStorage.getItem('token');
 
 	useEffect(() => {
-		axios({
-			method: 'get',
-			url: `https://yogoloper.shop/api/rooms/search?category=${location.state.category}&sort=1&startDate=${today}&endDate=${endtime}`,
-			headers: {
-				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-			},
-		}).then((res) => {
-			setChat(res.data);
-			console.log(chat);
-		});
+		if (TOKEN) {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/search?category=${location.state.category}&sort=1&startDate=${today}&endDate=${endtime}`,
+				headers: {
+					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+				},
+			}).then((res) => {
+				setChat(res.data);
+				console.log(chat);
+			});
+		} else {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/search?category=${location.state.category}&sort=1&startDate=${today}&endDate=${endtime}`,
+			}).then((res) => {
+				setChat(res.data);
+				console.log(chat);
+			});
+		}
 	}, []);
 
 	return (

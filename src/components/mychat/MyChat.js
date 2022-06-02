@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/material/Tabs';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -14,8 +13,9 @@ import Like from '../common/Like';
 // 햄버거바->채팅방관리-> 보여줄 탭
 
 const MyChat = (props) => {
+	const { madechat } = props;
 	const TOKEN = sessionStorage.getItem('token');
-	const [madechatlist, setMadechatlist] = useState('');
+	const [madechatlist, setMadechatlist] = useState(madechat);
 	const [joinchatlist, setjoinchatlist] = useState('');
 	const [likechat, setLikechat] = useState('');
 	const navigate = useNavigate();
@@ -143,7 +143,7 @@ const MyChat = (props) => {
 										></Image>
 										<Grid
 											between
-											width='317px'
+											width='180px'
 											height='117px'
 											margin='7px auto'
 										>
@@ -182,7 +182,7 @@ const MyChat = (props) => {
 										></Image>
 										<Grid
 											between
-											width='317px'
+											width='180px'
 											height='117px'
 											margin='7px auto'
 										>
@@ -221,7 +221,7 @@ const MyChat = (props) => {
 										></Image>
 										<Grid
 											between
-											width='317px'
+											width='180px'
 											height='117px'
 											margin='7px auto'
 										>

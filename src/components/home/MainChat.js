@@ -3,10 +3,12 @@ import { Grid, Button, Text } from '../../elements';
 import Like from '../common/Like';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 // 메인화면에 보여줄 추천하는 채팅방 컴포넌트
 const MainChat = (props) => {
 	const { src, id, title, startday, ischecked } = props;
 	const TOKEN = sessionStorage.getItem('token');
+	const navigate = useNavigate();
 	const joinchat = () => {
 		axios({
 			method: 'get',
@@ -16,6 +18,7 @@ const MainChat = (props) => {
 			},
 		}).then((res) => {
 			console.log(res);
+			navigate(`/chat/${id}`);
 		});
 	};
 	return (
@@ -30,7 +33,17 @@ const MainChat = (props) => {
 				<Like roomid={id} ischecked={ischecked} />
 			</Grid>
 
-			<StartBtn onClick={joinchat}>채팅방 들어가기</StartBtn>
+			<StartBtn
+				onClick={() => {
+					if (TOKEN) {
+						joinchat();
+					} else {
+						navigate('/login');
+					}
+				}}
+			>
+				채팅방 들어가기
+			</StartBtn>
 		</MainImg>
 	);
 };

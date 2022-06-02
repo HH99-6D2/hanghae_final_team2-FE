@@ -21,16 +21,26 @@ const ChatInform = () => {
 
 	//채팅방 상세정보 확인할때
 	useEffect(() => {
-		axios({
-			method: 'get',
-			url: `https://yogoloper.shop/api/rooms/${location.state.roomid}`,
-			headers: {
-				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-			},
-		}).then((res) => {
-			setChatinform(res.data);
-			console.log(res.data);
-		});
+		if (TOKEN) {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/${location.state.roomid}`,
+				headers: {
+					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+				},
+			}).then((res) => {
+				setChatinform(res.data);
+				console.log(res.data);
+			});
+		} else {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/${location.state.roomid}`,
+			}).then((res) => {
+				setChatinform(res.data);
+				console.log(res.data);
+			});
+		}
 	}, []);
 
 	//채팅방 들어가기 버튼누를때
@@ -112,7 +122,21 @@ const ChatInform = () => {
 					</Grid>
 				</Grid>
 
-				{startcheck && <StartBtn onClick={joinchat}>채팅방 들어가기</StartBtn>}
+				{startcheck && (
+					<StartBtn
+						onClick={() => {
+							if (TOKEN) {
+								joinchat();
+							} else {
+								navigate('/login');
+							}
+
+							joinchat;
+						}}
+					>
+						채팅방 들어가기
+					</StartBtn>
+				)}
 			</Chatinform>
 		</>
 	);

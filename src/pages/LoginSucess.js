@@ -18,7 +18,7 @@ const LoginSucess = (props) => {
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
 	const cType = sessionStorage.getItem('cType');
-	const [isChoosing, setIsChoosing] = useState('');
+	const [isChoosing, setIsChoosing] = useState(cType);
 	const Settings = [
 		'/images/profile0.svg',
 		'/images/profile1.svg',
@@ -65,10 +65,10 @@ const LoginSucess = (props) => {
 		<>
 			<ProfileHeader>프로필 설정</ProfileHeader>
 			<Grid signupFlex height='270px' alignItems='center'>
-				{cType ? (
-					<ProfileImage onClick={handleOpen} src={Settings[isChoosing]} />
-				) : (
+				{cType === 'null' ? (
 					<ProfileImage src={'/images/profileundefined.svg'} />
+				) : (
+					<ProfileImage onClick={handleOpen} src={Settings[isChoosing]} />
 				)}
 			</Grid>
 			<Grid signupFlex margin='36px auto'>
@@ -92,7 +92,7 @@ const LoginSucess = (props) => {
 				aria-describedby='modal-modal-description'
 			>
 				<Box sx={style}>
-					<Grid flex flexwrap>
+					<Grid signupFlex flexwrap>
 						{Settings.map((profileimg, idx) => {
 							return (
 								<Badge

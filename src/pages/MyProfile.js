@@ -124,10 +124,10 @@ const MyProfile = (props) => {
 			</ProfileHeader>
 
 			<Grid signupFlex height='200px' alignItems='center'>
-				{cType ? (
-					<ProfileImage onClick={handleOpen} src={Settings[isChoosing]} />
-				) : (
+				{cType === 'null' ? (
 					<ProfileImage src={'/images/profileundefined.svg'} />
+				) : (
+					<ProfileImage onClick={handleOpen} src={Settings[isChoosing]} />
 				)}
 			</Grid>
 

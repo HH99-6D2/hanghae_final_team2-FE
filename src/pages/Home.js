@@ -13,15 +13,24 @@ const Home = (props) => {
 	const TOKEN = sessionStorage.getItem('token');
 
 	useEffect(() => {
-		axios({
-			method: 'get',
-			url: 'https://yogoloper.shop/api/rooms',
-			headers: {
-				Authorization: `Bearer ${TOKEN}`,
-			},
-		}).then((res) => {
-			setBestchat(res.data);
-		});
+		if (TOKEN) {
+			axios({
+				method: 'get',
+				url: 'https://yogoloper.shop/api/rooms',
+				headers: {
+					Authorization: `Bearer ${TOKEN}`,
+				},
+			}).then((res) => {
+				setBestchat(res.data);
+			});
+		} else {
+			axios({
+				method: 'get',
+				url: 'https://yogoloper.shop/api/rooms',
+			}).then((res) => {
+				setBestchat(res.data);
+			});
+		}
 	}, []);
 
 	return (

@@ -17,7 +17,7 @@ const SerachChat = () => {
 	const handleClose = () => setOpen(false);
 
 	const [region, setRegion] = useState('전체');
-
+	const TOKEN = sessionStorage.getItem('token');
 	const Settings = [
 		'전체',
 		'서울',
@@ -35,41 +35,60 @@ const SerachChat = () => {
 	const sendword = () => {
 		if (!search) {
 			return;
-		}
-		axios({
-			method: 'get',
-			url: `https://yogoloper.shop/api/rooms/search?&sort=1&word=${search}`,
-			headers: {
-				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-			},
-		})
-			.then((res) => {
+		} else if (TOKEN) {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/search?&sort=1&word=${search}`,
+				headers: {
+					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+				},
+			}).then((res) => {
 				setResult(res.data);
 				setErrormsg('');
-			})
-			.catch((err) => {
-				setErrormsg(err);
-				setResult('');
 			});
+		} else {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/search?&sort=1&word=${search}`,
+			}).then((res) => {
+				setResult(res.data);
+				setErrormsg('');
+			});
+		}
 	};
 
 	const dofileter = () => {
 		handleClose();
-		axios({
-			method: 'get',
-			url: `https://yogoloper.shop/api/rooms/search?&sort=1&startDate=${start}&endDate=${end}&word=${search}`,
-			headers: {
-				Authorization: `Bearer ${sessionStorage.getItem('token')}`,
-			},
-		})
-			.then((res) => {
-				setResult(res.data);
-				setErrormsg('');
+		if (TOKEN) {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/search?&sort=1&startDate=${start}&endDate=${end}&word=${search}`,
+				headers: {
+					Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+				},
 			})
-			.catch((err) => {
-				setErrormsg(err);
-				setResult('');
-			});
+				.then((res) => {
+					setResult(res.data);
+					setErrormsg('');
+				})
+				.catch((err) => {
+					setErrormsg(err);
+					setResult('');
+				});
+		} else {
+			axios({
+				method: 'get',
+				url: `https://yogoloper.shop/api/rooms/search?&sort=1&startDate=${start}&endDate=${end}&word=${search}`,
+			})
+				.then((res) => {
+					setResult(res.data);
+					setErrormsg('');
+				})
+				.catch((err) => {
+					setErrormsg(err);
+					setResult('');
+				});
+		}
 	};
 	const style = {
 		width: 315,
