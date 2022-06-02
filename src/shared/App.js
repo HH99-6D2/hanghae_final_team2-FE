@@ -45,8 +45,7 @@ function App() {
 					<Route path='/blocklist' element={<Blocklist />} />
 					<Route path='/chatInform' element={<ChatInform />} />
 					<Route path='/editchat' element={<ChatEdit />} />
-					<Route path='/guid' element={<Guide />} />
-
+					<Route path='/guide' element={<Guide />} />
 					<Route path='/chat/:chatid' element={<Chat />} />
 				</Routes>
 			</BrowserRouter>

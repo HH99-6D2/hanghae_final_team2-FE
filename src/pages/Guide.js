@@ -7,6 +7,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import styled from 'styled-components';
 import { Text, Grid } from '../elements';
 import { useNavigate } from 'react-router-dom';
+
 export default function DotsMobileStepper() {
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = useState(0);
